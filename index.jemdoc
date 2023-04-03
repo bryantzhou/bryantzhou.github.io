@@ -1,4 +1,4 @@
-# jemdoc: menu{MENU}{index.html}, nofooter  
+# jemdoc: menu{MENU}{home.html}, nofooter  
 ==Bryant Y. Zhou 周钰京
 
 ~~~
@@ -21,17 +21,14 @@ E-mail: yz1324@princeton.edu\n
 
 == Research
 My research interests include 
-- Convex Optimisation  
-- Distributed Algorithms
-- Real-time Sensor Networking
-- Wireless Networks
-- Machine Learning
+- Dynamical Systems and Control  
+- Nonlinear Filtering
+- Stochastic Processes
+- Space Weather Forecasting
 
-[research.html Find out more].
 === Recent Publications 
-. E. Ghadimi, H. R. Feyzmahdavian, and M. Johansson, \"Global convergence of the heavy-ball method for convex optimization\",  In ECC'15: European Control Conference, 2015.
-. E. Ghadimi, A. Teixeira, I. Shames, and M. Johansson \" Optimal parameter selection for the alternating direction method of
-multipliers (ADMM): quadratic problems \", IEEE Transactions on Automatic Control, 2015. \[[http://arxiv.org/abs/1306.2454 arxiv]\]
-. E. Ghadimi, A. Teixeira, M. Rabbat, and M. Johansson, \"The ADMM algorithm for distributed averaging: Convergence rates and optimal parameter selection\", In Proceedings of the 48th Asilomar Conference on Signals, Systems and Computers, 2014. \[[https://www.dropbox.com/s/k9izxz1m39yvvuz/admm_distributed_aveg.pdf?dl=0 pdf] \]
-. E. Ghadimi, O. Landsiedel, P. Soldati, S. Duquennoy, and M. Johansson, \"Opportunistic Routing in Low Duty-Cycle Wireless Sensor Networks\", ACM Transactions on Senor Networks, 2014. \[[pub/oppTOSN.pdf pdf]\]
+. A. Patil, *Y. Zhou*, D. Fridovich-Keil, and T. Tanaka, \"Risk-Minimizing Two-Player Zero-Sum Stochastic Differential Game via Path Integral Control\",  Submitted to Conference on Decision and Control (CDC), 2023.
+. *Y. Zhou*, Z. Wang, and J. Wang, \" “Illumination-Resilient Lane Detection by Threshold Self-adjustment Using Newton-based Extremum Seeking \", IEEE Transactions on Intelligent Transportation Systems, 2022. \[[TITS_2022.pdf pdf] \]
+. *Y. Zhou*, Z. Wang, X. Zhou, H. Shen, J Ahn, and J. Wang, \"Extremum-Seeking-Based Ultra-Local Model Predictive Control and Its Application to Electric Motor Speed Control\", In Proceedings of the 2022 Modeling, Estimation and Control Conference (MECC), Jersey City, New Jersey, Oct. 2022. \[[MECC_2021.pdf pdf] \]
+. *Y. Zhou*, Z. Wang, and J. Wang, \"Real-Time Adaptive Threshold Adjustment for Lane Detection Application under Different Lighting Conditions Using Model-Free Control\", In Proceedings of the 2021 Modeling, Estimation and Control Conference (MECC), Austin, Texas, Oct. 2021. \[[MECC_2021.pdf pdf] \]
 
