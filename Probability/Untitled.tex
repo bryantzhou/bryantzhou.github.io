@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+%\usepackage[includefoot, a4paper, total={7in, 9in}]{geometry}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{blindtext}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[R]{Page \thepage}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+Once we have a probability space $(X,\mathcal{F},\mathbb{P})$, it is natural to ask how would the probability measure be defined if we transfer the state $X$ through a measurable map (random variable) from $X$ to $Y$ to a new measurable space $(Y,\mathcal{G})$, i.e., $f^{-1}(B)=\{x\in X: f(x)\in\mathcal{B}\}\in\mathcal{F}, \forall B\in\mathcal{G}$. The probability measure is induced by the following definition of a pushforward. 
+
+\begin{definition} \label{def:pushforward} \textcolor{red}{(Pushforward Measure)}
+
+Given two measurable spaces $(X_1, \Sigma_1)$ and $(X_2,\Sigma_2)$, a probability measure $\mathbb{P}:\Sigma_1\rightarrow[0,1]$, and a measurable map $f:X_1\rightarrow X_2$, we may define the pushforward measure $\mathbb{Q}:\Sigma_2\rightarrow[0,1]$ as follows:
+
+\begin{equation*}
+\mathbb{Q}(B)\equiv f_*\mathbb{P}(B):=\mathbb{P}(f^{-1}(B)), \quad \forall B\in\Sigma_2
+\end{equation*}
+
+\end{definition}
+
+An useful change of variable theorem directly follows:
+
+\begin{theorem} \textcolor{red}{(Change of variable)}
+
+Assuming the setup in Definition \ref{def:pushforward}. A measurable function $g$ on $X_2$ is integrable with respect to the pushforward measure $\mathbb{Q}$ if and only if the comoposition $g\circ f$ is integrable with respect to the measure $\mathbb{P}$. The integrals also coincide, i.e., :
+
+\begin{equation} \label{thm:change_variable}
+\int_{X_2}g(x)\mathbb{Q}(dx)=\int_{X_1}g\circ f(x) \mathbb{P}(dx).
+\end{equation}
+
+\end{theorem}
+
+\begin{proof}
+We show the change of variable formula \eqref{thm:change_variable}, which then implies the integrability condition. By definition of the pushfoward measure, we have:
+
+\begin{equation*}
+\mathbb{Q}(B)=\mathbb{P}(f^{-1}(B))=\mathbb{P}(\{x\in X: f(x)\in B\}), \quad \forall B\in\Sigma_2,
+\end{equation*}
+which directly gives the change of variable formula \eqref{thm:change_variable}. The integrability condition then follows.
+\end{proof}
+
+After considering the change of measure from a measurable map, let's see what happen to the probability density function, as defined below. But before doing that, we need another results, namely the Radon-Nikodym theorem, to properly define the density raised from two absolutely continuous measures. 
+
+\begin{definition} \textcolor{red}{(Absolutely Continuous)}
+
+Let $\mu$ and $\nu$ be two measures defined on the measurable space $(E,\Sigma)$. Then, the measure $\nu$ is said to be absolutely continuous with respect to the measure $\mu$ if for any $B\in\Sigma$, $\mu(B)=0$ implies $\nu(B)=0$. Then, we write $\nu\ll\mu$.
+
+\end{definition}
+
+\begin{theorem} \textcolor{red}{(Radon-Nikodym theorem)}
+
+Let $\mu$ and $\nu$ be two $\sigma$-finite measures on a measurable space $(E,\Sigma)$. If $\nu\ll\mu$, then there exists a measurable function $f:E\rightarrow[0,\infty)$ such that for any $B\in\Sigma$:
+
+\begin{equation*}
+\nu(B)=\int_B f(x)\mu(dx).
+\end{equation*}
+
+The function $f$ is called the Radon-Nikodym derivative and is denoted as:
+
+\begin{equation*}
+f\equiv\frac{d\nu}{d\mu}.
+\end{equation*}
+
+\end{theorem}
+
+The proof is omitted here. Now, we may properly define the probability density function:
+
+\begin{definition} \textcolor{red}{(Probability Density Function)}
+
+Consider a random variable $X:\Omega\rightarrow\mathbb{R}$ defined on the probability space $(\Omega,\mathcal{F},\nu)$ and maps to the probability space $(\mathbb{R},\mathcal{B}(\mathbb{R}),\mu_L)$, where $\mu_L$ is the Lebesgue measure. If $\nu\ll\mu_L$, then the Radon-Nikodym derivative $f$ is called the probability density function of $X$.
+
+\end{definition}
+
+Assume that $\pi$ and $\pi^*$ are respectively the probability density functions for the random variables $X_1$ and $X_2$, respectively defined on $(\Omega_1,\mathcal{F}_1,\mathbb{P})$ and $(\Omega_2,\mathcal{F}_2,\mathbb{Q})$. Additionally, there is a measurable function $f:\Omega_1\rightarrow\Omega_2$. Then, the probability of any set $A\in\mathcal{F}$ under the measure $\mathbb{P}$ should be the same as $\mathbb{Q}(f(A))$. Recall:
+
+\begin{equation*}
+\begin{aligned}
+&\mathbb{P}(A)=\int_A\pi(x)\mu_L(dx)\\
+&\mathbb{Q}(A)=\int_{f(A)}\pi^*(x)\mu_L(dx)
+\end{aligned}
+\end{equation*}
+
+To compensate for the change in the differential volume over which we integrate, the probability density function $\pi^*$ needs to be scaled by the change in volumes raised from the transformation $f$, which is quantified by the determinant of the Jacobian matrix, i.e.:
+
+\begin{equation*}
+\pi^*(x)=\pi(f^{-1}(x))|\nabla f^{-1}(x)|^{-1}.
+\end{equation*}
+
+
+
+\end{document}
