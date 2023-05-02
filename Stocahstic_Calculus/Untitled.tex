@@ -1,0 +1,268 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+%\usepackage[includefoot, a4paper, total={7in, 9in}]{geometry}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+\usepackage{blindtext}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot[R]{Page \thepage}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+Consider the following stochastic differential equation (SDE)
+
+\begin{equation} \label{sde}
+dX_t = b(t,X_t)dt + \sigma(t,X_t)dW_t,
+\end{equation}
+where $b$ is drift term, $\sigma$ is the dispersion, and $W_t$ is a one-dimensional Brownian motion. Here we consider functions $b$ and $\sigma$ to be Borel-measurable functions from $\mathbb{R}_+\times\mathbb{R}$ to $\mathbb{R}$. The SDE \eqref{sde} can be equivalently written in the following integral form:
+
+\begin{equation*}
+X_t = x + \int_0^t b(s,X_s)ds + \int^t_0 \sigma(s,X_s)dW_s.
+\end{equation*}
+
+In this section, we are interested in the conditions under which the SDE \eqref{sde} has strong existence and strong uniqueness. Recall that for an ordinary differential equation (ODE), shown as below:
+
+\begin{equation} \label{ode}
+x'(t) = b(t,x(t)),
+\end{equation}
+
+the Picard-Lindelof/Cauchy-Lipschitz theorem states that if the function $b$ is Lipschitz with respect to the state variable, then there exists a solution to the ODE \eqref{ode}. This is to say that there exists a constant $K$ such that $|b(t,x)-b(t,y)|\leq K|x-y|$. For uniqueness of the solution, locally Lipschitz condition is enough. This is to say that for all $R>0$, there exists a constant $K_R$, depending on $R$, such that $|b(t,x)-b(t,y)|\leq K_R|x-y|$ for all $x,y\in[-R,R]$.
+
+We can define similar conditions to show the strong existence and strong uniqueness for the SDE \eqref{sde}. We start by introducing the Gronwall inequality, which will be useful for proving the uniqueness results.
+ 
+\begin{lemma} \label{lemma:gronwall} \textcolor{red}{(Gronwall Inequality)}
+
+Suppose that the measurable function $f:[0,\infty)\rightarrow\mathbb{R}$ satisfies
+
+\begin{equation*}
+0\leq f(t)\leq a+b\int^t_0 f(s)ds,
+\end{equation*}
+for some $a,b\in\mathbb{R}$. Then, 
+
+\begin{equation*}
+f(t)\leq ae^{bt}.
+\end{equation*}
+
+\end{lemma}
+
+The proof for this Lemma is omitted, and we introduce the uniqueness result here.
+
+\begin{theorem} \textcolor{red}{(Strong Uniqueness)}
+
+If for all $R>0$, there exists a constant $C_R$ such that for all $t\geq0$ and for all $x,y\in[-R,R]$, the following conditions hold for the functions $b$ and $\sigma$ in the SDE \eqref{sde}
+
+\begin{equation*}
+\begin{aligned}
+&|b(t,x)-b(t,y)|\leq C_R|x-y|\\
+&|\sigma(t,x)-\sigma(t,y)|\leq C_R|x-y|,
+\end{aligned}
+\end{equation*}
+then strong uniqueness holds for the SDE \eqref{sde}.
+
+\end{theorem}
+
+\begin{proof}
+Let $X$ and $\tilde{X}$ be two strong solutions to the SDE \eqref{sde}. Define $Y_t:=X_t-\tilde{X}_t$. We would like to compute $\mathbb{E}[Y_t^2]$. From Ito's formula, we have:
+
+\begin{equation}\label{proof:uniqueness}
+\begin{aligned}
+Y_t^2 &= Y_0^2 + 2\int^t_0 Y_sdY_s + \int^t_0 d\langle Y \rangle_s\\
+&=2\int^t_0 Y_s(b(s,X_s)-b(s,\tilde{X}_s))ds + 2\int^t_0 Y_s(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))dW_s + \int^t_0 (\sigma(s,X_s)-\sigma(s,\tilde{X}_s))^2ds.
+\end{aligned}
+\end{equation}
+
+Now, for a fixed $R>0$, define the stopping time as follows
+
+\begin{equation*}
+\tau_R = \inf \{t \geq 0: |X_s|\geq R \quad \text{or} \quad |\tilde{X}_s|\geq R\}.
+\end{equation*}
+
+With this localization, we would like to show that the stochastic integral is a martingale. We first show that the integrand is square-integrable.
+
+\begin{equation*}
+\mathbb{E}\left[\int_0^{t\wedge\tau_R}(Y_s(\sigma(s,X_s)-\sigma(s,\tilde{X}_s)))^2ds\right]\leq C_R^2\mathbb{E}\left[\int_0^{t\wedge\tau_R}((X_s-\tilde{X}_s))^4ds\right]\leq16C_R^2R^2T<\infty.
+\end{equation*}
+
+Thus, we know $Y_s(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))\in\mathcal{L}^*_W$, and the stochastic integral in \eqref{proof:uniqueness} is (locally) a martingale, which implies that its expectation is zero. Then, we (locally) bound the expectation of \eqref{proof:uniqueness} as follows:
+
+\begin{equation*}
+\begin{aligned}
+0\leq\mathbb{E}[Y_{t\wedge\tau_R}^2]&=2\mathbb{E}\left[\int^{t\wedge\tau_R}_0 Y_s(b(s,X_s)-b(s,\tilde{X}_s))ds\right] + \mathbb{E}\left[\int^{t\wedge\tau_R}_0 (\sigma(s,X_s)-\sigma(s,\tilde{X}_s))^2ds\right]\\
+&\leq2C_R^2\mathbb{E}\left[\int^{t\wedge\tau_R}_0 (X_s-\tilde{X}_s)^2ds\right] + C_R^2\mathbb{E}\left[\int^{t\wedge\tau_R}_0 (X_s-\tilde{X}_s)^2ds\right]\\
+&=\tilde{C}\mathbb{E}\left[\int^t_0 (X_{s\wedge\tau_R}-\tilde{X}_{s\wedge\tau_R})^2ds\right]\\
+&=\tilde{C}\int^t_0 \mathbb{E}\left[(X_{s\wedge\tau_R}-\tilde{X}_{s\wedge\tau_R})^2\right]ds.
+\end{aligned}
+\end{equation*}
+
+Now, we are ready to use Lemma \ref{lemma:gronwall}. In particular, we have $a=0$, which implies $\mathbb{E}[Y_{t\wedge\tau_R}^2]=0$. Note $R\rightarrow\infty\Rightarrow\tau_R\rightarrow\infty\Rightarrow t\wedge\tau_R=t$. Then, by the dominated convergence theorem, we have $\mathbb{E}[Y_{t}^2]=0$. This shows that $\{X_t,0\leq t<\infty\}$ and $\{\tilde{X}_t,0\leq t<\infty\}$ are modifications of each other. Since both solutions are continuous, we know that they are indistinguishable.
+
+\end{proof}
+
+Next, we show the existence of the strong solution to the SDE \eqref{sde}, which asks more than locally Lipschitz for the function $b$ and $\sigma$. 
+
+\begin{theorem} \label{thm:strong_existence} \textcolor{red}{(Strong Existence)}
+
+Assume functions $b$ and $\sigma$ in the SDE \eqref{sde} are Lipschitz continuous and satisfy the growth condition as detailed below:
+
+\begin{equation*}
+\begin{aligned}
+&|b(t,x)-b(t,y)|\leq C|x-y|\\
+&|\sigma(t,x)-\sigma(t,y)|\leq C|x-y|\\
+&|b(t,x)|^2+|\sigma(t,x)|^2\leq C(1+|x|^2),
+\end{aligned}
+\end{equation*}
+for some constant $C$, then the strong existence holds for the SDE \eqref{sde}. 
+
+Moreover, for every finite $T>0$, there exists a positive constant $\tilde{C}$, depending only on $T$ and $C$ such that
+
+\begin{equation} \label{thm:strong_existence_integrability}
+\mathbb{E}[|X_t|^2]\leq\tilde{C}(1+|x|^2)e^{\tilde{C}t}, \quad t\in[0,T].
+\end{equation}
+
+\end{theorem}
+
+We first present the following lemma without prove.
+
+\begin{lemma} \label{lemma:strong_existance}
+
+Consider the following sequence of stochastic processes $\{X^{(k)}\}_{k\in\mathbb{N}}$. Starting from $X^{(0)}_t:=x$, define $X^{(k)}$ recursively as:
+
+\begin{equation} \label{eq:iterative_process}
+X^{(k+1)}_t := x + \int^t_0 b(s,X^{(k)})ds + \int^t_0 \sigma(s,X^{(k)})dW_s.
+\end{equation}
+
+Then, for each $k\in\mathbb{N}$, the process $X^{(k)}_t$ is square integrable in the following sense: for every finite $T>0$, there exists a positive constant $\tilde{C}$, depending only on $T$ and $C$ such that
+
+\begin{equation} \label{lemma:strong_existence_integrability}
+\mathbb{E}[|X_t^{(k)}|^2]\leq\tilde{C}(1+|x|^2)e^{\tilde{C}t}, \quad t\in[0,T],k\in\mathbb{N}.
+\end{equation}
+\end{lemma}
+
+Now, we prove Theorem \ref{thm:strong_existence}.
+
+\begin{proof}
+The goal is to show that the sequence of stochastic processes $\{X^{(k)}\}_{k\in\mathbb{N}}$ defined recursively in \eqref{eq:iterative_process} converges to $X_t$ so that the limit of \eqref{eq:iterative_process} coincides with the SDE \eqref{sde}. Let's start with the following: 
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|^2\right]=\mathbb{E}\left[\max_{t\in[0,T]}(B_t+M_t)^2\right]\leq2\mathbb{E}\left[\max_{t\in[0,T]}B_t^2\right] + 2\mathbb{E}\left[\max_{t\in[0,T]}M_t^2\right],
+\end{aligned}
+\end{equation*}
+where
+
+\begin{equation*}
+\begin{aligned}
+&B_t:=\int_0^tb(s,X^{(k)}_s)-b(s,X^{(k-1)}_s)ds\\
+&M_t:=\int_0^t\sigma(s,X^{(k)}_s)-\sigma(s,X^{(k-1)}_s)dW_s.
+\end{aligned}
+\end{equation*}
+
+Let's first focus on the term $B_t$. Using the Cauchy-Schwarz inequality and the Lipschitz condition on the function $b$, we have:
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}\left[\max_{t\in[0,T]}B_t^2\right]&=\mathbb{E}\left[\max_{t\in[0,T]}|\int_0^tb(s,X^{(k)}_s)-b(s,X^{(k-1)}_s)ds|^2\right]\\
+&\leq\mathbb{E}\left[\max_{t\in[0,T]}t\int_0^t|b(s,X^{(k)}_s)-b(s,X^{(k-1)}_s)|^2ds\right]\\
+&=\mathbb{E}\left[T\int_0^T|b(s,X^{(k)}_s)-b(s,X^{(k-1)}_s)|^2ds\right]\\
+&\leq TC^2\mathbb{E}\left[\int_0^T|X^{(k)}_s-X^{(k-1)}_s|^2ds\right].
+\end{aligned}
+\end{equation*}
+
+Next, we turn attention to $M_t$. From Lemma \ref{lemma:strong_existance} and the Lipschitz condition on the function $\sigma$, it is easy to show that $M_t$ is a square integrable martingale. This fact allows us to use the \textcolor{red}{BDG-inequality}, which yields the following result
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}\left[\max_{t\in[0,T]}M_t^2\right]&\leq\tilde{C}\mathbb{E}[\langle M\rangle_T]\\
+&=\tilde{C}\mathbb{E}\left[\int_0^T(\sigma(s,X^{(k)}_s)-\sigma(s,X^{(k-1)}_s))^2ds\right]\\
+&\leq\tilde{C}C^2\mathbb{E}\left[\int_0^T(X_s^{(k)}-X_s^{(k-1)})^2ds\right].
+\end{aligned}
+\end{equation*}
+
+Combining these two results, we have:
+
+\begin{equation} \label{pf:stong_existence}
+\begin{aligned}
+\mathbb{E}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|^2\right]&\leq 2C^2(T+\tilde{C})\mathbb{E}\left[\int_0^T|X_s^{(k)}-X_s^{(k-1)}|^2ds\right]\\
+&=L\mathbb{E}\left[\int_0^T|X_s^{(k)}-X_s^{(k-1)}|^2ds\right]\\
+&\leq C^*\frac{(Lt)^k}{k!},
+\end{aligned}
+\end{equation}
+where
+
+\begin{equation*}
+C^*=\mathbb{E}\left[\max_{t\in[0,T]}|X^{(1)}_t-x|^2\right].
+\end{equation*}
+The last inequality in \eqref{pf:stong_existence} can be shown by induction. When $k=0$, the result is obvious. Assuming $k=k$ holds, $k=k+1$ can be verified by using the second last relation in \eqref{pf:stong_existence}.
+
+From Markov's inequality, we have:
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{P}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|\geq2^{-k}\right]\leq4^k\mathbb{E}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|^2\right]\leq C^*\frac{(4Lt)^k}{k!}\rightarrow0,
+\end{aligned}
+\end{equation*}
+which implies that $\mathbb{P}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|\geq2^{-k}\right]$ is a convergent series. From the Borel-Cantelli Lemma, we have:
+
+\begin{equation*}
+\begin{aligned}
+\sum_{k=1}^\infty\mathbb{P}\left[\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|\geq2^{-k}\right]<\infty \Rightarrow \mathbb{P}\left[\limsup_{k\rightarrow\infty}\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|\geq2^{-k}\right]=0.
+\end{aligned}
+\end{equation*}
+In other words, eventually with probability 1, $\max_{t\in[0,T]}|X^{(k+1)}_t-X^{(k)}_t|<2^{-k}$. It means that, with probability 1, the sequence $\{X_t^{(k)}\}_{k\in\mathbb{N}}$ is a Cauchy sequence in $\mathcal{C}([0,T],\mathbb{R})$. Under the supremum norm (which makes the space complete), the sequence $\{X_t^{(k)}\}_{k\in\mathbb{N}}$ converges.
+
+Now, it remains to show that the continuous limit of $\{X_t^{(k)}\}_{k\in\mathbb{N}}$, denoted as $X^\infty_t$, is indeed the strong solution of the SDE \eqref{sde}. First of all, the integrability condition \eqref{thm:strong_existence_integrability} can be shown from \eqref{lemma:strong_existence_integrability} plus the Fatou's Lemma. Next, it is obvious that $X^\infty_t$ is $\mathbb{F}$-adapted and the initial condition holds. From the growth condition and \eqref{thm:strong_existence_integrability}, we know that $b$ and $\sigma^2$ are almost surely integrable. It remains to check the following:
+
+\begin{equation*}
+\begin{aligned}
+&\int^t_0b(s,X_s^{(k)})ds\rightarrow\int^t_0b(s,X_s^\infty)ds\\
+&\int^t_0\sigma(s,X_s^{(k)})dW_s\rightarrow\int^t_0\sigma(s,X_s^\infty)dW_s.
+\end{aligned}
+\end{equation*}
+The first convergence relation holds because $b$ is Lipschitz continuous ($b$ is uniformly bounded, and $\{X_t^{(k)}(\omega)\}_{k\in\mathbb{N}}$ converges uniformly). The second convergence result will be shown using the \textcolor{red}{DDS theorem}. Define $\tilde{M}_t:=\int^t_0\sigma(s,X_s^{(k)})-\sigma(s,X_s^\infty)dW_s$. It is easy to see that $\tilde{M}_t\in\mathcal{M}_c^2$, and $\langle M\rangle_t\rightarrow\infty$. Then, the martingale $\tilde{M}_t$ is a time changed Brownian motion, i.e., $\tilde{M}_t=W_{\langle \tilde{M}\rangle_t}$. Additionally, we know: $\langle \tilde{M}\rangle_t=\int^t_0(\sigma(s,X_s^{(k)})-\sigma(s,X_s^\infty))^2ds=0$, because of the Lipschitz continuity of $\sigma$ and the uniformly convergence of $\{X_t^{(k)}(\omega)\}_{k\in\mathbb{N}}$. Thus, we have $\tilde{M}_t=W_0=0$, by definition of a standard Brownian motion. The proof is completed.
+
+
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
