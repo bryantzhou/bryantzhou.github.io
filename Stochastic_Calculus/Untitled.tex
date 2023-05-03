@@ -24,6 +24,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newtheorem{ex}{Example}
 
 \begin{document}
 
@@ -65,7 +66,7 @@ f(t)\leq ae^{bt}.
 
 The proof for this Lemma is omitted, and we introduce the uniqueness result here.
 
-\begin{theorem} \textcolor{red}{(Strong Uniqueness)}
+\begin{theorem} \label{thm:strong_uniqueness} \textcolor{red}{(Strong Uniqueness)}
 
 If for all $R>0$, there exists a constant $C_R$ such that for all $t\geq0$ and for all $x,y\in[-R,R]$, the following conditions hold for the functions $b$ and $\sigma$ in the SDE \eqref{sde}
 
@@ -238,7 +239,98 @@ Now, it remains to show that the continuous limit of $\{X_t^{(k)}\}_{k\in\mathbb
 \end{equation*}
 The first convergence relation holds because $b$ is Lipschitz continuous ($b$ is uniformly bounded, and $\{X_t^{(k)}(\omega)\}_{k\in\mathbb{N}}$ converges uniformly). The second convergence result will be shown using the \textcolor{red}{DDS theorem}. Define $\tilde{M}_t:=\int^t_0\sigma(s,X_s^{(k)})-\sigma(s,X_s^\infty)dW_s$. It is easy to see that $\tilde{M}_t\in\mathcal{M}_c^2$, and $\langle M\rangle_t\rightarrow\infty$. Then, the martingale $\tilde{M}_t$ is a time changed Brownian motion, i.e., $\tilde{M}_t=W_{\langle \tilde{M}\rangle_t}$. Additionally, we know: $\langle \tilde{M}\rangle_t=\int^t_0(\sigma(s,X_s^{(k)})-\sigma(s,X_s^\infty))^2ds=0$, because of the Lipschitz continuity of $\sigma$ and the uniformly convergence of $\{X_t^{(k)}(\omega)\}_{k\in\mathbb{N}}$. Thus, we have $\tilde{M}_t=W_0=0$, by definition of a standard Brownian motion. The proof is completed.
 
+\end{proof}
 
+Theorems \ref{thm:strong_uniqueness} and \ref{thm:strong_existence} shows general conditions for strong existence and uniqueness for the SDE \eqref{sde}, and the proofs shown above can be generalized to multi-dimensional cases. However, the (locally) Lipschitz conditions are quite strong. Consider the following two SDEs. 
+
+\begin{ex} \textcolor{red}{(Squared-Bessel Process)}
+\begin{equation*}
+dR_t=mdt+2\sqrt{R_t}dW_t
+\end{equation*}
+\end{ex}
+
+\begin{ex} \textcolor{red}{(Squared Ornstein Uhlenbeck Processe)}
+\begin{equation*}
+dR_t=a(m-R_t)dt+2\sqrt{R_t}dW_t
+\end{equation*}
+\end{ex}
+
+We may show that the dispersion coefficients in both SDEs are not (locally) Lipschitz. We have shown before that the squared-Bessel process has a weak solution, but we cannot say more. If we can somehow show that the strong uniqueness holds, from a later study about weak solution, it also implies the weak uniqueness (in distribution). This is indeed true! We will see next that in the one-dimensional case, the Lipschitz condition on the dispersion coefficient can be relaxed considerably. 
+
+\begin{theorem} \textcolor{red}{(Yamada \& Watanabe (1971))}
+
+Suppose that the coefficients of the one dimensional SDE in \eqref{sde} satisfy the conditions
+
+\begin{equation}
+\begin{aligned}
+&|b(t,x)-b(t,y)|\leq C|x-y|\\
+&|\sigma(t,x)-\sigma(t,y)|\leq h(|x-y|),
+\end{aligned}
+\end{equation}
+for every $0\leq t\leq \infty$ and $x\in\mathbb{R},y\in\mathbb{R}$, where $K$ is a positive constant and $h:[0,\infty)\rightarrow[0,\infty)$ is a strictly increasing function with $h(0)=0$ and 
+
+\begin{equation} \label{yamada_watanabe_h}
+\int_0^\epsilon h^{-2}(u)du=\infty, \quad \forall\epsilon>0.
+\end{equation}
+Then, strong uniqueness holds for the SDE \eqref{sde}.
+\end{theorem}
+
+\begin{proof}
+Suppose $X_t$ and $\tilde{X}_t$ are two solutions to the SDE \eqref{sde}. We would like to show $\mathbb{E}[|X_t-\tilde{X}_t]=0$, which implies that $X_t$ and $\tilde{X}_t$ are modifications to each other, then by continuity, $X_t$ and $\tilde{X}_t$ are indistinguishable.
+
+Unfortunately, the function $|\cdot|$ is not twice differentiable, so that we cannot directly apply Ito's formula to it, like we did in the proof for Theorem \ref{thm:strong_uniqueness}. Instead, we construct a sequence of twice differentiable functions to approximate $|\cdot|$. From condition \eqref{yamada_watanabe_h}, we can construct a decreasing sequence $\{a_n\}_{n=0}^\infty$ with $a_0=1$, $\lim_{n\rightarrow\infty}a_n=0$, and $\int_{a_{n+1}}^{a_n}h^{-2}(u)du=n$. Then, we construct a sequence of continuous functions $\{\phi_n\}_{n=0}^\infty$ on $\mathbb{R}$ with support in $(a_{n+1},a_n)$, so that $0\leq\phi_n(x)\leq\frac{2}{nh^2(x)}$ and $\int_{a_{n+1}}^{a_n}\phi_n(x)dx=1$. Now, we define the function $\psi_n(x)$ as 
+
+\begin{equation*}
+\psi_n(x):=\int^{|x|}_0\int^y_0 \phi_n(u)dudy.
+\end{equation*}
+$\psi_n(x)$ has the following properties:
+
+\begin{enumerate}
+\item
+$\psi_n(x)=\psi_n(-x)$
+
+\item
+$|\psi'_n(x)|=|\int^y_0 \phi_n(u)du|\leq1$\\
+$\psi''_n(x)=\phi_n(x)$\\
+They implies that $\psi_n(x)$ is twice continuously differentiable.
+
+\item
+$\psi_n(x)=|x|,\forall |x|\geq1$
+
+\item
+$\lim_{n\rightarrow\infty}\psi_n(x)=|x|$
+\end{enumerate}
+
+Now, we apply Ito's formula as follows:
+
+\begin{equation*}
+\begin{aligned}
+d\psi_n(X_t-\tilde{X}_t)=&\psi'_n(X_t-\tilde{x}_t)d(X_t-\tilde{x}_t)+\frac{1}{2}\psi''_n(X_t-\tilde{x}_t)d\langle X_t-\tilde{x}\rangle_t\\
+=&\psi'_n(X_t-\tilde{x}_t)(b(t,X_t)-b(t,\tilde{X}_t))dt+\\
+&\psi'_n(X_t-\tilde{x}_t)(\sigma(t,X_t)-\sigma(t,\tilde{X}_t))dW_t+\\
+&\frac{1}{2}\psi''_n(X_t-\tilde{x}_t)(\sigma(t,X_t)-\sigma(t,\tilde{X}_t))^2dt.
+\end{aligned}
+\end{equation*}
+
+We claim $\psi'_n(X_t-\tilde{x}_t)(\sigma(t,X_t)-\sigma(t,\tilde{X}_t))\in\mathcal{L}^*_W$, which can be shown using the localization argument. Then, $\int_0^t\psi'_n(X_s-\tilde{x}_s)(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))dW_s\in\mathcal{M}_c^2$, so its expectation vanishes. We have the following
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}[\psi_n(X_t-\tilde{X}_t)]=&\mathbb{E}[\int^t_0\psi'_n(X_s-\tilde{x}_s)(b(s,X_s)-b(s,\tilde{X}_s))ds]+\\
+&\frac{1}{2}\mathbb{E}[\int^t_0\psi''_n(X_s-\tilde{x}_s)(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))ds]\\
+\leq&C\mathbb{E}[\int^t_0|X_s-\tilde{X}_s|ds]+\frac{1}{2}\mathbb{E}[\int^t_0\frac{2}{nh^2(|X_s-\tilde{X}_s|)}h^2(|X_s-\tilde{X}_s|)ds]\\
+=&C\int^t_0\mathbb{E}[|X_s-\tilde{X}_s|]ds+\mathbb{E}[\int^t_0\frac{1}{n}ds].
+\end{aligned}
+\end{equation*}
+Taking limit, we have
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}[|X_t-\tilde{X}_t|]\leq C\int^t_0\mathbb{E}[|X_s-\tilde{X}_s|]ds.
+\end{aligned}
+\end{equation*}
+
+Applying the Gronwall inequality \eqref{lemma:gronwall}, we conclude that $\mathbb{E}[|X_t-\tilde{X}_t|]=0$.
 
 \end{proof}
 
