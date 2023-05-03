@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  3 MAY 2023 00:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  3 MAY 2023 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,20 +505,32 @@ File: local_primitive_2.png Graphic file (type png)
 <use local_primitive_2.png>
 Package pdftex.def Info: local_primitive_2.png  used on input line 456.
 (pdftex.def)             Requested size: 366.77307pt x 202.95981pt.
- [6 <./local_primitive_1.png> <./local_primitive_2.png>] [7] 
+ [6 <./local_primitive_1.png> <./local_primitive_2.png>]
+<toy_contour.png, id=117, 667.49374pt x 628.3475pt>
+File: toy_contour.png Graphic file (type png)
+<use toy_contour.png>
+Package pdftex.def Info: toy_contour.png  used on input line 513.
+(pdftex.def)             Requested size: 200.24966pt x 188.50569pt.
+<keyhole.png, id=118, 417.56pt x 345.29pt>
+File: keyhole.png Graphic file (type png)
+<use keyhole.png>
+Package pdftex.def Info: keyhole.png  used on input line 529.
+(pdftex.def)             Requested size: 125.26895pt x 103.58778pt.
+ [7 <./toy_contour.png>] [8 <./keyhole.png>] [9]
+
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
 Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10967 strings out of 476025
- 170555 string characters out of 5790017
+ 10996 strings out of 476025
+ 170996 string characters out of 5790017
  1879388 words of memory out of 5000000
- 31219 multiletter control sequences out of 15000+600000
+ 31237 multiletter control sequences out of 15000+600000
  515338 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,76p,429b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,792b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -528,13 +540,14 @@ sr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
 ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loca
 l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
 exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
-ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Untitled.pdf (7 pages, 248735 bytes).
+xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
+ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Untitled.pdf (9 pages, 335942 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 60 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

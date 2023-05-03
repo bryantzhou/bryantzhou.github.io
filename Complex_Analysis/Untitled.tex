@@ -269,7 +269,7 @@ The radius of convergence $R$ is given by the Hadmard's formula as follows:
 
 Power series provide a very important class of analytic functions that are particularly simple to manipulate, as shown in the following theorem. 
 
-\begin{theorem}
+\begin{theorem} \label{thm:power_series_conv} 
 The power series $f(z)=\sum^\infty_{n=0}a_nz^n$ define a holomorphic function in its disk of convergence. The derivative of $f$ is also a power series obtained by differentiating term be term, i.e. $f'(z)=\sum^\infty_{n=0}na_nz^{n-1}$. Additionally, $f'(z)$ has the same radius of convergence. 
 \end{theorem}
 
@@ -479,7 +479,7 @@ which completes the proof.
 
 This theorem says that locally, every holomorphic function has a primitive. Now, we can use the previous result to get 
 
-\begin{theorem} \textcolor{red}{(Cauchy's Theorem for a Disk)}
+\begin{theorem} \label{thm:cauchy} \textcolor{red}{(Cauchy's Theorem for a Disk)}
 
 If $f$ is a holomorphic function in a disk, then 
 
@@ -506,6 +506,135 @@ If $f$ is holomorphic in an open set that contains a circle $C$ and its interior
 We can slightly enlarge the disk with boundary circle $C$ such that $f$ is still holomorphic in it. Then, we can apply Cauchy's theorem to conclude the proof. 
 \end{proof}
 
+Cauchy's theorem also works for other shapes of contour, based on the same argument for the disk as shown in Theorem \ref{thm:cauchy}. Some examples of the toy contour is shown in Fig. \ref{fig:toy_contour}. The important point is that we can define without ambiguity the interior of a contour and construct the polygonal paths in an neighborhood of that contour and its interior, so that the primitive of the holomorphic function $f$ can be defined unambiguously (based on the Goursat's Theorem). For more detail, see the discussion on page 39-41 in the book. We will use the keyhole contour to prove the following theorem. Loosely speaking, if we know the value of a function on the boundary of a circle, we know its value at every point inside the circle.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{toy_contour.png} \\
+\caption{Examples of toy contours.} 
+\label{fig:toy_contour}
+\end{figure}
+
+\begin{theorem} \label{thm:cauchy_int} \textcolor{red}{(Cauchy's Integral Formula)}
+Suppose $f$ is a holomorphic function in an open set that contains the closure of a disk $D$. If $C$ is the boundary circle of this disk with the positive orientation, then
+
+\begin{equation*}
+f(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z}d\zeta,
+\end{equation*}
+for every point $z\in D$.
+\end{theorem}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{keyhole.png} \\
+\caption{Keyhole contour $\Gamma_{\delta,\epsilon}$.} 
+\label{fig:keyhole_contour}
+\end{figure}
+
+\begin{proof}
+We only show main steps. The proof is based on the keyhole contour $\Gamma$ (we omitted the subscript, since it is not relevant in this proof) in Fig. \ref{fig:keyhole_contour}. Since $f$ and $\frac{1}{\zeta-z}$ are holomorphic functions, we know $\frac{f(\zeta)}{\zeta-z}$ is holomorphic. Then, we have
+
+\begin{equation*}
+\int_\Gamma \frac{f(\zeta)}{\zeta-z}d\zeta=\int_C \frac{f(\zeta)}{\zeta-z}d\zeta + \int _{C_\epsilon} \frac{f(\zeta)}{\zeta-z}d\zeta=0,
+\end{equation*}
+where $C_\epsilon$ represents the small circle with radius $\epsilon$ in Fig. \ref{fig:keyhole_contour}. We can parametrize $C_\epsilon$ as follows:
+
+\begin{equation*}
+\zeta(\theta) = z+\epsilon e^{i\theta}, \quad d\zeta = i\epsilon e^{i\theta}.
+\end{equation*}
+
+Then, it is straightforward to get the result.
+
+\end{proof}
+
+As a corollary, we obtain further integral formulas expressing the derivatives of $f$ inside the disk in terms of the values of $f$ on the boundary.
+
+\begin{corollary}
+If $f$ is holomorphic in an open set $\Omega$, then $f$ has infinitely many complex derivatives in $\Omega$. Moreover, if $C\subset\Omega$ is a circle whose interior is also contained in $\Omega$, then 
+
+\begin{equation*}
+f^{(n)}(z)=\frac{n!}{2\pi i}\int_C\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta.
+\end{equation*}
+\end{corollary}
+
+\begin{proof}
+The proof is based on induction. Clearly, the formula holds for $n=0$. Suppose it holds for $n-1$, then we can show
+
+\begin{equation*}
+f^{(n)}(z)=\lim_{h\rightarrow0}\frac{f^{(n-1)}(z+h)-f^{(n-1)}(z)}{h},
+\end{equation*}
+by using the following fact: $a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+a^{n-3}b^2+...+ab^{n-1}+b^{n-1})$. We omitted the following computation.
+\end{proof}
+
+We have proved in Theorem \ref{thm:power_series_conv} that a power series is holomorphic in the interior of the disk of its convergence, now we show the converse.
+
+\begin{theorem} \label{thm:holomorphic_power_series}
+Suppose $f$ is holomorphic in an open set $\Omega$ that contains a disk $D$ centered at $z_0$ and its interior. Then, $f$ has a power series expansion at $z_0$
+
+\begin{equation*}
+f(z)=\sum_{n=0}^\infty a_n(z-z_0)^n, \quad \forall z\in D,
+\end{equation*}
+where
+\begin{equation*}
+a_n=\frac{f^{(n)}(z_0)}{n!}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+From Cauchy's integral formula, 
+
+\begin{equation*}
+\begin{aligned}
+f(z)=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z}d\zeta&=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{\zeta-z+z_0-z_0}d\zeta \\
+&=\frac{1}{2\pi i}\int_C\frac{f(\zeta)}{(\zeta-z_0)(1-\frac{z-z_0}{\zeta-z_0})}d\zeta.
+\end{aligned}
+\end{equation*}
+Note $|\frac{z-z_0}{\zeta-z_0}|<1$, and we can apply geometric series expansion to $\frac{1}{1-\frac{z-z_0}{\zeta-z_0}}$ as 
+
+\begin{equation*}
+\begin{aligned}
+\frac{1}{1-\frac{z-z_0}{\zeta-z_0}} = \sum_{n=0}^\infty (\frac{z-z_0}{\zeta-z_0})^n.
+\end{aligned}
+\end{equation*}
+
+The result then easily follows.
+\end{proof}
+
+Next, we show the analytic continuation result, which was mentioned as one of the motivating points at the very beginning. Roughly speaking, a holomorphic function is determined if we know its value in an appropriate arbitrarily small subset. 
+
+\begin{theorem}
+Suppose $f$ is a holomorphic function in a region (connected and open set) $\Omega$ that vanishes on a sequence of distinct points with a limit point in $\Omega$, then $f$ is identically $0$.
+\end{theorem}
+
+\begin{proof}
+Let the function $f$ vanishes at a sequence of points $\{w_n\}_{n=0}^\infty$, and the sequence converges to $z_0\in\Omega$. We first show that $f$ vanishes on all point in a small disk centered at $z_0$. From Theorem \ref{thm:holomorphic_power_series}, 
+
+\begin{equation*}
+f(z)=\sum_{n=0}^\infty a_n(z-z_0)^n,
+\end{equation*}
+for all $z$ in the small disk. Suppose that $f(z)$ is not identically $0$, then let $a_m$ be the first non-zero coefficient in the power series. Then, we have
+
+\begin{equation*}
+f(z)=a_m(z-z_0)^m+\sum_{n=m+1}^\infty a_n(z-z_0)^n=a_m(z-z_0)^m(1+g(z-z_0)),
+\end{equation*}
+where $g\rightarrow0$ as $z\rightarrow z_0$. Now take a vanishing point $w_k\neq z_0$ in that disk, we have 
+
+\begin{equation*}
+f(w_k)=a_m(w_k-z_0)^m(1+g(w_k-z_0))\neq0,
+\end{equation*}
+but this raises a contradiction, because $f(w_k)=0$ by the choice of $w_k$. We just proved that the value of $f$ on a small disk around $z_0$ is identically 0.
+
+Now, we spread this disk to the entire $\Omega$. Define $U:=\text{int}\{z\in\Omega:f(z)=0\}$. $U$ is open by definition. If $\{z_n\}_{n=0}^\infty$ is a sequence of point in $U$ with limit $z$, then $f(z_n)=0$. By continuity, $f(z)=0$, implying that $z\in U$. It shows that $U$ is also closed. Now, define a set $V$ to be the complement of $U$. We have $U$ and $V$ are disjoint open sets that separate $\Omega$. Since $\Omega$ is connected, either $U$ or $V$ has to be empty. We showed in the first part of this proof that $z_0\in U$, so $V$ has to be empty. We have $U=\Omega$, which completes the proof. 
+
+\end{proof}
+
+\begin{corollary}
+If $f$ and $g$ are holomorphic in a region $\Omega$, and $f(z)=g(z)$ for a sequence of distinct points which has the limit also in $\Omega$, then $f$ and $g$ agree on all $\Omega$.
+\end{corollary}
+
+\begin{proof}
+It is a direct consequence of the previous theorem.
+\end{proof}
 
 
 
