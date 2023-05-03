@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
+\usepackage{bbm}
 
 %\usepackage[includefoot, a4paper, total={7in, 9in}]{geometry}
 \usepackage{geometry}
@@ -257,7 +258,7 @@ dR_t=a(m-R_t)dt+2\sqrt{R_t}dW_t
 
 We may show that the dispersion coefficients in both SDEs are not (locally) Lipschitz. We have shown before that the squared-Bessel process has a weak solution, but we cannot say more. If we can somehow show that the strong uniqueness holds, from a later study about weak solution, it also implies the weak uniqueness (in distribution). This is indeed true! We will see next that in the one-dimensional case, the Lipschitz condition on the dispersion coefficient can be relaxed considerably. 
 
-\begin{theorem} \textcolor{red}{(Yamada \& Watanabe (1971))}
+\begin{theorem} \label{thm:yamada_watanabe_uniqueness} \textcolor{red}{(Yamada \& Watanabe (1971))}
 
 Suppose that the coefficients of the one dimensional SDE in \eqref{sde} satisfy the conditions
 
@@ -334,7 +335,47 @@ Applying the Gronwall inequality \eqref{lemma:gronwall}, we conclude that $\math
 
 \end{proof}
 
+Sometimes the drift term in the SDE \eqref{sde} can be too complicated to analyze. If we can either upper or lower bound it by another function that is easier to analyze, then we can compare the solutions of these two SDEs as shown in the following results. Note, this result also only works for one-dimensional SDEs. 
 
+\begin{theorem} \textcolor{red}{(Comparison Principle)}
+
+Let $X_t$ and $\tilde{X}_t$ be strong solutions to the SDE \eqref{sde} with drift term $b(t,x)$ and $\tilde{b}(t,x)$, respectively. Suppose the following conditions hold:
+
+\begin{enumerate}
+\item
+$b$, $,\tilde{b}$, and $\sigma$ are continuous functions
+
+\item
+$|\sigma(t,x)-\sigma(t,y)|\leq h(|x-y|)$, with $h$ being the function in Theorem \ref{thm:yamada_watanabe_uniqueness}
+
+\item
+$b(t,x)$ or $\tilde{b}(t,x)$ satisfies the Lipschitz condition.
+
+\item
+The initial condition $x\leq\tilde{x}$.
+
+\item
+$b(t,x)\leq \tilde{b}(t,x)$ for all $t$ and $x$
+\end{enumerate}
+Then, $X_t\leq\tilde{X}_t$ for all $t$.
+
+\end{theorem}
+
+\begin{proof}
+The proof is similar to the previous one, except we would like to show $\mathbb{E}[|X_t-\tilde{X}_t|_+]:=\mathbb{E}[\max\{|X_t-\tilde{X}_t|,0\}]=0$. Define $\psi_n(x)=\tilde{\psi}_n(x)\mathbbm{1}_{x\geq0}$, where $\tilde{\psi}_n(x)$ is the same twice continuously differentiable function in the proof for Theorem \ref{thm:yamada_watanabe_uniqueness}. Without loss of generality, we assume that $\tilde{b}(t,x)$ is Lipschitz continuous. We omit first several steps related to the Ito calculus, because they are identical to the previous proof. Taking expectation, we have
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}[\psi_n(X_t-\tilde{X}_t)]=&\mathbb{E}[\int^t_0\psi'_n(X_s-\tilde{x}_s)(b(s,X_s)-\tilde{b}(s,\tilde{X}_s))ds]+\frac{1}{2}\mathbb{E}[\int^t_0\psi''_n(X_s-\tilde{x}_s)(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))ds]\\
+=&\mathbb{E}[\int^t_0\psi'_n(X_s-\tilde{x}_s)(b(s,X_s)-\tilde{b}(s,X_s))ds]+\mathbb{E}[\int^t_0\psi'_n(X_s-\tilde{x}_s)(\tilde{b}(s,X_s)-\tilde{b}(s,\tilde{X}_s))ds]+\\
+&\frac{1}{2}\mathbb{E}[\int^t_0\psi''_n(X_s-\tilde{x}_s)(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))ds]\\
+\leq&\mathbb{E}[\int^t_0\psi'_n(X_s-\tilde{x}_s)(\tilde{b}(s,X_s)-\tilde{b}(s,\tilde{X}_s))ds]+\frac{1}{2}\mathbb{E}[\int^t_0\psi''_n(X_s-\tilde{x}_s)(\sigma(s,X_s)-\sigma(s,\tilde{X}_s))ds]\\
+\leq&C\mathbb{E}[\int^t_0|X_s-\tilde{X}_s|ds]+\frac{1}{2}\mathbb{E}[\int^t_0\frac{2}{nh^2(|X_s-\tilde{X}_s|)}h^2(|X_s-\tilde{X}_s|)ds]\\
+=&C\int^t_0\mathbb{E}[|X_s-\tilde{X}_s|]ds+\mathbb{E}[\int^t_0\frac{1}{n}ds].
+\end{aligned}
+\end{equation*}
+Then, using the Gronwall inequality, we have $\mathbb{E}[|X_t-\tilde{X}_t|_+]=0$, which implies $X_t\leq\tilde{X}_t$ for all $t$ almost surely. 
+\end{proof}
 
 
 
