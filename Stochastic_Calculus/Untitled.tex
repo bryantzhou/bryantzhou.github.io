@@ -26,6 +26,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{ex}{Example}
+\newtheorem{rk}{Remark}
 
 \begin{document}
 
@@ -402,6 +403,72 @@ Now let's show that weak solution indeed exists. Consider the augmented filtered
 
 We showed that $\tilde{X}_t$ is indeed a weak solution.
 \end{ex}
+
+Now, we present the conditions that guarantee weak existence and uniqueness for a special form of the SDE \eqref{sde}.
+
+\begin{theorem}
+Consider the following SDE
+
+\begin{equation} \label{sde_weak_sol}
+dX_t=b(t,X_t)dt+dW_t, \quad t\in[0,T], \quad X_0=x\in\mathbb{R}.
+\end{equation}
+If $b$ is a bounded and measurable function, then weak existence and uniqueness hold for this SDE.
+\end{theorem}
+
+\begin{proof}
+Consider the filtered probability space $(\Omega, \mathcal{F},\mathbb{F}, \mathbb{P})$, carrying a Brownian motion $X_t$. By the condition on $b$ given in the assumption, we know $\mathbb{E}[\exp(\frac{1}{2}\int^T_0|b(s,X_s)|^2ds)]<\infty$. Then, Nikonov's condition tells us that we can properly define a measure $\mathbb{Q}$ as follows
+
+\begin{equation*}
+\frac{d\mathbb{Q}}{d\mathbb{P}}=\exp(\int^T_0b(s,X_s)dW_s-\frac{1}{2}\int^T_0|b(s,X_s)|^2ds),
+\end{equation*}
+and 
+
+\begin{equation*}
+\tilde{W}_t:=X_t-x-\int^t_0b(s,X_s)ds
+\end{equation*}
+is a Brownian motion under the measure $\mathbb{Q}$, and $\mathbb{Q}[\tilde{W}_0=0]=1$. Rearranging the terms, we get
+
+\begin{equation*}
+dX_t=b(t,X_t)dt+d\tilde{W}_t.
+\end{equation*}
+Thus, we have $(X,\tilde{W}),(\Omega,\mathcal{F},\mathbb{F}, \mathbb{Q})$ as the weak solution.
+
+Next, we prove the weak uniqueness. Consider $(X,W)$ and $(\tilde{X},\tilde{W})$ being two weak solutions, possible defined on different probability spaces. We need to show that they equal in distribution. Assume that $(X,W),(\Omega,\mathcal{F},\mathbb{F}, \mathbb{Q})$ is a weak solution to the SDE. With the same Nikonov's condition as above, we can properly define the measure $\mathbb{Q}$ as follows
+
+\begin{equation*}
+\frac{d\mathbb{Q}}{d\mathbb{P}}=\exp(-\int^T_0b(s,X_s)dW_s-\frac{1}{2}\int^T_0|b(s,X_s)|^2ds),
+\end{equation*}
+and 
+
+\begin{equation*}
+\tilde{W}_t:=W_t+\int^t_0b(s,X_s)ds
+\end{equation*}
+is a Brownian motion under the measure $\mathbb{Q}$. Since $X_t$ satisfies the SDE, we have
+
+\begin{equation*}
+X_t:=x+\tilde{W}_t.
+\end{equation*}
+For a measurable set $A$, we have
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{P}[\{X_t\}_{t\in[0,T]}\in A]&=\mathbb{E}^\mathbb{P}[\mathbbm{1}_{\{X_t\}_{t\in[0,T]}\in A}]\\
+&=\mathbb{E}^\mathbb{Q}\left[\frac{d\mathbb{P}}{d\mathbb{Q}}\mathbbm{1}_{\{X_t\}_{t\in[0,T]}\in A}\right]\\
+&=\mathbb{E}^\mathbb{Q}\left[\exp(\int^T_0b(s,X_s)dW_s+\frac{1}{2}\int^T_0|b(s,X_s)|^2ds)\mathbbm{1}_{\{X_t\}_{t\in[0,T]}\in A}\right]\\
+&=\mathbb{E}^\mathbb{Q}\left[\exp(\int^T_0b(s,X_s)d\tilde{W}_s-\frac{1}{2}\int^T_0|b(s,X_s)|^2ds)\mathbbm{1}_{\{X_t\}_{t\in[0,T]}\in A}\right]\\
+&=\mathbb{E}^\mathbb{Q}\left[\exp(\int^T_0b(s,X_s)dX_s+\frac{1}{2}\int^T_0|b(s,X_s)|^2ds)\mathbbm{1}_{\{X_t\}_{t\in[0,T]}\in A}\right],
+\end{aligned}
+\end{equation*}
+which is enough to show the weak uniqueness, because $\mathbb{P}[\{X_t\}_{t\in[0,T]}\in A]$ is uniquely defined, giving that $X_t$ is a Brownian motion under the measure $\mathbb{Q}$. 
+\end{proof}
+
+\begin{rk}
+This theorem represents the regularization by noise. For the ODE counterpart, Lipschitz condition is required for existence and uniqueness, which is a stronger condition on $b$.
+\end{rk}
+
+\begin{rk}
+More refined conditions for the function $b$ in the SDE \eqref{sde_weak_sol} that guarantees the weak existence and uniqueness existed. 
+\end{rk}
 
 
 
