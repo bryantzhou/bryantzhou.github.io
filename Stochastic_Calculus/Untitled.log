@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  3 MAY 2023 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  3 MAY 2023 21:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -466,11 +466,11 @@ Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10606 strings out of 476025
- 164604 string characters out of 5790017
+ 10610 strings out of 476025
+ 164641 string characters out of 5790017
  1877388 words of memory out of 5000000
- 30899 multiletter control sequences out of 15000+600000
- 515035 words of font info for 45 fonts, out of 8000000 for 9000
+ 30901 multiletter control sequences out of 15000+600000
+ 515733 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,76p,910b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/bryant/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm
@@ -487,10 +487,10 @@ ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loc
 al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
 l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
 local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Untitled.pdf (6 pages, 177603 bytes).
+Output written on Untitled.pdf (6 pages, 180868 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

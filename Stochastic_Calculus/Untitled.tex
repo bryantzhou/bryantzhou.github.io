@@ -377,6 +377,32 @@ The proof is similar to the previous one, except we would like to show $\mathbb{
 Then, using the Gronwall inequality, we have $\mathbb{E}[|X_t-\tilde{X}_t|_+]=0$, which implies $X_t\leq\tilde{X}_t$ for all $t$ almost surely. 
 \end{proof}
 
+Now, we shift gear to look at the weak solution of an SDE. Consider the following example.
+
+\begin{ex} \textcolor{red}{Tanaka's SDE}
+
+Consider the following SDE
+
+\begin{equation*}
+dX_t = \text{sign}\{X_t\}dW_t, \quad X_0=0
+\end{equation*}
+
+It can be shown that this SDE does not have a strong solution, but we take it for granted. Suppose that a weak solution $X_t$ exists. It is clear that $X_t\in\mathcal{M}_c^2$. From below
+
+\begin{equation*}
+\langle X\rangle_t = \int_0^t(\text{sign}(X_t))^2dt=t,
+\end{equation*}
+we may use Levy's characterization to conclude that $X_t$ is a Brownian motion. Additionally, it is true for every weak solution, so we have weak uniqueness. However, notice that if $X_t$ is a solution, then $-X_t$ is also a solution, which implies that strong uniqueness does not hold.
+
+Now let's show that weak solution indeed exists. Consider the augmented filtered probability space $(\tilde{\Omega},\tilde{\mathcal{F}},\tilde{\mathbb{F}},\tilde{\mathbb{P}})$, carrying a Brownian motion $\tilde{X}_t$. Our goal is to show that $\tilde{X}_t$ satisfies the SDE. Define $\tilde{W}_t:=\int^t_0\text{sign}(\tilde{X}_s)d\tilde{X}_s$. It is easy to show that $\tilde{W}_t$ is a Brownian motion through Levy's characterization. Then
+
+\begin{equation*}
+\int^t_0\text{sign}(\tilde{X}_s)d\tilde{W}_s=\int^t_0\text{sign}(\tilde{X}_s)\text{sign}(\tilde{X}_s)d\tilde{x}_s=\int^t_0d\tilde{X}_s=\tilde{X}_t.
+\end{equation*}
+
+We showed that $\tilde{X}_t$ is indeed a weak solution.
+\end{ex}
+
 
 
 
