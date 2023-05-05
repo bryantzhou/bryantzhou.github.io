@@ -470,7 +470,21 @@ This theorem represents the regularization by noise. For the ODE counterpart, Li
 More refined conditions for the function $b$ in the SDE \eqref{sde_weak_sol} that guarantees the weak existence and uniqueness existed. 
 \end{rk}
 
+\begin{rk}
+This theorem can be extended to the infinite time horizon case with the Kolmogorov's extension theorem.
+\end{rk}
 
+\begin{rk}
+Clearly, strong existence implies weak existence, and strong uniqueness implies weak uniqueness if a strong solution exists. However, it is much more tricky to conclude that strong uniqueness implies weak uniqueness for weak solutions, which leads to the following theorem.
+\end{rk}
+
+\begin{theorem}
+Pathwise uniqueness implies uniqueness in the sense of probability law.
+\end{theorem}
+
+\begin{proof}
+The proof is quite involved, so we only show the basic idea behind it. Consider two weak solutions to the SDE \eqref{sde_weak_sol}, $(X,W)$ and $(\tilde{X},\tilde{W})$. Since they possibly live in different probability spaces, we have to create a new canonical space and copy both solutions to the same probability space. Then, pathwise uniqueness in the new space directly implies uniqueness in distribution. 
+\end{proof}
 
 
 

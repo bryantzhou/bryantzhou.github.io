@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  3 MAY 2023 17:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  5 MAY 2023 01:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,52 +485,164 @@ it/10 r > \OT1/cmr/m/n/10 0$ \OT1/cmr/m/it/10 such that the disk $\OML/cmm/m/it
 /10 D[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ) := []$
  []
 
+
+LaTeX Warning: Reference `def:holomorphic' on page 1 undefined on input line 11
+2.
+
+
+LaTeX Warning: Reference `holomorphic' on page 1 undefined on input line 117.
+
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4]
-<Goursat.png, id=81, 1337.99875pt x 348.30125pt>
+
+LaTeX Warning: Reference `ex:non_holomorphic' on page 2 undefined on input line
+ 136.
+
+
+LaTeX Warning: Reference `Cauchy_Riemann' on page 2 undefined on input line 183
+.
+
+
+LaTeX Warning: Reference `Cauchy_Riemann_2' on page 2 undefined on input line 2
+00.
+
+[2]
+
+LaTeX Warning: Reference `Cauchy_Riemann_2' on page 3 undefined on input line 2
+12.
+
+[3] [4]
+
+LaTeX Warning: Reference `cor:primitive_int_zero' on page 5 undefined on input 
+line 392.
+
+
+LaTeX Warning: Reference `primitive_int_zero' on page 5 undefined on input line
+ 392.
+
+<Goursat.png, id=70, 1337.99875pt x 348.30125pt>
 File: Goursat.png Graphic file (type png)
 <use Goursat.png>
-Package pdftex.def Info: Goursat.png  used on input line 397.
+Package pdftex.def Info: Goursat.png  used on input line 405.
 (pdftex.def)             Requested size: 401.40273pt x 104.49118pt.
- [5 <./Goursat.png>]
-<local_primitive_1.png, id=97, 589.20125pt x 604.2575pt>
+
+LaTeX Warning: Reference `fig:goursat' on page 5 undefined on input line 411.
+
+
+LaTeX Warning: Reference `M_L_bound' on page 5 undefined on input line 434.
+
+[5 <./Goursat.png>]
+<local_primitive_1.png, id=85, 589.20125pt x 604.2575pt>
 File: local_primitive_1.png Graphic file (type png)
 <use local_primitive_1.png>
-Package pdftex.def Info: local_primitive_1.png  used on input line 449.
+Package pdftex.def Info: local_primitive_1.png  used on input line 457.
 (pdftex.def)             Requested size: 176.76173pt x 181.27864pt.
-<local_primitive_2.png, id=98, 1222.5675pt x 676.5275pt>
+<local_primitive_2.png, id=86, 1222.5675pt x 676.5275pt>
 File: local_primitive_2.png Graphic file (type png)
 <use local_primitive_2.png>
-Package pdftex.def Info: local_primitive_2.png  used on input line 456.
+Package pdftex.def Info: local_primitive_2.png  used on input line 464.
 (pdftex.def)             Requested size: 366.77307pt x 202.95981pt.
- [6 <./local_primitive_1.png> <./local_primitive_2.png>]
-<toy_contour.png, id=117, 667.49374pt x 628.3475pt>
+
+
+LaTeX Warning: Reference `fig:local_primitive_1' on page 6 undefined on input l
+ine 470.
+
+
+LaTeX Warning: Reference `fig:local_primitive_2' on page 6 undefined on input l
+ine 475.
+
+[6 <./local_primitive_1.png> <./local_primitive_2.png>]
+
+LaTeX Warning: Reference `fig:local_primitive_2' on page 7 undefined on input l
+ine 480.
+
+
+LaTeX Warning: Reference `thm_int_end_points' on page 7 undefined on input line
+ 480.
+
+
+LaTeX Warning: Reference `cor:primitive_int_zero' on page 7 undefined on input 
+line 502.
+
+
+LaTeX Warning: Reference `thm:cauchy' on page 7 undefined on input line 517.
+
+
+LaTeX Warning: Reference `fig:toy_contour' on page 7 undefined on input line 51
+7.
+
+<toy_contour.png, id=98, 667.49374pt x 628.3475pt>
 File: toy_contour.png Graphic file (type png)
 <use toy_contour.png>
-Package pdftex.def Info: toy_contour.png  used on input line 513.
+Package pdftex.def Info: toy_contour.png  used on input line 521.
 (pdftex.def)             Requested size: 200.24966pt x 188.50569pt.
-<keyhole.png, id=118, 417.56pt x 345.29pt>
+[7 <./toy_contour.png>]
+<keyhole.png, id=109, 417.56pt x 345.29pt>
 File: keyhole.png Graphic file (type png)
 <use keyhole.png>
-Package pdftex.def Info: keyhole.png  used on input line 529.
+Package pdftex.def Info: keyhole.png  used on input line 537.
 (pdftex.def)             Requested size: 125.26895pt x 103.58778pt.
- [7 <./toy_contour.png>] [8 <./keyhole.png>] [9]
 
+
+LaTeX Warning: Reference `fig:keyhole_contour' on page 8 undefined on input lin
+e 543.
+
+
+LaTeX Warning: Reference `fig:keyhole_contour' on page 8 undefined on input lin
+e 548.
+
+
+LaTeX Warning: Reference `thm:power_series_conv' on page 8 undefined on input l
+ine 577.
+
+[8 <./keyhole.png>]
+
+LaTeX Warning: Reference `thm:holomorphic_power_series' on page 9 undefined on 
+input line 618.
+
+[9]
+
+LaTeX Warning: Reference `thm:zero' on page 10 undefined on input line 702.
+
+
+LaTeX Warning: Reference `f_pole' on page 10 undefined on input line 724.
+
+[10]
+
+LaTeX Warning: Reference `fig:keyhole_contour' on page 11 undefined on input li
+ne 749.
+
+
+LaTeX Warning: Reference `thm:cauchy_int' on page 11 undefined on input line 75
+4.
+
+
+LaTeX Warning: Reference `f_pole' on page 11 undefined on input line 763.
+
+[11] [12] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+Package lastpage Warning: Rerun to get the references right on input line 866.
+
  ) 
 Here is how much of TeX's memory you used:
- 10996 strings out of 476025
- 170996 string characters out of 5790017
+ 11036 strings out of 476025
+ 171417 string characters out of 5790017
  1879388 words of memory out of 5000000
- 31237 multiletter control sequences out of 15000+600000
- 515338 words of font info for 44 fonts, out of 8000000 for 9000
+ 31243 multiletter control sequences out of 15000+600000
+ 515957 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,76p,792b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,801b,617s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -544,10 +656,10 @@ xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texl
 ive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
 e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Untitled.pdf (9 pages, 335942 bytes).
+Output written on Untitled.pdf (12 pages, 351735 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
- 69 named destinations out of 1000 (max. 500000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 101 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

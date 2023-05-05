@@ -373,6 +373,14 @@ If $\gamma$ is a closed curve in an open set $\Omega$, and $f$ has a primitive i
 \end{equation}
 \end{corollary}
 
+\begin{example} \label{ex:1/z_no_primitive}
+We will see that $f(z)=\frac{1}{z}$ does not have a primitive using the previous corollary. Parametrize an unit circle $\gamma$ centered at the origin by $z(\theta)=e^{i\theta}$, $dz=ie^{i\theta}$.
+
+\begin{equation*}
+\int_\gamma\frac{1}{z}dz=\int^{2\pi}_0\frac{1}{e^{i\theta}}ie^{i\theta}d\theta=2\pi i\neq0.
+\end{equation*}
+\end{example}
+
 \begin{corollary}
 If $f$ is holomorphic in a region $\Omega$, and $f'=0$, then $f$ is constant. 
 \end{corollary}
@@ -636,16 +644,207 @@ If $f$ and $g$ are holomorphic in a region $\Omega$, and $f(z)=g(z)$ for a seque
 It is a direct consequence of the previous theorem.
 \end{proof}
 
+Next, we consider singularities, in particular the different kind of point singularities that a holomorphic function can have. In order of increasing severity, these are:
 
+\begin{enumerate}
+\item
+removable singularities
 
+\item
+poles
 
+\item
+essential singularities
+\end{enumerate}
 
+\begin{definition}\textcolor{red}{(Point Singularity/Isolated Singularity)}
 
+A point singularity (or isolated singularity) of a function $f$ is a complex number $z_0$ such that $f$ is defined in a neighborhood of $z_0$ but not at the point $z_0$ itself.
+\end{definition}
 
+\begin{definition} \textcolor{red}{(Zeros)}
 
+A function has a zero at $z_0$ if $f(z_0)=0$. Additionally, $z_0$ is called the isolated zero if $f(z)\neq0$ in the neighborhood of $z_0$.
+\end{definition}
 
+We use the following theorem to introduce the order of zeros for a holomorphic function. 
 
+\begin{theorem} \label{thm:zero}
+Suppose $f$ is a holomorphic function in a connected open set $\Omega$, and $f$ has a zeros at  a point $z_0\in\Omega$ but does not vanish identically in $\Omega$. Then, there exists a neighborhood $U\subset\Omega$ of $z_0$, a non-vanishing holomorphic function $g$ on $U$, and a unique positive integer $n$ such that 
 
+\begin{equation}
+f(z)=(z-z_0)^ng(z), \quad \forall z\in U.
+\end{equation}
+This unique integer $n$ is denoted as the order of zeros for $f$.
+\end{theorem}
+
+\begin{proof}
+Since $\Omega$ is open and connected, and $f$ does not vanish identically on $\Omega$, we know that there is a neighborhood $U\subset\Omega$ of $z_0$ that $f$ is not identically zero in $U$. Since $f$ is holomorphic in $\Omega$, it has a power series expansion at $z_0$, and there is a smallest integer $n$ such that $a_n\neq0$. Then we can write
+
+\begin{equation*}
+f(z)=(z-z_0)^n[a^n+a_{n+1}(z-z_0)+...]=(z-z_0)^ng(z),
+\end{equation*}
+where $g(z)$ is holomorphic and nowhere vanishing since $a_n\neq0$. This integer $n$ is also unique. Suppose otherwise, $f(z)=(z-z_0)^ng(z)=(z-z_0)^mh(z)$ and $m>n$. Then, $g(z)=(z-z_0)^{m-n}h(z)$. As $z\rightarrow z_0$, we have $g(z)=0$, which is a contradiction. Same reasoning applies for the case of $m<n$.
+\end{proof}
+
+The importance of this result is that we can precisely describe the type of singularity possessed by the function $1/f$ at $z_0$.
+
+\begin{definition} \textcolor{red}{(Deleted Neighborhood)}
+
+The deleted neighborhood of $z_0$ is defined as an open disk centered at $z_0$ minus the point $z_0$. Equivalently, $\{z:0<|z-z_0|<r\}$.
+\end{definition}
+
+\begin{definition} \textcolor{red}{(Poles)}
+
+A function $f$ defined in a deleted neighborhood of $z_0$ is said to have a pole at $z_0$ if the function $1/f$, defined to be zero at $z_0$, is holomorphic in a full neighborhood of $z_0$.
+\end{definition}
+
+We have the following theorem, as a direct result from the definition of poles and Theorem \ref{thm:zero}.
+
+\begin{theorem}
+If $f$ has a pole at $z_0\in\Omega$, then in a neighborhood of that point, there exist a non-vanishing holomorphic function $h$ and a unique positive integer $n$ such that 
+
+\begin{equation}
+f(z)=(z-z_0)^{-n}h(z).
+\end{equation}
+The integer $n$ is called the order of the pole. 
+\end{theorem}
+
+Since $h$ also has a power series expansion, we may write $f$ as follows
+
+\begin{equation} \label{f_pole}
+f(z)=\frac{a_{-n}}{(z-z_0)^n}+\frac{a_{-n+1}}{(z-z_0)^{n-1}}+...+\frac{a_{-1}}{(z-z_0)}+G(z),
+\end{equation}
+where $G(z)$ is a holomorphic function in the neighborhood of $z_0$. In this expression, the summation without the function $G(z)$ is called the principal part of $f$ at the pole $z_0$, and the coefficient $a_{-1}$ is called the residue of $f$ at that pole. All other terms in the principal part with order strictly greater than $1$ has primitives in a deleted neighborhood of $z_0$. Therefore if $P(z)$ denotes the principal part and $C$ is any circle centered at $z_0$, we have 
+
+\begin{equation}
+\frac{1}{2\pi i}\int_C P(z)dz=a_{-1},
+\end{equation}
+
+Based on \eqref{f_pole}, we can compute the residue by
+
+\begin{equation}
+\text{res}_{z_0}f=\lim_{z\rightarrow z_0}\frac{1}{(n-1)!}(\frac{d}{dz})^{n-1}(z-z_0)^nf(z).
+\end{equation}
+If $f=\frac{n(z)}{d(z)}$ has a simple pole at $z_0$, using the L'Hopitole's rule, we have a simpler formula to calculate residue
+
+\begin{equation}
+\text{res}_{z_0}f=\frac{n(z_0)}{d'(z_0)}.
+\end{equation}
+
+Then, we give the celebrated residue formula.
+
+\begin{theorem} \label{thm:res_formula} \textcolor{red}{(Residue Formula)}
+
+Suppose that $f$ is holomorphic in an open set containing a circle $C$ and its interior, except for poles at the points $z_1,...,z_N$ inside $C$. Then,
+
+\begin{equation}
+\int_Cf(z)dz=2\pi i \sum^N_{k=1}\text{res}_{z_k}f.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We only prove the case when $f$ has a simple pole at $z_0$. The generalization to the finite number of poles is straightforward.
+
+Consider the same keyhole toy contour as shown in Fig. \ref{fig:keyhole_contour}, where the small circle is centered at the pole $z_0$. As the width of the corridor goes to $0$, we have 
+
+\begin{equation*}
+\int_Cf(z)dz=\int_{C_\epsilon}f(z)dz.
+\end{equation*}
+Then, by the Cauchy's integral formula \ref{thm:cauchy_int} with a constant function $f(z)=a_{-1}$, we have 
+
+\begin{equation*}
+\frac{1}{2\pi i}\int_{C_\epsilon}\frac{a_{-1}}{z-z_0}dz=a_{-1}.
+\end{equation*}
+For the same reasoning, we have 
+\begin{equation*}
+\frac{1}{2\pi i}\int_{C_\epsilon}\frac{a_{-1}}{(z-z_0)^k}dz=0,
+\end{equation*}
+for all $k>1$. Referring to \eqref{f_pole}, we have 
+\begin{equation*}
+\int_Cf(z)dz=\int_{C_\epsilon}f(z)dz=2\pi ia_{-1}=2\pi i\text(res)_{z_0}f,
+\end{equation*}
+since $G(z)$ is holomorphic in the neighborhood of $z_0$.
+\end{proof}
+
+Now, we give a definition of another singularity. 
+
+\begin{definition} \textcolor{red}{(Removable Singularity)}
+
+Let $f$ be a function holomorphic in an open set $\Omega$ except possibly at one point $z_0$ in $\Omega$. If we can define $f$ at $z_0$ in such a way that $f$ becomes holomorphic in all of $\Omega$, we say that $z_0$ is a removable singularity for $f$.
+
+\end{definition}
+
+Here is an equivalent way of identifying a removable singularity, but we are not going to prove it. 
+
+\begin{theorem}
+$f$ has a removable singularity at $z_0$ if and only if $f$ is holomorphic in a deleted neighborhood $D$ of $z_0$ and $f$ is bounded in $D-z_0$.
+\end{theorem}
+Based on this theorem, we will also have an equivalent saying for the pole.
+
+\begin{theorem}
+Suppose that $f$ has an isolated singularity at the point $z_0$. Then $z_0$ is a pole of $f$ if and only if $|f(z)|\rightarrow\infty$ as $z\rightarrow z_0$.
+\end{theorem}
+
+\begin{proof}
+If $z_0$ is a pole, then $1/f$ has a zero at $z_0$, therefore $|f(z)|\rightarrow\infty$ as $z\rightarrow z_0$. Conversely, if $|f(z)|\rightarrow\infty$ as $z\rightarrow z_0$, then $1/|f(z)|\rightarrow 0$ as $z\rightarrow z_0$. So, by previous theorem, $1/f(z)$ has removable singularity at $z_0$ and vanish at that point. By definition, it means that $z_0$ is a pole of $f$.
+\end{proof}
+
+Let's make a summary here. Isolated singularities belong to one of the following three categories:
+
+\begin{enumerate}
+\item
+Removable singularity ($f$ bounded near $z_0$)
+
+\item
+Pole singularity ($|f(z)|\rightarrow\infty$ as $z\rightarrow z_0$)
+
+\item
+Essential singularity
+\end{enumerate}
+
+By default, any singularity that is not removable or a pole is defined to be an essential singularity. Contrary to the controlled behavior of a holomorphic function near a removable singularity or a pole, it is typical for a holomorphic function to behave erratically near an essential singularity. For example, $e^{1/z}$ has an essential singularity at the origin. It grows to indefinitely as $z$ approaches $0$ on the positive real line, while it approaches $0$ as $z$ goes to $0$ on the negative real axis. Finally, it oscillates rapidly, yet remains bounded, as $z$ approaches the origin on the imaginary axis. 
+
+Now, we turn to functions with only isolated singularities that are poles.
+
+\begin{definition} \textcolor{red}{(Meromorphic Functions)}
+A function on an open set $\Omega$ is meromorphic if there exists a sequence of points $\{z_1,z_2,...\}$ that have no limit points in $\Omega$, and such that 
+
+\begin{enumerate}
+\item
+$f$ is holomorphic in $\Omega-\{z_1,z_2,...\}$.
+
+\item
+$f$ has poles at $\{z_1,z_2,...\}$.
+\end{enumerate}
+\end{definition}
+
+We say that $f(z)$ has a pole singularity (removable singularity, essential singularity, respectively) at infinity if $f(1/z)$ has a pole singularity (removable singularity, essential singularity, respectively) at the origin. 
+
+\begin{definition} \textcolor{red}{(Meromorphic in the Extended Complex Plane)}
+A meromorphic function in the complex plane that is either holomorphic at infinity or has a pole at infinity is said to be  meromorphic in the extended complex plane.
+\end{definition}
+
+We won't prove the following theorem.
+
+\begin{theorem}
+The meromorphic function in the extended complex plane are the rational functions.
+\end{theorem}
+
+Next, we discuss the argument principle and applications. First notice that the function $\log f(z)$ is multi-valued. In face, $\log f(z)=\log|f(z)|+i\arg f(z)$, where $\arg f(z)$ causes the trouble because it is only determined unambiguously up to an additive integer multiple of $2\pi$. $\log f(z)$ has the aforementioned form because of the following reason. Let $f(z)=re^{i\theta}$, then
+
+\begin{equation*}
+f(z)=e^{\log f(z)}=e^{Re(\log f(z))+i Im(\log f(z)}=e^{Re(\log f(z))}e^{i Im(\log f(z)},
+\end{equation*}
+then, matching the formula, we have
+
+\begin{equation*}
+\begin{aligned}
+&\log r=\log |f(z)|=Re(\log f(z)),\\
+&\theta=Im(\log f(z)),
+\end{aligned}
+\end{equation*}
+which gives us $\log f(z)=Re(\log f(z))+i Im(\log f(z))=\log |f(z)|+i \arg f(z)$.
 
 
 
