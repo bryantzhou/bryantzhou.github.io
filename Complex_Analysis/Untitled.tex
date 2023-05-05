@@ -392,6 +392,7 @@ If $f$ has a primitive in $\Omega$, then the integral does not depend on the cho
 Corollary \ref{cor:primitive_int_zero} gives us one direction, and we would like to show the converse, namely if we know that \eqref{primitive_int_zero} for some types of curves $\gamma$, then a primitive for $f$ exists. We start with the Goursat's theorem.
 
 \begin{theorem} \textcolor{red}{(Goursat)}
+
 If $f$ is holomorphic in an open set $\Omega$, and $T\subset\Omega$ is a triangle whose interior is also contained in $\Omega$, then
 
 \begin{equation*}
@@ -447,7 +448,7 @@ Then, it is straightforward to show $\lim_{k\rightarrow\infty}4^k|\int_{T^{(k)}}
 
 Next, we prove the existence of primitive in a disk as a consequence of Goursat's Theorem. 
 
-\begin{theorem} \textcolor{red}{(Local Existence of Primitives)}
+\begin{theorem} \label{thm:local_prim} \textcolor{red}{(Local Existence of Primitives)}
 
 A holomorphic function in an open disk has a primitive in that disk.
 \end{theorem}
@@ -845,6 +846,199 @@ then, matching the formula, we have
 \end{aligned}
 \end{equation*}
 which gives us $\log f(z)=Re(\log f(z))+i Im(\log f(z))=\log |f(z)|+i \arg f(z)$.
+
+Although $\log f(z)$ is multi-valued, its derivative $f'(z)/f(z)$ is single valued, and $\int_\gamma \frac{f'(z)}{f(z)}dz$ can be interpreted as the net change in the argument of $f(z)$ as $z$ traverses the curve $\gamma$. Then, we have the following theorem. 
+
+\begin{theorem} \textcolor{red}{(Argument Principle)}
+Suppose $f$ is a meromorphic function in an open set containing a circle $C$ and its interior. If $f$ has no poles and never vanishes on $C$, then
+
+\begin{equation} 
+\frac{1}{2\pi i}\int_C \frac{f'(z)}{f(z)}dz=\text{(number of zeros of $f$ inside $C$)}-\text{(number of poles of $f$ inside $C$)},
+\end{equation}
+where zeros and poles are counted with multiplicities.
+\end{theorem}
+
+\begin{proof}
+Suppose $f$ has a zero of order $n$ at $z_0$, then we may write
+
+\begin{equation*}
+f(z)=(z-z_0)^ng(z), 
+\end{equation*}
+where $g(z)$ is holomorphic and non-vanishing in the neighborhood around $z_0$. It implies
+
+\begin{equation*}
+\frac{f'(z)}{f(z)}=\frac{n}{z-z_0}+\frac{g'(z)}{g(z)},
+\end{equation*}
+which means that $\frac{f'(z)}{f(z)}$ has a simple pole with residue $n$ at $z_0$. Similarly, we may show that if $f$ has a pole of order $n$ at $z_0$, then $\frac{f'(z)}{f(z)}$ has a simple pole at with residue $-n$ at $z_0$. In conclusion, since $f$ is meromorphic, the function $f'/f$ has simple poles at the zeros and poles of $f$, and the residue is simply the order of the zero of $f$ or the negative of the order of the pole of $f$. Using the residue formula \ref{thm:res_formula}, we have the desired result. 
+
+Note that the assumption of the function being meromorphic comes in when we applied the residue formula, which requires the only singularities begin the poles. 
+
+\end{proof}
+
+An application of the argument principle is the Rouche's theorem, which says that holomorphic function can be perturbed slightly without changing the number of its zeros. 
+
+\begin{theorem} \label{thm:rouche} \textcolor{red}{(Rouche)}
+
+Suppose that $f$ and $g$ are holomorphic in an open set containing a circle $C$ and its interior. If 
+
+\begin{equation*}
+|f(z)|>|g(z)| \quad \forall z\in C,
+\end{equation*}
+then $f$ and $f+g$ have the same number of zeros inside the circle. 
+\end{theorem}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{Rouche.png} \\
+\caption{Proof of Rouche's theorem.} 
+\label{fig:rouche}
+\end{figure}
+
+
+\begin{proof}
+The idea behind the proof is illustrated in Fig. \ref{fig:rouche}. We can interpret the left hand side of the argument principle as the number of times that $f(z)$ encircles the origin as $z$ travels along the curve $\gamma$. We can see from Fig. \ref{fig:rouche} that by the setup of the theorem, $f+g$ can never include the origin. Thus, by the argument principle, $f$ and $f+g$ have the same number of zeros inside the circle.
+\end{proof}
+
+Now, we can state some geometric properties of holomorphic functions when they are considered as mappings. 
+
+\begin{definition} \textcolor{red}{(Open Mapping)}
+
+A mapping is said to be open if it maps open set to open set.
+\end{definition}
+
+\begin{theorem} \label{thm:open_map} \textcolor{red}{(Open Mapping)}
+
+If $f$ is holomorphic and non-constant in a region $\Omega$, than $f$ is open.
+\end{theorem}
+
+\begin{proof}
+Let $w_0$ belongs to the range of $f$, t.e., $f(z_0)=w_0)$. We need to show that the neighborhood of $w_0$ is also contained in the image of $f$. 
+
+Define
+
+\begin{equation*}
+g(z):=f(z)-w=f(z)-w_0+w_0-w=:F(z)+G(z).
+\end{equation*}
+
+Find $\delta$ such that the set $\{z:|z-z_0|\leq \delta\}$ is contained in $\Omega$ and $f(z)\neq w_0$ on the circle $|z-z_0|=\delta$. Find $\epsilon$ such that $|f(z)-w_0|\geq\epsilon$ on the circle $|z-z_0|=\delta$. Then, for $z$ on the circle $|z-z_0|=\delta$, we have $|f(z)-w_0|\geq|w-w_0|$ if $|w-w_0|<\epsilon$. From Rouche's theorem \ref{thm:rouche}, we know that $g(z)$ has the same zeros as for $F(z)$. We know that $F(z)$ as a zero at $z_0$ by assumption, which implies $g(z)$ also has a zero. The proof is complete.
+
+\end{proof}
+
+The next result pertains to the size of a holomorphic function. We refer to the maximum of a holomorphic function in an open set $\Omega$ as the maximum of its absolute value IN $\Omega$.
+
+\begin{theorem} \textcolor{red}{(Maximum Modulus Principle)}
+If $f$ is a non-constant holomorphic function in a region $\Omega$, then $f$ cannot attain a maximum in $\Omega$.
+\end{theorem}
+
+\begin{proof}
+Suppose $f$ attains a maximum at $z_0$. Since $f$ is a non-constant holomorphic function on $\Omega$, from the open mapping theorem \ref{thm:open_map}, $f$ is an open mapping. Then, there exists an open set $D\subset\Omega$ centered at $z_0$, such that its image $f(D)$ is open and contains $f(z_0)$. It implies that $z_0$ is not the maximum, which is a contradiction.
+\end{proof}
+
+\begin{corollary}
+Suppose that $\Omega$ is a region with compact closure $\bar{\Omega}$. If $f$ is holomorphic in $\Omega$ and continuous in $\bar{\Omega}$, then
+
+\begin{equation*}
+\sup_{z\in\Omega}|f(z)|\leq\sup_{z\in\bar{\Omega}-\Omega}|f(z)|
+\end{equation*}
+\end{corollary}
+
+Since $f$ is continuous in the compact set $\bar{\Omega}$, $|f|$ attains its maximum in $\bar{\Omega}$.
+
+Now, we switch to find the general form of the Cauchy's theorem. The key is to understand in what regions we can define the primitive of a given holomorphic function. Then, by Corollary \ref{cor:primitive_int_zero}, we can conclude the Cauchy's theorem. This requires the notion of homotopy and the resulting idea of simple-connectivity. 
+
+\begin{definition} \textcolor{red}{(Simply Connected)}
+
+A region $\Omega$ in the complex plane is simply connected if any two pair of curves in $\Omega$ with the same end-points are homotopic. Loosely speaking, two curves are homotopic if one curve can be deformed into the other by a continuous transformation without ever leaving $\Omega$.
+\end{definition}
+
+We give the general form of the Cauchy's theorem without proving it. 
+
+\begin{theorem}
+If $f$ is holomorphic in the simply connected region $\Omega$, then 
+
+\begin{equation*}
+\int_\gamma f(z)dz=0,
+\end{equation*}
+for any closed curve $\gamma$ in $\Omega$.
+\end{theorem}
+
+We have mentioned previously that the function $\log f(z)$ is not single-valued. To make sense of the logarithm as a single-valued function, we must restrict the set on which we define it. This is so-called choice of a branch or sheet of the logarithm. We have the following global definition of a branch of the logarithm function based on simply connected domain. 
+
+\begin{theorem}
+Suppose $\Omega$ is simply connected with $1\in\Omega$ and $0\notin\Omega$. Then in $\Omega$ there is a branch of the logarithm $F(z)=\log_\Omega(z)$ so that 
+
+\begin{enumerate}
+\item
+$F$ is holomorphic in $\Omega$.
+
+\item
+$e^{F(z)}=z$ for all $z\in\Omega$.
+
+\item
+$F(r)=log(r)$ whenever $r$ is a real number and near $1$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We shall construct $F$ as a primitive of $1/z$. The rest of the steps are omitted.
+\end{proof}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{principal_branch.png} \\
+\caption{Path of integration for the principal branch of the logarithm.} 
+\label{fig:principal_branch}
+\end{figure}
+
+In the slit plane $\Omega=\mathbb{C}-\{(-\infty,0]\}$, we have the principal branch of the logarithm $\log z=\log r+i\theta$, where $z=re^{i\theta}$ with $|\theta|<\pi$. Path of integration for the principal branch of the logarithm is shown in Fig. \ref{fig:principal_branch}. Then,
+
+\begin{equation*}
+\log z=\int^r_1\frac{1}{x}dx+\int^\theta_0\frac{1}{w}dw=\log r+i\theta.
+\end{equation*}
+
+Notice that in general 
+
+\begin{equation*}
+\log(z_1z_2)\neq\log z_1 +\log z_2.
+\end{equation*}
+
+Having defined a logarithm on a simply connected domain, we can take easily take an inter power of a complex number $z^n$ as $z^n=e^{n\log z}$. But what about the complex power? We may use the following theorem.
+
+\begin{theorem}
+If $f$ is a nowhere vanishing holomorphic function in a simply connected region $\Omega$, then there exists a holomorphic function $g$ on $\Omega$ such that 
+
+\begin{equation*}
+f(z)=e^{g(z)}.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Fix a point $z_0$ in $\Omega$, and define
+
+\begin{equation*}
+g(z):=\int_\gamma \frac{f'(w)}{f(w)}dw+c_0,
+\end{equation*}
+where $\gamma$ is the curve from $z_0$ to $z$, and $c_0$ is a constant such that $f(z_0)=e^{g(c_0)}$. This definition is independent of the path $\gamma$ since $\Omega$ is simply connected. Since $\frac{f'(w)}{f(w)}$ is holomorphic, we can prove that $g$ is holomorphic using the same technique as in Theorem \ref{thm:local_prim}, and 
+
+\begin{equation*}
+g'(z):=\frac{f'(z)}{f(z)}.
+\end{equation*}
+We also know that $f(z)e^{-g(z)}$ is a constant because 
+
+\begin{equation*}
+\frac{d}{dz}(f(z)e^{-g(z)})=f'(z)e^{-g(z)}-f(z)g'(z)e^{-g(z)}=0.
+\end{equation*}
+Additionally $f(z_0)e^{-g(z_0)}=0$ implies that $f(z)e^{-g(z)}=0$ for all $z\in\Omega$. The proof is complete. 
+
+
+\end{proof}
+
+
+
+
+
+
+
 
 
 
