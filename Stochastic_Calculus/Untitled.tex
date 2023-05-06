@@ -6,6 +6,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{bbm}
+\usepackage{arydshln}
 
 %\usepackage[includefoot, a4paper, total={7in, 9in}]{geometry}
 \usepackage{geometry}
@@ -27,6 +28,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{ex}{Example}
 \newtheorem{rk}{Remark}
+\newtheorem{prop}{Proposition}
 
 \begin{document}
 
@@ -486,10 +488,243 @@ Pathwise uniqueness implies uniqueness in the sense of probability law.
 The proof is quite involved, so we only show the basic idea behind it. Consider two weak solutions to the SDE \eqref{sde_weak_sol}, $(X,W)$ and $(\tilde{X},\tilde{W})$. Since they possibly live in different probability spaces, we have to create a new canonical space and copy both solutions to the same probability space. Then, pathwise uniqueness in the new space directly implies uniqueness in distribution. 
 \end{proof}
 
+The weak solution to an SDE discussed so far is obtained through finding a process with the right law (and doing so uniquely for weak uniqueness). A variation on this approach, developed by Stroock \& Varadhan (1969), formulates the search for the law of a diffusion process with given drift and dispersion coefficients in terms of a martingale problem. 
 
+Consider the same SDE as in \eqref{sde}, which we copy to here for better reference
 
+\begin{equation*}
+dX_t = b(t,X_t)dt + \sigma(t,X_t)dW_t, 
+\end{equation*}
+where $X_t\in\mathbb{R}^d$, $b:[0,\infty)\times\mathbb{R}^d\rightarrow\mathbb{R}^d$, $\sigma:[0,\infty)\times\mathbb{R}^d\rightarrow\mathbb{R}^{d\times d}$, and $W$ is a $d$-dimensional Brownian motion. In other words, each component $X^i$ satisfies the following dynamics:
 
+\begin{equation} \label{mart_prob_sde}
+dX^i_t = b_i(t,X_t)dt + \sum^d_{j=1}\sigma_{i,j}(t,X_t)dW^j_t.
+\end{equation}
 
+The quadratic variations are given by 
+
+\begin{equation*}
+\begin{aligned}
+\langle X^i, X^j\rangle_t &= \langle \sum^d_{k=1}\int^t_0\sigma_{i,k}(s,X_s)dW^k_s, \sum^d_{l=1}\int_0^t\sigma_{j,l}(s,X_s)dW^l_s\rangle_t\\
+&=\int_0^t \sum^d_{k=1}\sum^d_{l=1}\sigma_{i,k}(s,X_s)\sigma_{j,l}(s,X_s)d\langle W^k,W^l\rangle_t\\
+&=\int_0^t \sum^d_{k=1}\sigma_{i,k}(s,X_s)\sigma_{j,k}(s,X_s)ds.
+\end{aligned}
+\end{equation*}
+
+Let $f\in C^2(\mathbb{R}^d,\mathbb{R})$. We first claim that if $X$ is a solution to the SDE, then the process $M^f$ defined by 
+
+\begin{equation}
+M^f_t:=f(X_t)-f(X_0)-\int^t_0(\mathcal{A}f)(s,X_s)ds,
+\end{equation}
+where
+\begin{equation} \label{operator_A}
+(\mathcal{A}f)(t,x):=\sum^d_{i=1}b_i(t,x)\partial_{x^i}f(x)+\frac{1}{2}\sum^d_{i=1}\sum^d_{j=1}\left(\sum^d_{k=1}\sigma_{i,k}(t,x)\sigma_{j,l}(t,x)\right)\partial^2_{x^i,x^k}f(x)
+\end{equation}
+is a local martingale. 
+
+This claim is immediate after applying Ito's formula to the solution of the SDE as detailed below.
+
+\begin{equation*}
+\begin{aligned}
+f(X_t)&=f(X_0)+\sum^d_{i=1}\int^t_0\partial_{x^i}f(X_s)dX^i_s+\frac{1}{2}\sum^d_{i+1}\sum^d_{j=1}\int^t_0\partial^2_{x^i,x^j}f(X_s)d\langle X^i, X^j\rangle_s\\
+&=f(X_0)+\sum^d_{i=1}\int^t_0\partial_{x^i}f(X_s)dX^i_s+\frac{1}{2}\sum^d_{i+1}\sum^d_{j=1}\int^t_0\sum^d_{k=1}\sigma_{i,k}(s,X_s)\sigma_{j,k}(s,X_s)\partial^2_{x^i,x^j}f(X_s)ds\\
+&=f(X_0)+\int^t_0(\mathcal{A}f)(s,X_s)ds+\int^t_0\partial_{x^i}f(X_s)b_i(s,X_s)ds+\sum^d_{i=1}\sum^d_{j=1}\int^t_0\partial_{x^i}f(X_s)\sigma_{i,j}(s,X_s)dW^j_s.
+\end{aligned}
+\end{equation*}
+By the definition of the operator $\mathcal{A}$ in \eqref{operator_A}, we have
+
+\begin{equation*}
+\begin{aligned}
+M^f_t=\sum^d_{i=1}\sum^d_{j=1}\int^t_0\partial_{x^i}f(X_s)\sigma_{i,j}(s,X_s)dW^j_s,
+\end{aligned}
+\end{equation*}
+which is a sum of local martingales (because each stochastic integral is a local martingale with $W_t\in\mathcal{M}^2_c$). Thus, $M^f_t$ is a local martingale. 
+
+Now, we formally define the martingale problem.
+
+\begin{definition} \textcolor{red}{(Martingale Problem)}
+
+A probability measure $\mathbb{P}$ on $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d))$, under which 
+
+\begin{equation} \label{mart_prob}
+M^f_t:=f(X_t)-f(X_0)-\int^t_0(\mathcal{A}f)(s,X_s)ds,
+\end{equation}
+is a continuous local martingale for every $f\in C^2(\mathbb{R}^d)$, is called a solution to the local martingale problem associated with $\mathcal{A}$. 
+\end{definition}
+
+What we have shown before is that a weak solution to the SDE induces on $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d))$ a probability measure $\mathbb{P}$ which solves the local martingale problem associated with $\mathcal{A}$. Surprisingly, the converse is also true!
+
+\begin{prop}
+Let $\mathbb{P}$ be a probability measure on $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d))$ under which the process $M_t^f$ of \eqref{mart_prob} is a continuous local martingale for the choices $f(x)=x_i$ and $f(x)=x_ix_j$; $1\leq i,j\leq d$. Then, there is an r-dimensional Brownian motion $W$ defined on an extension $(\tilde{\Omega},\tilde{\mathcal{F}},\tilde{\mathbb{P}})$ of $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d),\mathbb{P})$, such that $(X_t,W_t),(\tilde{\Omega},\tilde{\mathcal{F}},\tilde{\mathbb{P}})$ is a weak solution to the SDE.
+\end{prop}
+
+\begin{proof}
+Let $i={1,...,d}$ and $f(x)=x_i$, we have that $M^i_t$ defined by 
+
+\begin{equation} \label{mart_prob_thm_cond_1}
+M^i_t=X_t^i-X_0^i-\int^t_0b_i(s,X_s)ds
+\end{equation}
+is a continuous local martingale by assumption. Now, let $i,j={1,..,d}$ and $f(x)=x_ix_j$, we have that $M^{i,j}_t$ defined by 
+
+\begin{equation*}
+M^{i,j}_t=X_t^iX_t^j-X_0^iX_0^j-\int^t_0b_i(s,X_s)+b_j(x,X_s)+a_{i,j}(s,X_s)ds,
+\end{equation*}
+where 
+\begin{equation*}
+a^i_t(s,X_s)=\sum^d_{k=1}\sigma_{i,k}(s,X_s)\sigma_{j,k}(s,X_s)ds
+\end{equation*}
+is a continuous local martingale by assumption. We may show that 
+
+\begin{equation*}
+M^i_tM^j_t-\int^t_0a_{i,j}(s,X)ds
+\end{equation*}
+can be expressed as a sum of continuous local martingale $M^{i,j}_t-X_0^iM^j_t-X_0^jM^i_t$ and the process
+
+\begin{equation*}
+\begin{aligned}
+&\int^t_0(X_s^i-X_t^i)b_j(s,X)ds+\int^t_0(X_s^j-X_t^j)b_i(s,X)ds+\int^t_0b_i(s,X)ds\int^t_0b_j(s,X)ds\\
+&=\int^t_0(M_s^i-M_t^i)b_j(s,X)ds+\int^t_0(M_s^j-M_t^j)b_i(s,X)ds\\
+&=-\int^t_0\int^s_0b_j(u,X)dudM_s^i-\int^t_0\int^s_0b_i(u,X)dudM_s^j,
+\end{aligned}
+\end{equation*}
+where the last inequality holds by using Ito's formula. In summary, we have
+
+\begin{equation*}
+M^i_tM^j_t-\int^t_0a_{i,j}(s,X)ds=M^{i,j}_t-X_0^iM^j_t-X_0^jM^i_t-\int^t_0\int^s_0b_j(u,X)dudM_s^i-\int^t_0\int^s_0b_i(u,X)dudM_s^j
+\end{equation*}
+where the right hand side is a continuous local martingale, which implies the left hand side is also a continuous local martingale. Additionally, we have
+
+\begin{equation} \label{mart_prob_thm_cond_2}
+\langle M^i,M^j\rangle_t=\int^t_0a_{i,j}(s,X)ds,
+\end{equation}
+which implies that $d\langle M^i,M^j\rangle_t\ll dt$, and we can apply the Martingale Representation theorem. The theorem says that there exists a d-dimensional Brownian motion $\tilde{W}$, defined on an extension $(\tilde{\Omega},\tilde{\mathcal{F}},\tilde{\mathbb{P}})$ of $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d),\mathbb{P})$ as well as a matrix $\rho$ of measurable adapted processes with 
+
+\begin{equation*}
+\tilde{\mathbb{P}}\left[\int^t_0 \rho_{i,j}^2(s)ds<\infty\right]=1,
+\end{equation*}
+such that 
+
+\begin{equation*}
+M_t^i=\sum^d_{j=1}\int^t_0\rho_{i,j}(s)d\tilde{W}_s^j.
+\end{equation*}
+By \eqref{mart_prob_thm_cond_2}, we must have $\rho\rho^T=\sigma\sigma^T=a$. By the original definition of $M^i_t$ in \eqref{mart_prob_thm_cond_1}, we have 
+
+\begin{equation*}
+X_t^i=M_t^i+X_0^i+\int^t_0b_i(s,X_s)ds=X_0^i+\int^t_0b_i(s,X_s)ds+\sum^d_{j=1}\int^t_0\rho_{i,j}(s)d\tilde{W}_s^j.
+\end{equation*}
+Comparing this identity to \eqref{mart_prob_sde}, if we can show that there exists a Brownian motion $W$ on the extended probability space such that
+
+\begin{equation*}
+\int^t_0\rho(s)d\tilde{W}_s=\int^t_0\sigma(s,X_s)dW_s,
+\end{equation*}
+then we are done. From the Lemma shown below, it turns out that we can indeed define the following process
+
+\begin{equation*}
+W_t:=\int^t_0R^T(\rho(s),\sigma(s,X)d\tilde{W}_s,
+\end{equation*}
+which satisfies $\sigma=\rho R(\rho,\sigma)$ and $R(\rho,\sigma)R(\rho,\sigma)^T=I$. Then, $W_t$ is a continuous local martingale and 
+
+\begin{equation*}
+\langle W^i,W^j\rangle_t=t\delta_{i,j},
+\end{equation*}
+which, by Levy's characterization, $W_t$ is a Brownian motion. The proof is complete. 
+\end{proof}
+
+\begin{lemma}
+There exists a Borel-measurable, $(d\times d)$-matrix-valued function $R(\rho,\sigma)$ defined on the set 
+
+\begin{equation*}
+D:=\{(\rho,\sigma): \text{$\rho$ and $\sigma$ are $(d\times d)$ matrices with $\rho\rho^T=\sigma\sigma^T$}\}
+\end{equation*}
+such that 
+
+\begin{equation*}
+\sigma=\rho R(\rho,\sigma), \quad R(\rho,\sigma)R^T(\rho,\sigma)=I, \quad (\rho,\sigma)\in D. 
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $A:=\rho\rho^T=\sigma\sigma^T$. $A$ is symmetric and positive semidefinite, which allows us to diagonalize $A$ by orthogonal matrix $A$ as 
+$QAQ^T=\left[
+    \begin{array}{c;{2pt/2pt}c}
+        \Lambda & 0 \\ \hdashline[2pt/2pt]
+        0 & 0 
+    \end{array}
+\right]
+$,
+where $\Lambda$ is a $(k\times k)$ diagonal matrix with eigenvalue of $A$ on the diagonal. Then, we have $QAQ^T=(Q\rho)(Q\rho)^T=(Q\sigma)(Q\sigma)^T$, which implies 
+$Q\rho=\left[
+    \begin{array}{c}
+        Y_1 \\ \hdashline[2pt/2pt]
+        0
+    \end{array}
+\right]
+$,
+where $Y_1Y_1^T=\Lambda$. Similarly, we have 
+$Q\sigma=\left[
+    \begin{array}{c}
+        Z_1 \\ \hdashline[2pt/2pt]
+        0
+    \end{array}
+\right]
+$,
+where $Z_1Z_1^T=\Lambda$. 
+
+We can find an orthonormal basis for the $(d-k)$-dimensional subspace orthogonal to the space spanned by the rows of $Y_1$. Let $Y_2$ be the $(d-k)\times d$ matrix consisting the orthonormal row vectors of this basis, and define 
+$Y:=\left[
+    \begin{array}{c}
+        Y_1 \\ \hdashline[2pt/2pt]
+        Y_2
+    \end{array}
+\right]
+$. We have 
+$YY^T=\left[
+    \begin{array}{c;{2pt/2pt}c}
+        \Lambda & 0 \\ \hdashline[2pt/2pt]
+        0 & I 
+    \end{array}
+\right]
+$, and 
+$Q\rho Y^T=\left[
+    \begin{array}{c;{2pt/2pt}c}
+        \Lambda & 0 \\ \hdashline[2pt/2pt]
+        0 & 0 
+    \end{array}
+\right]
+$. Similarly, we may define 
+$Z:=\left[
+    \begin{array}{c}
+        Z_1 \\ \hdashline[2pt/2pt]
+        Z_2
+    \end{array}
+\right]
+$, such that 
+$ZZ^T=\left[
+    \begin{array}{c;{2pt/2pt}c}
+        \Lambda & 0 \\ \hdashline[2pt/2pt]
+        0 & I 
+    \end{array}
+\right]
+$, and 
+$Q\sigma Z^T=\left[
+    \begin{array}{c;{2pt/2pt}c}
+        \Lambda & 0 \\ \hdashline[2pt/2pt]
+        0 & 0 
+    \end{array}
+\right]
+$. Similarly, we may define 
+$Z:=\left[
+    \begin{array}{c}
+        Z_1 \\ \hdashline[2pt/2pt]
+        Z_2
+    \end{array}
+\right]
+$. 
+
+Now, we define $R:=Y^T(Z^T)^{-1}$. One may check that it satisfies all the requirements. 
+    
+    
+\end{proof}
 
 
 
