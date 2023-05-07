@@ -553,7 +553,7 @@ A probability measure $\mathbb{P}$ on $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d
 \begin{equation} \label{mart_prob}
 M^f_t:=f(X_t)-f(X_0)-\int^t_0(\mathcal{A}f)(s,X_s)ds,
 \end{equation}
-is a continuous local martingale for every $f\in C^2(\mathbb{R}^d)$, is called a solution to the local martingale problem associated with $\mathcal{A}$. 
+is a continuous local martingale for every $f\in C^2(\mathbb{R}^d)$, is called a solution to the local martingale problem associated with $\mathcal{A}$ defined in \eqref{operator_A}. 
 \end{definition}
 
 What we have shown before is that a weak solution to the SDE induces on $(C([0,\infty)^d,\mathcal{B}(C[0,\infty)^d))$ a probability measure $\mathbb{P}$ which solves the local martingale problem associated with $\mathcal{A}$. Surprisingly, the converse is also true!
@@ -832,6 +832,86 @@ where $W$ is a one-dimensional Brownian motion.
 \end{theorem}
 
 The proof is quite involved and shown below. 
+
+Now, we build the connection between SDE and PDE through the martingale problem.
+
+\begin{definition} \textcolor{red}{(Cauchy Problem)}
+
+The Cauchy problem refers to the following PDE
+
+\begin{equation*}
+\partial_tu(t,x)=(\mathcal{A}u)(t,x), \quad t\geq0, x\in\mathbb{R},u(0,x)=g(x)
+\end{equation*}
+where
+
+\begin{equation*} 
+(\mathcal{A}u)(t,x):=b(t,x)\partial_xu(x)+\frac{1}{2}\sigma^2(x)\partial^2_{xx}u(x).
+\end{equation*}
+
+\end{definition}
+
+\begin{theorem}
+If the above Cauchy problem has a classical solution $u\in C^{1,2}([0,\infty)\times\mathbb{R},\mathbb{R})$ for every function $g\in C_c^\infty(\mathbb{R})$. then weak uniqueness holds for the time-homogeneous SDE
+
+\begin{equation} \label{time_homo_sde}
+dX_t=b(X_t)dt + \sigma(X_t)dW_t.
+\end{equation}
+
+\end{theorem}
+
+\begin{proof}
+Suppose $X$ and $\tilde{X}$ are two weak solutions to the SDE \eqref{time_homo_sde}. First, we aim to show that for each $t\geq0$, $X_t$ and $\tilde{X}_t$ have the same distribution. Define $w(s,x):=u(t-s,x)$, where $u$ is the solution to the Cauchy problem. Then, $w$ satisfies the following PDE:
+
+\begin{equation} \label{cauchy_pf_1}
+\partial_s w(s,x)+(\mathcal{A}w)(s,x)=0, \quad s,x\in[0,t]\times\mathbb{R}.
+\end{equation}
+Applying Ito's formula to $w(t,X-t)$, we get
+
+\begin{equation*}
+\begin{aligned}
+w(t,X_t)&=w(0,X_0)+\int^t_0\partial_sw(s,X_s)ds + \int^t_0\partial_xw(s,X_s)dX_s+\frac{1}{2}\int^t_0\sigma^2(X_s)\partial^2_{xx}w(s,X_s)ds\\
+&=w(0,X_0)+\int^t_0\partial_sw(s,X_s)ds + \int^t_0\partial_xw(s,X_s)b(X_s)ds+\int^t_0\partial_xw(s,X_s)\sigma(X_s)dW_s\\
+&\quad+\frac{1}{2}\int^t_0\sigma^2(X_s)\partial^2_{xx}w(s,X_s)ds\\
+&=w(0,X_0)+\int^t_0\left(\partial_sw(s,X_s) + (\mathcal{A}w)(s,X_s)\right)ds+\int^t_0\partial_xw(s,X_s)\sigma(X_s)dW_s\\
+&=w(0,X_0)+\int^t_0\partial_xw(s,X_s)\sigma(X_s)dW_s,
+\end{aligned}
+\end{equation*}
+where the stochastic integral is a local martingale. Using localization argument and taking expectation, we have
+
+\begin{equation*}
+\mathbb{E}[w(t,X_t)]=\mathbb{E}[w(0,X_0)].
+\end{equation*}
+Using the given initial condition, we get
+\begin{equation*}
+\mathbb{E}[g(X_t)]=\mathbb{E}[w(0,x)].
+\end{equation*}
+Same process can be equally applied to the other solution $\tilde{X}_t$, and we obtain $\mathbb{E}[g(X_t)]=\mathbb{E}[g(\tilde{X}_t)]=\mathbb{E}[w(0,x)]$. It implies that $X_t$ and $\tilde{X}_t$ have the same distribution.
+
+Next, we show that for all $n\in\mathbb{N}^*$ and any sequence $0\leq t_1<t_2<...<t_n$, the following is true:
+
+\begin{equation} \label{cauchy_pf_2}
+(X_{t_1},X_{t_2},...,X_{t_n})\eqd(\tilde{X}_{t_1},\tilde{X}_{t_2},...,\tilde{X}_{t_n}).
+\end{equation}
+We use induction. For $n=1$, it is apparent from the result we just showed. Assume \eqref{cauchy_pf_2} holds for some $n\geq1$, and denote by $\mu_n$ the associated probability measure. Consider two measurable set $A\subset\mathbb{R}^n$ and $\tilde{A}\subset\mathbb{R}$, we have
+
+\begin{equation*}
+\mathbb{P}((X_{t_1},X_{t_2},...,X_{t_n})\in A\times\tilde{A})=\int_A\mathbb{P}(X_{t_{n+1}}\in\tilde{A}|(X_{t_1},X_{t_2},...,X_{t_n})=x)\mu_n(dx).
+\end{equation*}
+Thus, if we can show the following holds, then we are done.
+
+\begin{equation*}
+\mathbb{P}(X_{t_{n+1}}\in\tilde{A}|(X_{t_1},X_{t_2},...,X_{t_n})=x)=\mathbb{P}(\tilde{X}_{t_{n+1}}\in\tilde{A}|(\tilde{X}_{t_1},\tilde{X}_{t_2},...,\tilde{X}_{t_n})=x)
+\end{equation*}
+This identity can be shown in the same way as we did in the first step, except for changing the initial condition to $X_{t_n}$. 
+
+\end{proof}
+
+
+
+
+
+
+
 
 
 
