@@ -906,6 +906,97 @@ This identity can be shown in the same way as we did in the first step, except f
 
 \end{proof}
 
+Next, we discuss another link between the SDE and the PDE, namely the famous Feynman-Kac representation. Loosely speaking, it connects the expected reward from the solution of a SDE to a PDE. Consider the following SDE
+
+\begin{equation} \label{feynman_kac_sde}
+dX_s = b(s,X_s)ds + \sigma(s,X_s)dW_s, \quad s\geq t,
+\end{equation}
+where $(t,x)\in[0,T]\times\mathbb{R}$, $X^{t,x}$ is the strong solution, and $x\in\mathbb{R}$ is the initial condition. The Feynman-Kac formula allows us to establish a link between the following expected reward
+
+\begin{equation} \label{feynman_kac_reward}
+v(t,x):=\mathbb{E}\left[e^{\int_t^Tk(u,X_u^{t,x})du}g(X_T^{t,x})+\int^T_te^{-\int^s_tk(u,X_u^{t,x})du}f(s,X_s^{t,x})ds\right],
+\end{equation}
+and the solution of the following PDE on $(t,x)\in[0,T]\times\mathbb{R}$
+
+\begin{equation} \label{feynman_kac_pde}
+k(t,x)w(t,x)-\mathcal{L}w(t,x)-f(t,x)=0, \quad w(T,x)=g(x),
+\end{equation}
+where $\mathcal{L}$ is the generator of $(t,X_t)$
+
+\begin{equation} \label{feynman_kac_generator}
+\mathcal{L}\psi(t,x):=\partial_t\psi(t,x)+\partial_x\psi(t,x)b(t,x)+\frac{1}{2}\partial^2_{xx}\psi(t,x)\sigma^2(t,x),
+\end{equation}
+for all $\psi(t,x)\in C^{1,2}([0,T]\times\mathbb{R})$.
+
+We assume that the functions $f,g,k,b,\sigma$ are continuous, $k$ is bounded from below by a finite constant \underline{$k$}, and both $f$ and $g$ have polynomial growth. Given that these assumptions hold, we can link \eqref{feynman_kac_reward} and \eqref{feynman_kac_pde} in two directions by the following two Propositions. 
+
+\begin{prop}
+Let $w\in C^0([0,T]\times\mathbb{R})\cap C^{1,2}([0,T],\mathbb{R})$ with polynomial growth be a continuous solution to the PDE \eqref{feynman_kac_pde}, then $w=v$ for $v$ defined in \eqref{feynman_kac_reward}.
+\end{prop}
+
+\begin{proof}
+Fix $(t,x)\in[0,T]\times\mathbb{R}$ and denote $X^{t,x}$ to be the solution to the SDE \eqref{feynman_kac_sde} starting from $x\in\mathbb{R}$ at time $t\in[0,T]$. We will apply Ito's formula between time $t$ and some well-chosen stopping time $\tau_n$ to the following:
+
+\begin{equation} \label{feynman_kac_ito}
+K_{t,x}(s)w(s,X_s^{t,x}), \quad \text{where} \quad K_{t,x}(s):=e^{\int^s_tk(u,X_u^{t,x})du}.
+\end{equation}
+First, applying Ito's formula to $w(s,X_s^{t,x})$, we have
+
+\begin{equation*}
+\begin{aligned}
+dw(s,X_s^{t,x})&=\partial_sw(s,X_s^{t,x})ds+\partial_xw(s,X_s^{t,x})dX_s^{t,x}+\frac{1}{2}\partial^2_{xx}w(s,X_s^{t,x})d\langle X^{t,x}\rangle_s\\
+&=(\mathcal{L}w)(s,X_s^{t,x})ds+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s,
+\end{aligned}
+\end{equation*}
+using the definition of the generator \eqref{feynman_kac_generator}. Then, applying Ito's formula to \eqref{feynman_kac_ito}, we have 
+
+\begin{equation*}
+\begin{aligned}
+d(K_{t,x}(s)w(s,X_s^{t,x}))&=dK_{t,x}(s)w(s,X_s^{t,x})+K_{t,x}(s)d(w(s,X_s^{t,x}))+d\langle w,K\rangle_s\\
+&=K_{t,x}(s)(-k(s,X_s^{t,x})w(s,X_s^{t,x})+(\mathcal{L}w)(s,X_s^{t,x})ds+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s)\\
+&=K_{t,x}(s)(-f(s,X_s^{t,x})+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s),
+\end{aligned}
+\end{equation*}
+where the last identity follows because $w$ is a solution to the PDE \eqref{feynman_kac_pde}. Then, we may write it in the integral form as follows
+
+\begin{equation*}
+\begin{aligned}
+w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)=w(t,x)-\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})+\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s,
+\end{aligned}
+\end{equation*}
+where we used the fact that $K_{t,x}(t)=1$, and $\tau_n$ is a stopping time to be define later. Taking expectations on both side, we have
+
+\begin{equation*}
+\begin{aligned}
+w(t,x)=\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)+\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})-\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
+\end{aligned}
+\end{equation*}
+Now, comparing this to the desired form in \eqref{feynman_kac_reward}, it remains to properly define the stopping time $\tau_n$ such that $\tau_n\rightarrow T$ as $n\rightarrow\infty$, and the integrand in the stochastic integral is bounded. Let's define the stopping time as
+
+\begin{equation*}
+\tau_n:=(T-\frac{1}{n})\wedge \inf \{s\geq t:|X_s^{t,x}|\geq n\}.
+\end{equation*}
+Through this definition, $|X_s^{t,x}|$ is bounded, and thus the integrand in the stochastic integral is bounded because of the smoothness of$w$ and continuity of $\sigma$. On the other hand, we have $\tau_n\rightarrow T$. By the dominated convergence theorem (using polynomial growth of $f,w$), we have
+
+\begin{equation*}
+\begin{aligned}
+w(t,x)=\lim_{n\rightarrow\infty}w(t,x)&=\lim_{n\rightarrow\infty}\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)+\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})\right]\\
+&=\mathbb{E}\left[w(T,X_{T}^{t,x})K_{t,x}(T)+\int_t^{T}K_{t,x}(s)f(s,X_s^{t,x})\right]\\
+&=\mathbb{E}\left[e^{\int_t^Tk(u,X_u^{t,x})du}g(X_T^{t,x})+\int^T_te^{-\int^s_tk(u,X_u^{t,x})du}f(s,X_s^{t,x})ds\right].
+\end{aligned}
+\end{equation*}
+The proof is complete.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
 
 
 
