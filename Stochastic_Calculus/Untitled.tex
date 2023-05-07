@@ -930,7 +930,7 @@ for all $\psi(t,x)\in C^{1,2}([0,T]\times\mathbb{R})$.
 
 We assume that the functions $f,g,k,b,\sigma$ are continuous, $k$ is bounded from below by a finite constant \underline{$k$}, and both $f$ and $g$ have polynomial growth. Given that these assumptions hold, we can link \eqref{feynman_kac_reward} and \eqref{feynman_kac_pde} in two directions by the following two Propositions. 
 
-\begin{prop}
+\begin{prop} \label{prop:pde_imply_reward}
 Let $w\in C^0([0,T]\times\mathbb{R})\cap C^{1,2}([0,T],\mathbb{R})$ with polynomial growth be a continuous solution to the PDE \eqref{feynman_kac_pde}, then $w=v$ for $v$ defined in \eqref{feynman_kac_reward}.
 \end{prop}
 
@@ -938,7 +938,7 @@ Let $w\in C^0([0,T]\times\mathbb{R})\cap C^{1,2}([0,T],\mathbb{R})$ with polynom
 Fix $(t,x)\in[0,T]\times\mathbb{R}$ and denote $X^{t,x}$ to be the solution to the SDE \eqref{feynman_kac_sde} starting from $x\in\mathbb{R}$ at time $t\in[0,T]$. We will apply Ito's formula between time $t$ and some well-chosen stopping time $\tau_n$ to the following:
 
 \begin{equation} \label{feynman_kac_ito}
-K_{t,x}(s)w(s,X_s^{t,x}), \quad \text{where} \quad K_{t,x}(s):=e^{\int^s_tk(u,X_u^{t,x})du}.
+K_{t,x}(s)w(s,X_s^{t,x}), \quad \text{where} \quad K_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}.
 \end{equation}
 First, applying Ito's formula to $w(s,X_s^{t,x})$, we have
 
@@ -988,6 +988,105 @@ w(t,x)=\lim_{n\rightarrow\infty}w(t,x)&=\lim_{n\rightarrow\infty}\mathbb{E}\left
 The proof is complete.
 \end{proof}
 
+Before showing the converse of the preceding result, the following result is necessary. 
+
+\begin{theorem} \label{thm:dp} \textcolor{red}{(Dynamic Programming Principle)}
+
+Let $\tau$ be a stopping time taking values in $[t,T]$, and $v$ satisfying the expected reward equation \eqref{feynman_kac_reward}. Then:
+
+\begin{equation}
+v(t,x)=\mathbb{E}\left[K_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds\right],
+\end{equation}
+
+\end{theorem}
+
+\begin{proof}
+From the tower rule, we have
+
+\begin{equation} \label{dp_1}
+\begin{aligned}
+v(t,x)&=\mathbb{E}\left[e^{\int_t^Tk(u,X_u^{t,x})du}g(X_T^{t,x})+\int^T_te^{-\int^s_tk(u,X_u^{t,x})du}f(s,X_s^{t,x})ds\right]\\
+&=\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})+\int^T_tK_{t,x}(s)f(s,X_s^{t,x})ds\right]\\
+&=\left.\mathbb{E}\left[\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})+\int^T_tK_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+\left.\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})\right\vert\mathcal{F}_\tau\right]+\left.\mathbb{E}\left[\int^T_\tau K_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right].
+\end{aligned}
+\end{equation}
+In addition, by definition of $K$, for all $s\geq \tau$, we have
+
+\begin{equation*}
+K_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}=e^{-\int^\tau_tk(u,X_u^{t,x})du}e^{-\int^s_\tau k(u,X_u^{t,x})du}=K_{t,x}(\tau)K_{\tau,X_\tau^{t,x}}(s).
+\end{equation*}
+Continuing from \eqref{dp_1}, we have
+
+\begin{equation*}
+\begin{aligned}
+v(t,x)&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\left.\mathbb{E}\left[K_{\tau,X_\tau^{t,x}}(T)g(X_T^{t,x})+\int^T_\tau K_{\tau,X_\tau^{t,x}}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\left.\mathbb{E}\left[K_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau K_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\mathbb{E}\left[K_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau K_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right]\right]\\
+&=\mathbb{E}\left[K_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds\right],
+\end{aligned}
+\end{equation*}
+where we used $y:=X_\tau^{t,x}$ and, by pathwise uniqueness, $X_s^{t,x}=X_\tau^{t,y}$. The proof is complete.
+\end{proof}
+
+Now, we show the converse of Proposition \ref{prop:pde_imply_reward}.
+
+\begin{prop}
+If $v$, defined by the expected reward in \eqref{feynman_kac_reward}, is $C^{1,2}([0,T],\mathbb{R})$, then $v$ is the solution to the PDE \eqref{feynman_kac_pde}.
+\end{prop}
+
+\begin{proof}
+The proof is very similar to the proof for Proposition \ref{prop:pde_imply_reward}. We would like to apply Ito's formula to 
+
+\begin{equation*}
+K_{t,x}(s)v(s,X_s^{t,x}),
+\end{equation*}
+where $K_{t,x}(s)$ in the same way as \eqref{feynman_kac_ito}. With exactly the same step, we obtain the following
+
+\begin{equation*}
+\begin{aligned}
+d(K_{t,x}(s)v(s,X_s^{t,x}))=K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x})ds+\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s).
+\end{aligned}
+\end{equation*}
+In the integral form, we have
+
+\begin{equation*}
+\begin{aligned}
+v(t,x)=v(\tau,X_\tau^{t,x})k_{t,x}(\tau)-\int_t^\tau K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds-\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s.
+\end{aligned}
+\end{equation*}
+Taking expectations, we get
+
+\begin{equation*}
+\begin{aligned}
+v(t,x)=\mathbb{E}\left[v(\tau,X_\tau^{t,x})k_{t,x}(\tau)-\int_t^\tau K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds\right]-\mathbb{E}\left[\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
+\end{aligned}
+\end{equation*}
+Based on the dynamic programming principle from Theorem \ref{thm:dp}, we have 
+
+\begin{equation*}
+0=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})\right]-\mathbb{E}\left[\int^\tau_tK_{t,x}(s)\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right]
+\end{equation*}
+Then, we would like to define the stopping time $\tau$ so that it is close to $t$ at some point, which makes the expectation of the stochastic integral vanish. Define
+
+\begin{equation*}
+\tau:=(t+h)\wedge\inf\{s\geq t: |X_s^{t,x}-x|\geq 1\}.
+\end{equation*}
+The integrand of the stochastic integral is bounded, and we can take $h$ to be small enough, so that 
+
+\begin{equation*}
+0=\mathbb{E}\left[\frac{1}{h}\int^{t+h}_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds\right]
+\end{equation*}
+Since the integrand is continuous in time, we have the following convergence result
+\begin{equation*}
+\lim_{h\rightarrow0}\frac{1}{h}\int^{t+h}_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds=(kv-\mathcal{L}v-f)(t,x)
+\end{equation*}
+By the dominated convergence theorem, we have
+\begin{equation*}
+(kv-\mathcal{L}v-f)(t,x)=\lim_{h\rightarrow0}\mathbb{E}\left[\frac{1}{h}\int^{t+h}_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds\right]=0
+\end{equation*}
+The proof is complete.
+\end{proof}
 
 
 
