@@ -7,6 +7,7 @@
 \usepackage{xcolor}
 \usepackage{bbm}
 \usepackage{arydshln}
+\usepackage{mathtools}
 
 %\usepackage[includefoot, a4paper, total={7in, 9in}]{geometry}
 \usepackage{geometry}
@@ -29,6 +30,8 @@
 \newtheorem{ex}{Example}
 \newtheorem{rk}{Remark}
 \newtheorem{prop}{Proposition}
+
+\newcommand\eqd{\stackrel{\mathclap{\normalfont\mbox{d}}}{=}}
 
 \begin{document}
 
@@ -382,7 +385,7 @@ Then, using the Gronwall inequality, we have $\mathbb{E}[|X_t-\tilde{X}_t|_+]=0$
 
 Now, we shift gear to look at the weak solution of an SDE. Consider the following example.
 
-\begin{ex} \textcolor{red}{Tanaka's SDE}
+\begin{ex} \textcolor{red}{(Tanaka's SDE)}
 
 Consider the following SDE
 
@@ -408,7 +411,8 @@ We showed that $\tilde{X}_t$ is indeed a weak solution.
 
 Now, we present the conditions that guarantee weak existence and uniqueness for a special form of the SDE \eqref{sde}.
 
-\begin{theorem}
+\begin{theorem} \label{thm:weak_exist_unique} \textcolor{red}{(Weak Existence and Uniqueness)}
+
 Consider the following SDE
 
 \begin{equation} \label{sde_weak_sol}
@@ -722,18 +726,112 @@ $Z:=\left[
 $. 
 
 Now, we define $R:=Y^T(Z^T)^{-1}$. One may check that it satisfies all the requirements. 
-    
-    
+
 \end{proof}
 
+The martingale problem provides a natural way to show the existence of a weak solution to a SDE. We have shown in Theorem \ref{thm:weak_exist_unique} the weak existence and uniqueness for a special class of SDE with dispersion coefficient of $1$. Now, we can leverage the results from the martingale problem to provide conditions for weak existence for a broader class of SDEs. 
 
+\begin{theorem} \textcolor{red}{(Weak Existence)}
 
+If $b$ and $\sigma$ are two bounded and continuous functions, then weak existence holds for the SDE
+\eqref{sde}, which is copied below for reference
 
+\begin{equation*}
+dX_t=b(t,X_t)dt+\sigma(t,X_t)dW_t
+\end{equation*}
+\end{theorem}
 
+\begin{proof}
+We first consider the approximation of the weak solution $X$ using a stochastic Euler scheme: for each $N\in\mathbb{N}^*$, we define the continuous process $X^N$ recursively on each time interval $t\in(t^N_k,t^N_{k+1}]$, where $t_k^N=k2^{-N}$ for all $k\in\mathbb{N}$, by
 
+\begin{equation*}
+X_t^N:=X_{t_k}^N+b(t_k^N,X_{t_k^N})(t-t_k^N)+\sigma(t_k^N,X_{t_k^N})(W_t-W_{t_k^N}).
+\end{equation*}
 
+Consider the sequence of probability measures $\mathbb{P}^N:=\mathbb{P}(X^N)^{-1}$ induced by these processes. Our first goal is to show that $\mathbb{P}^N$ converges (up to some subsequence) when $N\rightarrow\infty$ on the canonical space $C((0,T],\mathbb{R})$. In order to do this, we first show that $\{\mathbb{P}^N\}_{N\in\mathbb{N}^*}$ is tight using the \textcolor{red}{Arzela-Ascoli's theorem}. Then, the \textcolor{red}{Prokhorov's theorem} gives us the desired conclusion. By the definition of $X_N$, we have 
 
+\begin{equation*}
+\sup_{t\in[0,T]}|X_t^N|\leq|X_0|+||b||_\infty T+ \sup_{t\in[0,T||\sigma||_\infty]} B_t,
+\end{equation*}
+where $B$ is a time changed Brownian motion constructed by the DDS theorem. Then, we have 
 
+\begin{equation*}
+\begin{aligned}
+\mathbb{P}\left(\sup_{t\in[0,T]}|X_t^N|>K\right)&\leq\mathbb{P}\left(|X_0|+||b||_\infty T+ \sup_{t\in[0,T||\sigma||_\infty]} B_t>K\right),\\
+\lim_{K\rightarrow\infty}\limsup_{N\rightarrow\infty}\mathbb{P}\left(\sup_{t\in[0,T]}|X_t^N|>K\right)&\leq\lim_{K\rightarrow\infty}\limsup_{N\rightarrow\infty}\mathbb{P}\left(|X_0|+||b||_\infty T+ \sup_{t\in[0,T||\sigma||_\infty]} B_t>K\right)=0,
+\end{aligned}
+\end{equation*}
+because both functions $b$ and $\sigma$ are bounded. This provides us the first condition in the Arzela-Ascoli's theorem. Then, we check the second condition, starting with 
+
+\begin{equation*}
+\sup_{s,t\in[0,T],|t-s|\leq\delta}|X_t^N-X_s^N|\leq||b||_\infty \delta+ \sup_{s,t\in[0,T||\sigma||_\infty],|t-s|\leq\delta||\sigma||_\infty} B_t,
+\end{equation*}
+
+then, 
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{P}\left(\sup_{s,t\in[0,T],|t-s|\leq\delta}|X_t^N-X_s^N|>\Delta\right)&\leq\mathbb{P}\left(||b||_\infty \delta+ \sup_{s,t\in[0,T||\sigma||_\infty],|t-s|\leq\delta||\sigma||_\infty} B_t>\Delta\right),\\
+\lim_{\delta\rightarrow0}\limsup_{N\rightarrow\infty}\mathbb{P}\left(\sup_{s,t\in[0,T],|t-s|\leq\delta}|X_t^N-X_s^N|>\Delta\right)&\leq\lim_{\delta\rightarrow0}\limsup_{N\rightarrow\infty}\mathbb{P}\left(||b||_\infty \delta+ \sup_{s,t\in[0,T||\sigma||_\infty],|t-s|\leq\delta||\sigma||_\infty} B_t>\Delta\right)=0,
+\end{aligned}
+\end{equation*}
+by the continuity of Brownian motion. We just proved that both conditions in the Arzela-Ascoli's theorem are satisfied, which allows us to conclude that the sequence of measures $\{\mathbb{P}^N\}_{N\in\mathbb{N}^*}$ is tight. Prokhorov's theorem then states that $\{\mathbb{P}^N\}_{N\in\mathbb{N}^*}$ converges to $\mathbb{P}^\infty$ up to a subsequence. 
+
+Let $X$ denote the process associated with $\mathbb{P}^\infty$. Since we just proved $X^N\eqd X$, by Skorokhod Representation theorem, there exists a sequence of process$\{\tilde{X}_N\}_{N\in\mathbb{N}^*}$ with $\tilde{X}_N\eqd X_N$ and $\tilde{X}\eqd X$, such that $\tilde{X}_N\rightarrow \tilde{X}$ almost surely. Note that the process $X^N_t$ is solution to a SDE, and thus its distribution $\mathbb{P}^N$ is solution to a martingale problem. Since $\tilde{X}^N\eqd X_N$, $\tilde{X}^N$ is also solution to the same martingale problem, given by:
+
+\begin{equation*}
+\tilde{M}^{N,f}_t=f(\tilde{X}_t^N)-f(\tilde{X}_0^N)-\int^t_0\left(b(s_k^N,\tilde{X}_s^N)f'(\tilde{X}^N_s)+\frac{1}{2}\sigma^2(s_k^N,\tilde{X}^N_s)f''(\tilde{X}^N_s)\right)ds,
+\end{equation*}
+where $t\in[t_k,t_{k+1}]$, and for all $f\in C^2([0,T],\mathbb{R})$. $\tilde{M}^{N,f}_t$ is a martingale. Since $\tilde{X}_N\rightarrow \tilde{X}$ almost surely, we have 
+
+\begin{equation*}
+\tilde{M}^{f}_t=\lim_{N\rightarrow\infty}\tilde{M}^{N,f}_t=f(\tilde{X}_t)-f(\tilde{X}_0)-\int^t_0\left(b(s_k,\tilde{X}_s)f'(\tilde{X}_s)+\frac{1}{2}\sigma^2(s_k,\tilde{X}_s)f''(\tilde{X}_s)\right)ds.
+\end{equation*}
+If we can show that $\tilde{M}^{f}_t$ is a martingale under the measure $\tilde{\mathbb{P}}$ associated with $\tilde{X}$, then we are done. We claim that this is indeed true and omit the proof. 
+
+\end{proof}
+
+The martingale problem can also be applied to the Moran's model of gene frequencies in mathematical biology. 
+
+\begin{definition} \textcolor{red}{(Moran's Model)}
+
+Consider a population of $N$ individuals. Each individual has either gene $0$ or $1$. At each random time $\tau_i, i\in\mathbb{N}^*$, two individuals mate, i.e., they produce two offsprings and both parents die. The model can be more general, but we make this assumption to keep the population constant. We further assume that the random time $\tau$ correspond to the arrival time of a Poisson process with intensity  
+ $\begin{pmatrix}
+  N\\ 
+  2
+\end{pmatrix}$, 
+i.e., 
+
+\begin{equation*}
+\tau_1, \tau_2-\tau_1, \tau_3-\tau_2, ..., \text{are i.i.d. with disctibution} \quad
+\epsilon\left(\begin{pmatrix}
+  N\\ 
+  2
+\end{pmatrix}\right).
+\end{equation*}
+The offsprings both inherit one of the genes of the parents at random. 
+
+Let $N^1_t$ be the number of individuals carrying gene $1$ at time $t\geq0$. We naturally define the
+frequency of gene $1$ at time $t$ for a population of $N$ individuals by
+
+\begin{equation*}
+X_t^N:=\frac{N^1_t}{N}.
+\end{equation*}
+
+\end{definition}
+
+The main result is the following.
+
+\begin{theorem}
+Let $x_0\in[0,1]$, and assume that $\lim_{N\rightarrow0}X_0^N=x_0$. Then, as $N\rightarrow\infty$, $X^N$ converges in distribution to some random process $X$, which is the weak solution to the following SDE, called the Wright-Fisher diffusion,
+
+\begin{equation*}
+dX_t=\frac{1}{\sqrt{2}}\sqrt{X_t(1-X_t)}dW_t, \quad X_0=x_0,
+\end{equation*}
+where $W$ is a one-dimensional Brownian motion.
+\end{theorem}
+
+The proof is quite involved and shown below. 
 
 
 

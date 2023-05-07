@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  6 MAY 2023 16:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  6 MAY 2023 20:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -310,23 +310,54 @@ Package: arydshln 2019/02/21 v1.76
 \adl@everyvbox=\toks28
 \adl@LTpagetotal=\dimen161
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count292
+\calc@Bcount=\count293
+\calc@Adimen=\dimen162
+\calc@Bdimen=\dimen163
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count294
+\calc@Cskip=\skip59
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count295
+\l_MT_multwidth_dim=\dimen164
+\origjot=\skip60
+\l_MT_shortvdotswithinadjustabove_dim=\dimen165
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen166
+\l_MT_above_intertext_sep=\dimen167
+\l_MT_below_intertext_sep=\dimen168
+\l_MT_above_shortintertext_sep=\dimen169
+\l_MT_below_shortintertext_sep=\dimen170
+\xmathstrut@box=\box54
+\xmathstrut@dim=\dimen171
+)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count292
-\Gm@cntv=\count293
-\c@Gm@tempcnt=\count294
-\Gm@bindingoffset=\dimen162
-\Gm@wd@mp=\dimen163
-\Gm@odd@mp=\dimen164
-\Gm@even@mp=\dimen165
-\Gm@layoutwidth=\dimen166
-\Gm@layoutheight=\dimen167
-\Gm@layouthoffset=\dimen168
-\Gm@layoutvoffset=\dimen169
+\Gm@cnth=\count296
+\Gm@cntv=\count297
+\c@Gm@tempcnt=\count298
+\Gm@bindingoffset=\dimen172
+\Gm@wd@mp=\dimen173
+\Gm@odd@mp=\dimen174
+\Gm@even@mp=\dimen175
+\Gm@layoutwidth=\dimen176
+\Gm@layoutheight=\dimen177
+\Gm@layouthoffset=\dimen178
+\Gm@layoutvoffset=\dimen179
 \Gm@dimlist=\toks29
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/blindtext/blindtext.sty
@@ -335,24 +366,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count295
-\c@Blindtext=\count296
-\c@blind@countparstart=\count297
-\blind@countxx=\count298
-\blindtext@numBlindtext=\count299
-\blind@countyy=\count300
-\c@blindlist=\count301
-\c@blindlistlevel=\count302
-\c@blindlist@level=\count303
-\blind@listitem=\count304
-\c@blind@listcount=\count305
-\c@blind@levelcount=\count306
-\blind@mathformula=\count307
-\blind@Mathformula=\count308
-\c@blind@randomcount=\count309
-\c@blind@randommax=\count310
-\c@blind@pangramcount=\count311
-\c@blind@pangrammax=\count312
+\c@blindtext=\count299
+\c@Blindtext=\count300
+\c@blind@countparstart=\count301
+\blind@countxx=\count302
+\blindtext@numBlindtext=\count303
+\blind@countyy=\count304
+\c@blindlist=\count305
+\c@blindlistlevel=\count306
+\c@blindlist@level=\count307
+\blind@listitem=\count308
+\c@blind@listcount=\count309
+\c@blind@levelcount=\count310
+\blind@mathformula=\count311
+\blind@Mathformula=\count312
+\c@blind@randomcount=\count313
+\c@blind@randommax=\count314
+\c@blind@pangramcount=\count315
+\c@blind@pangrammax=\count316
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2023/03/07 v2.0a lastpage: 2.09 or 2e? (HMM)
@@ -367,50 +398,50 @@ Package: lastpagemodern 2023-03-07 v2.0a Refers to last page's name (HMM; JPG)
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip57
-\f@nch@O@elh=\skip58
-\f@nch@O@erh=\skip59
-\f@nch@O@olh=\skip60
-\f@nch@O@orh=\skip61
-\f@nch@O@elf=\skip62
-\f@nch@O@erf=\skip63
-\f@nch@O@olf=\skip64
-\f@nch@O@orf=\skip65
+\f@nch@headwidth=\skip61
+\f@nch@O@elh=\skip62
+\f@nch@O@erh=\skip63
+\f@nch@O@olh=\skip64
+\f@nch@O@orh=\skip65
+\f@nch@O@elf=\skip66
+\f@nch@O@erf=\skip67
+\f@nch@O@olf=\skip68
+\f@nch@O@orf=\skip69
 )
-\c@definition=\count313
-\c@theorem=\count314
-\c@lemma=\count315
-\c@ex=\count316
-\c@rk=\count317
-\c@prop=\count318
+\c@definition=\count317
+\c@theorem=\count318
+\c@lemma=\count319
+\c@ex=\count320
+\c@rk=\count321
+\c@prop=\count322
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count319
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count323
+\l__pdf_internal_box=\box55
 )
 (./Untitled.aux)
 \openout1 = `Untitled.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-Package hyperref Info: Link coloring OFF on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+Package hyperref Info: Link coloring OFF on input line 36.
  (./Untitled.out) (./Untitled.out)
 \@outlinefile=\write3
 \openout3 = `Untitled.out'.
@@ -418,17 +449,33 @@ Package hyperref Info: Link coloring OFF on input line 33.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
-\scratchdimen=\dimen170
-\scratchbox=\box55
-\nofMPsegments=\count321
-\nofMParguments=\count322
+\scratchcounter=\count324
+\scratchdimen=\dimen180
+\scratchbox=\box56
+\nofMPsegments=\count325
+\nofMParguments=\count326
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count323
-\MPscratchDim=\dimen171
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen181
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
 \everyMPtoPDFconversion=\toks31
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen182
+\Gin@req@width=\dimen183
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -464,12 +511,12 @@ Package hyperref Info: Link coloring OFF on input line 33.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -478,14 +525,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 368
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 371
 .
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [5] [6]
 [7] [8]
-Overfull \hbox (42.15727pt too wide) in paragraph at lines 599--601
+Overfull \hbox (42.15727pt too wide) in paragraph at lines 603--605
 \OT1/cmr/m/n/10 says that there ex-ists a d-dimensional Brow-n-ian mo-tion $[]$
 , de-fined on an ex-ten-sion $([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ of
  $(\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ([0\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 1\O
@@ -494,20 +541,25 @@ T1/cmr/m/n/10 )[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 B\OT1/cmr/m/n/10 (\OML/cmm
 0 )[])\OML/cmm/m/it/10 ; \U/msb/m/n/10 P\OT1/cmr/m/n/10 )$
  []
 
-[9] [10] 
+[9] [10]
+Overfull \hbox (13.82503pt too wide) detected at line 777
+[][]
+ []
+
+[11] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
 Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10869 strings out of 476025
- 168222 string characters out of 5790017
- 1877388 words of memory out of 5000000
- 31136 multiletter control sequences out of 15000+600000
+ 11759 strings out of 476025
+ 184282 string characters out of 5790017
+ 1879388 words of memory out of 5000000
+ 32001 multiletter control sequences out of 15000+600000
  515733 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,76p,910b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,76p,910b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/bryant/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm
 10.600pk></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
@@ -523,10 +575,10 @@ al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
 /texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
 cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Untitled.pdf (10 pages, 219368 bytes).
+Output written on Untitled.pdf (11 pages, 231301 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
