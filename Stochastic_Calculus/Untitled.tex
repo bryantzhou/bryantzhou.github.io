@@ -35,6 +35,8 @@
 
 \begin{document}
 
+    \section{Stochastic Differential Equation}
+
 Consider the following stochastic differential equation (SDE)
 
 \begin{equation} \label{sde}
@@ -46,7 +48,8 @@ where $b$ is drift term, $\sigma$ is the dispersion, and $W_t$ is a one-dimensio
 X_t = x + \int_0^t b(s,X_s)ds + \int^t_0 \sigma(s,X_s)dW_s.
 \end{equation*}
 
-In this section, we are interested in the conditions under which the SDE \eqref{sde} has strong existence and strong uniqueness. Recall that for an ordinary differential equation (ODE), shown as below:
+\subsection{Strong Solution}
+In this part, we are interested in the conditions under which the SDE \eqref{sde} has strong existence and strong uniqueness. Recall that for an ordinary differential equation (ODE), shown as below:
 
 \begin{equation} \label{ode}
 x'(t) = b(t,x(t)),
@@ -383,6 +386,7 @@ The proof is similar to the previous one, except we would like to show $\mathbb{
 Then, using the Gronwall inequality, we have $\mathbb{E}[|X_t-\tilde{X}_t|_+]=0$, which implies $X_t\leq\tilde{X}_t$ for all $t$ almost surely. 
 \end{proof}
 
+\subsection{Weak Solution}
 Now, we shift gear to look at the weak solution of an SDE. Consider the following example.
 
 \begin{ex} \textcolor{red}{(Tanaka's SDE)}
@@ -492,6 +496,7 @@ Pathwise uniqueness implies uniqueness in the sense of probability law.
 The proof is quite involved, so we only show the basic idea behind it. Consider two weak solutions to the SDE \eqref{sde_weak_sol}, $(X,W)$ and $(\tilde{X},\tilde{W})$. Since they possibly live in different probability spaces, we have to create a new canonical space and copy both solutions to the same probability space. Then, pathwise uniqueness in the new space directly implies uniqueness in distribution. 
 \end{proof}
 
+\subsection{Martingale Problem}
 The weak solution to an SDE discussed so far is obtained through finding a process with the right law (and doing so uniquely for weak uniqueness). A variation on this approach, developed by Stroock \& Varadhan (1969), formulates the search for the law of a diffusion process with given drift and dispersion coefficients in terms of a martingale problem. 
 
 Consider the same SDE as in \eqref{sde}, which we copy to here for better reference
@@ -833,7 +838,10 @@ where $W$ is a one-dimensional Brownian motion.
 
 The proof is quite involved and shown below. 
 
+\section{Linkage Between SDE and PDE}
 Now, we build the connection between SDE and PDE through the martingale problem.
+
+\subsection{Cauchy Problem}
 
 \begin{definition} \textcolor{red}{(Cauchy Problem)}
 
@@ -906,6 +914,8 @@ This identity can be shown in the same way as we did in the first step, except f
 
 \end{proof}
 
+\subsection{Feynman-Kac Representation}
+
 Next, we discuss another link between the SDE and the PDE, namely the famous Feynman-Kac representation. Loosely speaking, it connects the expected reward from the solution of a SDE to a PDE. Consider the following SDE
 
 \begin{equation} \label{feynman_kac_sde}
@@ -938,7 +948,7 @@ Let $w\in C^0([0,T]\times\mathbb{R})\cap C^{1,2}([0,T],\mathbb{R})$ with polynom
 Fix $(t,x)\in[0,T]\times\mathbb{R}$ and denote $X^{t,x}$ to be the solution to the SDE \eqref{feynman_kac_sde} starting from $x\in\mathbb{R}$ at time $t\in[0,T]$. We will apply Ito's formula between time $t$ and some well-chosen stopping time $\tau_n$ to the following:
 
 \begin{equation} \label{feynman_kac_ito}
-K_{t,x}(s)w(s,X_s^{t,x}), \quad \text{where} \quad K_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}.
+\mathcal{K}_{t,x}(s)w(s,X_s^{t,x}), \quad \text{where} \quad \mathcal{K}_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}.
 \end{equation}
 First, applying Ito's formula to $w(s,X_s^{t,x})$, we have
 
@@ -952,23 +962,23 @@ using the definition of the generator \eqref{feynman_kac_generator}. Then, apply
 
 \begin{equation*}
 \begin{aligned}
-d(K_{t,x}(s)w(s,X_s^{t,x}))&=dK_{t,x}(s)w(s,X_s^{t,x})+K_{t,x}(s)d(w(s,X_s^{t,x}))+d\langle w,K\rangle_s\\
-&=K_{t,x}(s)(-k(s,X_s^{t,x})w(s,X_s^{t,x})+(\mathcal{L}w)(s,X_s^{t,x})ds+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s)\\
-&=K_{t,x}(s)(-f(s,X_s^{t,x})+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s),
+d(K_{t,x}(s)w(s,X_s^{t,x}))&=d\mathcal{K}_{t,x}(s)w(s,X_s^{t,x})+\mathcal{K}_{t,x}(s)d(w(s,X_s^{t,x}))+d\langle w,K\rangle_s\\
+&=\mathcal{K}_{t,x}(s)(-k(s,X_s^{t,x})w(s,X_s^{t,x})+(\mathcal{L}w)(s,X_s^{t,x})ds+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s)\\
+&=\mathcal{K}_{t,x}(s)(-f(s,X_s^{t,x})+\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s),
 \end{aligned}
 \end{equation*}
 where the last identity follows because $w$ is a solution to the PDE \eqref{feynman_kac_pde}. Then, we may write it in the integral form as follows
 
 \begin{equation*}
 \begin{aligned}
-w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)=w(t,x)-\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})+\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s,
+w(\tau_n,X_{\tau_n}^{t,x})\mathcal{K}_{t,x}(\tau_n)=w(t,x)-\int_t^{\tau_n}\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})+\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s,
 \end{aligned}
 \end{equation*}
 where we used the fact that $K_{t,x}(t)=1$, and $\tau_n$ is a stopping time to be define later. Taking expectations on both side, we have
 
 \begin{equation*}
 \begin{aligned}
-w(t,x)=\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)+\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})-\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
+w(t,x)=\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})\mathcal{K}_{t,x}(\tau_n)+\int_t^{\tau_n}\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})-\int_t^{\tau_n}\partial_xw(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
 \end{aligned}
 \end{equation*}
 Now, comparing this to the desired form in \eqref{feynman_kac_reward}, it remains to properly define the stopping time $\tau_n$ such that $\tau_n\rightarrow T$ as $n\rightarrow\infty$, and the integrand in the stochastic integral is bounded. Let's define the stopping time as
@@ -980,8 +990,8 @@ Through this definition, $|X_s^{t,x}|$ is bounded, and thus the integrand in the
 
 \begin{equation*}
 \begin{aligned}
-w(t,x)=\lim_{n\rightarrow\infty}w(t,x)&=\lim_{n\rightarrow\infty}\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})K_{t,x}(\tau_n)+\int_t^{\tau_n}K_{t,x}(s)f(s,X_s^{t,x})\right]\\
-&=\mathbb{E}\left[w(T,X_{T}^{t,x})K_{t,x}(T)+\int_t^{T}K_{t,x}(s)f(s,X_s^{t,x})\right]\\
+w(t,x)=\lim_{n\rightarrow\infty}w(t,x)&=\lim_{n\rightarrow\infty}\mathbb{E}\left[w(\tau_n,X_{\tau_n}^{t,x})\mathcal{K}_{t,x}(\tau_n)+\int_t^{\tau_n}\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})\right]\\
+&=\mathbb{E}\left[w(T,X_{T}^{t,x})\mathcal{K}_{t,x}(T)+\int_t^{T}\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})\right]\\
 &=\mathbb{E}\left[e^{\int_t^Tk(u,X_u^{t,x})du}g(X_T^{t,x})+\int^T_te^{-\int^s_tk(u,X_u^{t,x})du}f(s,X_s^{t,x})ds\right].
 \end{aligned}
 \end{equation*}
@@ -995,7 +1005,7 @@ Before showing the converse of the preceding result, the following result is nec
 Let $\tau$ be a stopping time taking values in $[t,T]$, and $v$ satisfying the expected reward equation \eqref{feynman_kac_reward}. Then:
 
 \begin{equation}
-v(t,x)=\mathbb{E}\left[K_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds\right],
+v(t,x)=\mathbb{E}\left[\mathcal{K}_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds\right],
 \end{equation}
 
 \end{theorem}
@@ -1006,24 +1016,24 @@ From the tower rule, we have
 \begin{equation} \label{dp_1}
 \begin{aligned}
 v(t,x)&=\mathbb{E}\left[e^{\int_t^Tk(u,X_u^{t,x})du}g(X_T^{t,x})+\int^T_te^{-\int^s_tk(u,X_u^{t,x})du}f(s,X_s^{t,x})ds\right]\\
-&=\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})+\int^T_tK_{t,x}(s)f(s,X_s^{t,x})ds\right]\\
-&=\left.\mathbb{E}\left[\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})+\int^T_tK_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
-&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+\left.\mathbb{E}\left[K_{t,x}(T)g(X_T^{t,x})\right\vert\mathcal{F}_\tau\right]+\left.\mathbb{E}\left[\int^T_\tau K_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right].
+&=\mathbb{E}\left[\mathcal{K}_{t,x}(T)g(X_T^{t,x})+\int^T_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds\right]\\
+&=\left.\mathbb{E}\left[\mathbb{E}\left[\mathcal{K}_{t,x}(T)g(X_T^{t,x})+\int^T_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds+\left.\mathbb{E}\left[\mathcal{K}_{t,x}(T)g(X_T^{t,x})\right\vert\mathcal{F}_\tau\right]+\left.\mathbb{E}\left[\int^T_\tau \mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right].
 \end{aligned}
 \end{equation}
 In addition, by definition of $K$, for all $s\geq \tau$, we have
 
 \begin{equation*}
-K_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}=e^{-\int^\tau_tk(u,X_u^{t,x})du}e^{-\int^s_\tau k(u,X_u^{t,x})du}=K_{t,x}(\tau)K_{\tau,X_\tau^{t,x}}(s).
+\mathcal{K}_{t,x}(s):=e^{-\int^s_tk(u,X_u^{t,x})du}=e^{-\int^\tau_tk(u,X_u^{t,x})du}e^{-\int^s_\tau k(u,X_u^{t,x})du}=\mathcal{K}_{t,x}(\tau)\mathcal{K}_{\tau,X_\tau^{t,x}}(s).
 \end{equation*}
 Continuing from \eqref{dp_1}, we have
 
 \begin{equation*}
 \begin{aligned}
-v(t,x)&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\left.\mathbb{E}\left[K_{\tau,X_\tau^{t,x}}(T)g(X_T^{t,x})+\int^T_\tau K_{\tau,X_\tau^{t,x}}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
-&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\left.\mathbb{E}\left[K_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau K_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right\vert\mathcal{F}_\tau\right]\right]\\
-&=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\mathbb{E}\left[K_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau K_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right]\right]\\
-&=\mathbb{E}\left[K_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_tK_{t,x}(s)f(s,X_s^{t,x})ds\right],
+v(t,x)&=\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds+K_{t,x}(\tau)\left.\mathbb{E}\left[\mathcal{K}_{\tau,X_\tau^{t,x}}(T)g(X_T^{t,x})+\int^T_\tau K_{\tau,X_\tau^{t,x}}(s)f(s,X_s^{t,x})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds+\mathcal{K}_{t,x}(\tau)\left.\mathbb{E}\left[\mathcal{K}_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau \mathcal{K}_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right\vert\mathcal{F}_\tau\right]\right]\\
+&=\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds+\mathcal{K}_{t,x}(\tau)\mathbb{E}\left[\mathcal{K}_{\tau,y}(T)g(X_T^{\tau,y})+\int^T_\tau \mathcal{K}_{\tau,y}(s)f(s,X_s^{\tau,y})ds\right]\right]\\
+&=\mathbb{E}\left[\mathcal{K}_{t,x}(\tau)v(\tau,X_\tau^{t,x})+\int^\tau_t\mathcal{K}_{t,x}(s)f(s,X_s^{t,x})ds\right],
 \end{aligned}
 \end{equation*}
 where we used $y:=X_\tau^{t,x}$ and, by pathwise uniqueness, $X_s^{t,x}=X_\tau^{t,y}$. The proof is complete.
@@ -1039,33 +1049,33 @@ If $v$, defined by the expected reward in \eqref{feynman_kac_reward}, is $C^{1,2
 The proof is very similar to the proof for Proposition \ref{prop:pde_imply_reward}. We would like to apply Ito's formula to 
 
 \begin{equation*}
-K_{t,x}(s)v(s,X_s^{t,x}),
+\mathcal{K}_{t,x}(s)v(s,X_s^{t,x}),
 \end{equation*}
 where $K_{t,x}(s)$ in the same way as \eqref{feynman_kac_ito}. With exactly the same step, we obtain the following
 
 \begin{equation*}
 \begin{aligned}
-d(K_{t,x}(s)v(s,X_s^{t,x}))=K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x})ds+\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s).
+d(K_{t,x}(s)v(s,X_s^{t,x}))=\mathcal{K}_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x})ds+\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s).
 \end{aligned}
 \end{equation*}
 In the integral form, we have
 
 \begin{equation*}
 \begin{aligned}
-v(t,x)=v(\tau,X_\tau^{t,x})k_{t,x}(\tau)-\int_t^\tau K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds-\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s.
+v(t,x)=v(\tau,X_\tau^{t,x})\mathcal{K}_{t,x}(\tau)-\int_t^\tau \mathcal{K}_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds-\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s.
 \end{aligned}
 \end{equation*}
 Taking expectations, we get
 
 \begin{equation*}
 \begin{aligned}
-v(t,x)=\mathbb{E}\left[v(\tau,X_\tau^{t,x})k_{t,x}(\tau)-\int_t^\tau K_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds\right]-\mathbb{E}\left[\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
+v(t,x)=\mathbb{E}\left[v(\tau,X_\tau^{t,x})\mathcal{K}_{t,x}(\tau)-\int_t^\tau \mathcal{K}_{t,x}(s)(-k(s,X_s^{t,x})v(s,X_s^{t,x})+(\mathcal{L}v)(s,X_s^{t,x}))ds\right]-\mathbb{E}\left[\int^\tau_t \partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right].
 \end{aligned}
 \end{equation*}
 Based on the dynamic programming principle from Theorem \ref{thm:dp}, we have 
 
 \begin{equation*}
-0=\mathbb{E}\left[\int^\tau_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})\right]-\mathbb{E}\left[\int^\tau_tK_{t,x}(s)\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right]
+0=\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})\right]-\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x}(s)\partial_xv(s,X_s^{t,x})\sigma(s,X_s^{t,x})dW_s\right]
 \end{equation*}
 Then, we would like to define the stopping time $\tau$ so that it is close to $t$ at some point, which makes the expectation of the stochastic integral vanish. Define
 
@@ -1079,18 +1089,158 @@ The integrand of the stochastic integral is bounded, and we can take $h$ to be s
 \end{equation*}
 Since the integrand is continuous in time, we have the following convergence result
 \begin{equation*}
-\lim_{h\rightarrow0}\frac{1}{h}\int^{t+h}_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds=(kv-\mathcal{L}v-f)(t,x)
+\lim_{h\rightarrow0}\frac{1}{h}\int^{t+h}_t\mathcal{K}_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds=(kv-\mathcal{L}v-f)(t,x)
 \end{equation*}
 By the dominated convergence theorem, we have
 \begin{equation*}
-(kv-\mathcal{L}v-f)(t,x)=\lim_{h\rightarrow0}\mathbb{E}\left[\frac{1}{h}\int^{t+h}_tK_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds\right]=0
+(kv-\mathcal{L}v-f)(t,x)=\lim_{h\rightarrow0}\mathbb{E}\left[\frac{1}{h}\int^{t+h}_t\mathcal{K}_{t,x}(s)(kv-\mathcal{L}v-f)(s,X_s^{t,x})ds\right]=0
 \end{equation*}
 The proof is complete.
 \end{proof}
 
+\section{Stochastic Optimal Control}
+In this section, we introduce the stochastic optimal control problem. In this regime, an agent controls a system, which evolves under a SDE, to optimize a given criterion. In particular, it is formulated with the following three features: the system state, the control, and the performance/cost criterion. 
 
+\subsection{Finite Horizon Problem}
+As an initial step, we formulate the stochastic optimal control problem in a finite time horizon, i.e., $t\in[0.T]$, where $T<\infty$. Moreover, we work on a fixed probability space $(\Omega,\mathcal{F}, \mathbb{F}, \mathbb{P})$, satisfying the usual condition and carrying a one-dimensional Brownian motion $W$.  
 
+We first define the set of admissible controls as follows:
 
+\begin{equation*}
+\mathcal{A}:=\biggl\{\alpha\in A: \mathbb{F}-\text{progressively measurable, and }\mathbb{E}\left[\int^T_0|\alpha_s|^2ds\right]<\infty\biggl\},
+\end{equation*}
+for some $A\in\mathbb{R}$. Then, we require the system state evolves under the following controlled SDE
+
+\begin{equation} \label{sde_control}
+dX_t = b(t,X_t,\alpha_t)dt + \sigma_t(X_t,\alpha_t)dW_t,
+\end{equation}
+where $\alpha_t$ is the admissible control, i.e., $\alpha_t\in\mathcal{A}$. To guarantee the existence (and uniqueness) of such a state, we impose the following assumptions on the function $b$ and $\sigma$
+
+\begin{equation} \label{SOC_assumption}
+\begin{aligned}
+&|b(t,x,\alpha)-b(t,y,\alpha)|+|\sigma(t,x,\alpha)-\sigma(t,y,\alpha)|\leq K(|x-y|)\\
+&|b(t,x,\alpha)+\sigma(t,x,\alpha)|\leq K(1+|x|+|\alpha|),
+\end{aligned}
+\end{equation}
+for some constant $K\in\mathbb{R}$. Then, the following results follow directly from Theorem \eqref{thm:strong_existence} and \eqref{thm:strong_uniqueness}.
+
+\begin{prop}
+Under assumptions \eqref{SOC_assumption}, we have that for all initial conditions $(t,x)\in[0,T]\times\mathbb{R}$ and all control processes $\alpha\in\mathcal{A}$, there exists a unique strong solution $X^{t,x,\alpha}$ to the SDE \eqref{sde_control}. Moreover, for every $T>0$, there exists a constant $C>0$ such that:
+
+\begin{equation*}
+\mathbb{E}\left[\sup_{t\leq s\leq T}|X_s^{t,x,\alpha}|^2\right]\leq C(1+|x|^2)e^{Ct}, \quad \forall t\in[0,T].
+\end{equation*}
+\end{prop}
+
+The objective of the control problem (in other words, the condition under which we choose the control process $\alpha\in\mathcal{A}$) is described by the following functional $J$. 
+
+\begin{equation}
+J(t,x,\alpha):=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(T)g(X_T)+\int^T_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s,\alpha_s)ds\right],
+\end{equation}
+where $g:\mathbb{R}\rightarrow\mathbb{R}$ is the final reward, $f:[0,T]\times\mathbb{R}\times A\rightarrow\mathbb{R}$ is the running reward, and 
+\begin{equation}
+\mathcal{K}_{t,x,\alpha}(s):=\exp(\int^s_tk(u,X_u,\alpha_u)du),
+\end{equation}
+where $k:[0,T]\times\mathbb{R}\times A\rightarrow\mathbb{R}$ is the discount factor. We further impose the following assumptions to the reward functional:
+
+\begin{equation}
+|f(t,x,\alpha)|+|g(x)|\leq K(1+|\alpha|+|x|^2), \quad \forall (t,x,\alpha)\in[0,T)\times\mathbb{R}\times A.
+\end{equation}
+Finally, the value function starting at $(t,x)\in[0,T]\times\mathbb{R}$ is defined as the maximum of $J$ over admissible controls $\alpha\in\mathcal{A}$:
+
+\begin{equation}
+V(t,x):=\sup_{\alpha\in\mathcal{A}}J(t,x,\alpha).
+\end{equation}
+
+In summary, the finite-time stochastic optimal control problem is formulated as follows
+
+\begin{definition} \textcolor{red}{(Finite-Time Stochastic Optimal Control Problem)}
+Let $(t,x)\in]0,T]\times\mathbb{R}$ be the initial condition, we consider the following stochastic optimal control problem
+\begin{equation*}
+V(t,x):=\sup_{\alpha\in\mathcal{A}}J(t,x,\alpha),
+\end{equation*}
+where the performance criterion $J$ is defined, for $\alpha\in\mathcal{A}$, by
+
+\begin{equation*}
+J(t,x,\alpha):=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(T)g(X_T)+\int^T_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s,\alpha_s)ds\right],
+\end{equation*}
+where the state of the system $X^{t,x,\alpha}$ satisfies $X_t=x$ and is solution to the following SDE:
+
+\begin{equation} \label{sde_control}
+dX_s = b(s,X_s,\alpha_s)ds + \sigma_s(X_s,\alpha_s)dW_s, \quad s\in[t,T].
+\end{equation}
+Solving this problem consists of computing the value function and determining the optimal control $\alpha^*\in\mathcal{A}$ such that $V(t,x):=J(t,x,\alpha^*)$. 
+\end{definition}
+
+We first state the dynamic programming principle for the stochastic optimal control problem, the counterpart of Theorem \ref{thm:dp}. It is a consequence of the Markov property of the dynamics. Intuitively, solving the problem between time $t$ and $T$ is equivalent to:
+
+\begin{enumerate}
+\item
+Solving the problem between some time $s\in[t,T]$ and $T$, i.e., computing the value function $V(s,X_s)$ and the associated optimal control $(\alpha^*_u)_{u\in[s,T]}$.
+
+\item
+Solving the problem between $t$ and $s$, where the terminal value at time $s$ is given by the value computed at the previous step. 
+\end{enumerate}
+
+Formally speaking, we have
+
+\begin{theorem}
+Let $(t,x)\in[0,T]\times\mathbb{R}$. For any $[t,T]$-valued stopping time $\tau$, we have:
+
+\begin{equation*}
+V(t,x)=\sup_{\alpha\in\mathcal{A}_t}\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)V(\tau,X_\tau^{t,x,\alpha})+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right].
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Following the same steps in the proof of Theorem \ref{thm:dp}, we have the following:
+
+\begin{equation*}
+J(t,x,\alpha)=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)J(\tau,X_\tau^{t,x,\alpha},\alpha)+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right].
+\end{equation*}
+By the definition of the value function, we know that $J(s,y,\alpha)\leq V(s,y)$ for all $(s,y)\in[t,T]\times\mathbb{R}$ and $\alpha\in\mathcal{A}_t$. It then implies
+
+\begin{equation*}
+\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)J(\tau,X_\tau^{t,x,\alpha},\alpha)+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right]\leq \mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)V(\tau,X_\tau^{t,x,\alpha})+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right].
+\end{equation*}
+Then, taking the supremum, we have
+
+\begin{equation*}
+V(t,x)=\sup_{\alpha\in\mathcal{A}_t}J(t,x,\alpha)\leq \sup_{\alpha\in\mathcal{A}_t}\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)V(\tau,X_\tau^{t,x,\alpha})+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right].
+\end{equation*}
+
+Next, we need to the show the converse. By definition, $V(\tau,X_\tau^{t,x},\alpha)$ is the optimal performance over all admissible control, $\alpha\in\mathcal{A}_t$, starting at $\tau$. Then, for any $\epsilon>0$, there must be an $\epsilon$-optimal control  $\alpha^\epsilon\in\mathcal{A}_\tau$, such that 
+
+\begin{equation*}
+V(\tau,y)-\epsilon\leq J(\tau,y,\alpha^\epsilon), \quad \forall y\in\mathbb{R}
+\end{equation*}
+
+Then, we may define the control process 
+
+\begin{equation*}
+\hat{\alpha}_s:=
+\begin{cases}
+\alpha_s, & \text{if } x\in[t,\tau]\\
+\alpha^\epsilon_s, & \text{if } x\in[\tau,T]
+\end{cases}
+\end{equation*}
+It can be shown that the process $\hat{\alpha}$ defined above is progressively measurable, and there fore that $\hat{\alpha}\in\mathcal{A}$. However, the proof of this point involves delicate measurability arguments, namely the measurable selection theorem. We shall not address this issue and take $\hat{\alpha}\in\mathcal{A}$ for granted. By definition, we have
+
+\begin{equation*}
+\begin{aligned}
+V(\tau,y)&\geq\mathbb{E}\left[\mathcal{K}_{t,x,\hat{\alpha}}(\tau)J(\tau,X_\tau^{t,x,\hat{\alpha}},\alpha^\epsilon)+\int^\tau_t\mathcal{K}_{t,x,\hat{\alpha}}(s)f(s,X_s^{t,x,\hat{\alpha}},\alpha_s)ds\right]\\
+&\geq\mathbb{E}\left[\mathcal{K}_{t,x,\hat{\alpha}}(\tau)(V(\tau,X_\tau^{t,x,\hat{\alpha}})-\epsilon)+\int^\tau_t\mathcal{K}_{t,x,\hat{\alpha}}(s)f(s,X_s^{t,x,\hat{\alpha}},\alpha_s)ds\right].
+\end{aligned}
+\end{equation*}
+After taking supremum and letting $\epsilon\rightarrow0$, we have
+
+\begin{equation*}
+\begin{aligned}
+V(\tau,y)\geq\sup_{\alpha\in\mathcal{A}_t}\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)V(\tau,X_\tau^{t,x,\alpha})+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right].
+\end{aligned}
+\end{equation*}
+The proof is complete.
+\end{proof}
 
 
 
