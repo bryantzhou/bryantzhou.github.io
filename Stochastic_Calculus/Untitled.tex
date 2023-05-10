@@ -914,7 +914,7 @@ This identity can be shown in the same way as we did in the first step, except f
 
 \end{proof}
 
-\subsection{Feynman-Kac Representation}
+\subsection{Feynman-Kac Representation} \label{sec:feynman-kac}
 
 Next, we discuss another link between the SDE and the PDE, namely the famous Feynman-Kac representation. Loosely speaking, it connects the expected reward from the solution of a SDE to a PDE. Consider the following SDE
 
@@ -1134,31 +1134,31 @@ Under assumptions \eqref{SOC_assumption}, we have that for all initial condition
 
 The objective of the control problem (in other words, the condition under which we choose the control process $\alpha\in\mathcal{A}$) is described by the following functional $J$. 
 
-\begin{equation}
+\begin{equation*}
 J(t,x,\alpha):=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(T)g(X_T)+\int^T_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s,\alpha_s)ds\right],
-\end{equation}
+\end{equation*}
 where $g:\mathbb{R}\rightarrow\mathbb{R}$ is the final reward, $f:[0,T]\times\mathbb{R}\times A\rightarrow\mathbb{R}$ is the running reward, and 
-\begin{equation}
-\mathcal{K}_{t,x,\alpha}(s):=\exp(\int^s_tk(u,X_u,\alpha_u)du),
+\begin{equation} \label{def_k}
+\mathcal{K}_{t,x,\alpha}(s):=\exp(-\int^s_tk(u,X_u,\alpha_u)du),
 \end{equation}
 where $k:[0,T]\times\mathbb{R}\times A\rightarrow\mathbb{R}$ is the discount factor. We further impose the following assumptions to the reward functional:
 
-\begin{equation}
+\begin{equation*}
 |f(t,x,\alpha)|+|g(x)|\leq K(1+|\alpha|+|x|^2), \quad \forall (t,x,\alpha)\in[0,T)\times\mathbb{R}\times A.
-\end{equation}
+\end{equation*}
 Finally, the value function starting at $(t,x)\in[0,T]\times\mathbb{R}$ is defined as the maximum of $J$ over admissible controls $\alpha\in\mathcal{A}$:
 
-\begin{equation}
+\begin{equation*} 
 V(t,x):=\sup_{\alpha\in\mathcal{A}}J(t,x,\alpha).
-\end{equation}
+\end{equation*}
 
 In summary, the finite-time stochastic optimal control problem is formulated as follows
 
 \begin{definition} \textcolor{red}{(Finite-Time Stochastic Optimal Control Problem)}
 Let $(t,x)\in]0,T]\times\mathbb{R}$ be the initial condition, we consider the following stochastic optimal control problem
-\begin{equation*}
+\begin{equation} \label{soc:value_fcn}
 V(t,x):=\sup_{\alpha\in\mathcal{A}}J(t,x,\alpha),
-\end{equation*}
+\end{equation}
 where the performance criterion $J$ is defined, for $\alpha\in\mathcal{A}$, by
 
 \begin{equation*}
@@ -1184,7 +1184,7 @@ Solving the problem between $t$ and $s$, where the terminal value at time $s$ is
 
 Formally speaking, we have
 
-\begin{theorem}
+\begin{theorem} \label{thm:dp_hjb}
 Let $(t,x)\in[0,T]\times\mathbb{R}$. For any $[t,T]$-valued stopping time $\tau$, we have:
 
 \begin{equation*}
@@ -1242,13 +1242,211 @@ V(\tau,y)\geq\sup_{\alpha\in\mathcal{A}_t}\mathbb{E}\left[\mathcal{K}_{t,x,\alph
 The proof is complete.
 \end{proof}
 
+\subsubsection{The Hamilton-Jacobi-Bellman Equation}
 
+We introduce the Hamiltonian-Jacobi-Bellman (HJB) equation in this part to provide an equivalent way of finding the optimal control and value function in the stochastic optimal control problem. It is closely related to the Feynman-Kac representation discussed in Section \ref{sec:feynman-kac}. The Hamiltonian map $\mathcal{H}: [0,T]\times\mathbb{R}\times\mathbb{R}\times\mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R}$ associated to our optimal control problem is defined as 
+    
+\begin{equation}
+\mathcal{H}(t,x,y,z,\gamma):=\sup_{a\in A}\Big\{-k(t,x,a)y+b(t,x,a)z+\frac{1}{2}\sigma^2(t,x,a)\gamma+f(t,x,a)\Big\}.
+\end{equation}
+The HJB equation associated to out control problem is the following:
 
+\begin{equation} \label{hjb}
+-\partial_tv(t,x)-\mathcal{H}(t,x,v(t,x),\partial_xv(t,x),\partial^2_{xx}v(t,x))=0, \quad (t,x)\in[0,T]\times\mathbb{R},
+\end{equation}
+with terminal condition $v(T,x)=g(x),x\in\mathbb{R}$. To make connection to the PDE obtained for the Feynman-Kac representation discussed in Section \ref{sec:feynman-kac}, we can define the generator $\mathcal{L}^a$ with constant control $a\in A$ as follows:
 
+\begin{equation}
+\mathcal{L}^a\psi(t,x):=\partial_t\psi(t,x)+\partial_x\psi(t,x)b(t,x,a)+\frac{1}{2}\partial^2_{xx}\psi(t,x)\sigma^2(t,x,a), \quad\psi\in C^{1,2}([0,T]\times\mathbb{R}).
+\end{equation}
+Using this notation, the HJB equation \eqref{hjb} can be written as 
 
+\begin{equation}
+-\sup_{a\in A}\{\mathcal{L}^av(t,x)-k(t,x,a)v(t,x)+f(t,x,a)\}=0, \quad (t,x)\in[0,T].
+\end{equation}
+Comparing this formula to \eqref{feynman_kac_pde}, the only difference is that we have a supremum over admissible control here. To simplify, we often write:
 
+\begin{equation} \label{hjb_simple}
+-\sup_{a\in A}\{\mathcal{L}^av-k^av+f^a\}=0.
+\end{equation}
 
+\begin{theorem}
+Assume the value function in \eqref{soc:value_fcn} is smooth, namely $V\in C^{1,2}([0,T]\times\mathbb{R})$, and the map $(t,x)\rightarrow\mathcal{H}(t,x,V(t,x),\partial_xV(t,x),\partial^2_{xx}V(t,x)$ is continuous. Then, $V$ is solution to the HJB equation \eqref{hjb}.
+\end{theorem}
 
+\begin{proof}
+First, we check that $V$ satisfies the terminal condition by the following:
+
+\begin{equation*}
+V(T,x)=\sup_{\alpha\in\mathcal{A}_t}\mathbb{E}[g(X_T^{T,x,a})]=g(x), \quad x\in\mathbb{R}.
+\end{equation*}
+
+As demonstrated above, the HJB equation \eqref{hjb} is equivalent to \eqref{hjb_simple}. We first show $-\{\mathcal{L}^aV+k^aV-f^a\}\geq0$ for all $a\in A$. Let $a\in A$ and consider the constant control $\alpha\in\mathcal{A}$ defined by $\alpha_s=a$ for all $s\in[0,T]$. With $X$ being the solution to the SDE \eqref{sde_control} with constant control $\alpha$, we apply Ito's formula to $V(s,X_s)$ and get
+
+\begin{equation*}
+\begin{aligned}
+dV(t,X_t)&=\partial_tV(t,X_t)dt + \partial_xV(t,X_t)dX_t + \frac{1}{2}\partial^2_{xx}V(t,X_t)\sigma^2(t,x,a)dt\\
+&=(\mathcal{L}^aV)(t,X_t)dt + \partial_xV(t,X_t)\sigma(t,X_t,a)dW_t.
+\end{aligned}
+\end{equation*}
+Then, we apply product rule to $d(V(s,X_s)\mathcal{K}_{t,x,\alpha}(s))$ as follows
+
+\begin{equation*}
+\begin{aligned}
+d(V(s,X_s)\mathcal{K}_{t,x,a}(s))&=\mathcal{K}_{t,x,a}(s)dV(s,X_s)+V(s,X_s)d\mathcal{K}_{t,x,a}(s)\\
+&=\mathcal{K}_{t,x,a}(s)dV(s,X_s)-V(s,X_s)k(s,X_s.a)\mathcal{K}_{t,x,a}(s),
+\end{aligned}
+\end{equation*}
+by the definition of $\mathcal{K}$ in \eqref{def_k}. Combining these two equations and integrating between $t$ and some stopping time $\tau$, we get
+
+\begin{equation*}
+\begin{aligned}
+V(\tau,X_\tau)\mathcal{K}_{t,x,a}(\tau)&=V(t,x)+\int^\tau_t\mathcal{K}_{t,x,a}(s)[\mathcal{L}^aV-\mathcal{K}^aV](s,X_s)ds+\frac{1}{2}\int^\tau_t\mathcal{K}_{t,x,a}(s)\partial_xV(s,X_s)\sigma(s,X_s,a)dW_s.
+\end{aligned}
+\end{equation*}
+Now we aim to define the stopping time $\tau$ so that the stochastic integral becomes a martingale and $\tau\rightarrow t$.
+
+\begin{equation} \label{stp_time_hjb}
+\begin{aligned}
+\tau:=(t+h)\wedge\inf\{s\geq t:|X_s-x|\geq1\}.
+\end{aligned}
+\end{equation}
+Because of the continuity of $\sigma$ and $V$, the integrand in the stochastic integral is bounded. Taking expectations, we have
+
+\begin{equation*}
+\begin{aligned}
+V(t,x)=\mathbb{E}\left[V(\tau,X_\tau)\mathcal{K}_{t,x,a}(\tau)+\int^\tau_t\mathcal{K}_{t,x,a}(s)[k^aV-\mathcal{L}^aV](s,X_s)ds\right].
+\end{aligned}
+\end{equation*}
+Using the dynamic programming results in Theorem \ref{thm:dp_hjb}, we have 
+
+\begin{equation*}
+\begin{aligned}
+V(t,x)&=\mathbb{E}\left[V(\tau,X_\tau)\mathcal{K}_{t,x,a}(\tau)+\int^\tau_t\mathcal{K}_{t,x,a}(s)[k^aV-\mathcal{L}^aV](s,X_s)ds\right]\\
+&\geq\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau)V(\tau,X_\tau^{t,x,\alpha})+\int^\tau_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s^{t,x,\alpha},\alpha_s)ds\right],
+\end{aligned}
+\end{equation*}
+which then implies
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x,a}(s)[k^aV-\mathcal{L}^aV-f^a](s,X_s)ds\right]\geq0.
+\end{aligned}
+\end{equation*}
+As $h$ close to $0$, $\tau\rightarrow t+h$, we have
+
+\begin{equation*}
+\begin{aligned}
+\lim_{h\rightarrow0}\frac{1}{h}\mathbb{E}\left[\int^{t+h}_t\mathcal{K}_{t,x,a}(s)[-\mathcal{L}^aV+\mathcal{K}^aV-f^a](s,X_s)ds\right]=[-\mathcal{L}^aV+\mathcal{K}^aV-f^a](t,X_t)\geq0.
+\end{aligned}
+\end{equation*}
+Since this inequality holds for every control $a\in A$, we conclude by 
+
+\begin{equation*}
+\begin{aligned}
+-\sup_{a\in A}\{[\mathcal{L}^aV-\mathcal{K}^aV+f^a](t,X_t)\}\geq0.
+\end{aligned}
+\end{equation*}
+
+It remains to prove the other direction, namely $-\partial_tV(t,x)-\mathcal{H}(t,x,V(t,x),\partial_xV(t,x),\partial^2_{xx}V(t,x))\leq0$ for all $(t,X_t)\in[0,T]\times\mathbb{R}$. Assume that there exists $(t_0,X_0)\in[0,T]\times\mathbb{R}$ such that 
+
+\begin{equation*}
+\begin{aligned}
+-\partial_tV(t_0,X_0)-\mathcal{H}(t_0,X_0,V(t_0,X_0),\partial_xV(t_0,X_0),\partial^2_{xx}V(t_0,X_0))>0.
+\end{aligned}
+\end{equation*}
+Define $\psi(t,x):=V(t,x)+\epsilon((t-t_0)^2+(x-x_0)^4)$, for some $\epsilon>0$. Then, we know $\psi(t,x)\geq V(t,x)$ with equality holds only when $(t,x)=(t_0,x_0)$. We also have
+
+\begin{equation*}
+\begin{aligned}
+-\partial_t\psi(t_0,X_0)-\mathcal{H}(t_0,X_0,\psi(t_0,X_0),\partial_x\psi(t_0,X_0),\partial^2_{xx}\psi(t_0,X_0))>0.
+\end{aligned}
+\end{equation*}
+By continuity of the Hamiltonian $\mathcal{H}$, we may define $N_r:=(t_0-r,t_0+r)\times(X_0-r,X_0+r)$ such that 
+
+\begin{equation*}
+\begin{aligned}
+h(t,X_t)&:=\partial_t\psi(t,X_t)+\mathcal{H}(t,X_t,\psi(t,X_t),\partial_x\psi(t,X_t),\partial^2_{xx}\psi(t,X_t))\\
+&=\sup_{a\in A}\{[\mathcal{L}^a\psi-\mathcal{K}^a\psi+f^a](t,X_t)\}\\
+&<0,
+\end{aligned}
+\end{equation*}
+for all $(t,X_t)\in N_r$. Next, we define the stopping time
+
+\begin{equation*}
+\begin{aligned}
+\tau^\alpha:=\inf\{t>t_0:(t,X_t^{t_0,x_0,\alpha})\notin N_r\}.
+\end{aligned}
+\end{equation*}
+By pathwise continuity of the controlled process, we know $(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\in\delta N_r$. Define $\eta:=-\max_{\delta N_r}(V-\psi)$, then we have
+
+\begin{equation*}
+\begin{aligned}
+-\eta=\max_{\delta N_r}(V_\psi)\geq(V-\psi)(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha}).
+\end{aligned}
+\end{equation*}
+Now, we apply Ito's formula to $K_{t_0,x_0,\alpha}(t)\psi(t,X_t^{t_0,x_0,\alpha})$ between $t$ and $\tau^\alpha$, and take expectation. With exactly the same process as previous steps, we simplify the intermediate process and notice that the stochastic integral is a martingale by the definition of stopping time $\tau^\alpha$. We have
+
+\begin{equation*}
+\begin{aligned}
+\psi(t_0,x_0)&=\mathbb{E}\left[\psi(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)[k^\alpha\psi-\mathcal{L}^\alpha\psi](t,X_t^{t_0,x_0,\alpha})dt\right]\\
+&\geq\mathbb{E}\left[\psi(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)[f^\alpha-h](t,X_t^{t_0,x_0,\alpha})dt\right]\\
+&\geq\mathbb{E}\left[\psi(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)f^\alpha(t,X_t^{t_0,x_0,\alpha})dt\right]\\
+&\geq\eta\mathbb{E}[\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)]+\mathbb{E}\left[V(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)f^\alpha(t,X_t^{t_0,x_0,\alpha})dt\right]\\
+&>\mathbb{E}\left[V(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)f^\alpha(t,X_t^{t_0,x_0,\alpha})dt\right]
+\end{aligned}
+\end{equation*}
+Finally, since $V(t_0,x_0)=\psi(t_0,x_0)$, we have
+
+\begin{equation*}
+\begin{aligned}
+V(t_0,x_0)>\mathbb{E}\left[V(\tau^\alpha,X_{\tau^\alpha}^{t_0,x_0,\alpha})\mathcal{K}_{t_0,x_0,\alpha}(\tau^\alpha)+\int^{\tau^\alpha}_{t_0}\mathcal{K}_{t_0,x_0,\alpha}(s)f^\alpha(t,X_t^{t_0,x_0,\alpha})dt\right],
+\end{aligned}
+\end{equation*}
+which is contradictory to the dynamic programming principle in Theorem \ref{thm:dp_hjb}. Thus, we conclude that we must have $-\sup_{a\in A}\{[\mathcal{L}^aV-\mathcal{K}^aV+f^a](t,X_t)\}\leq0$, for all $(t,x)\in[0,T]\times\mathbb{R}$.
+
+The proof is complete.
+
+\end{proof}
+
+\begin{rk}
+The second part of the proof above can be simplified quite a lot if we knew in advance that there exists an optimal control $\alpha^*$. 
+
+From the dynamic programming principle in Theorem \ref{thm:dp_hjb}, we have 
+
+\begin{equation*}
+V(t,x)=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha^*}(\tau)V(\tau,X_\tau^{t,x,\alpha^*})+\int^\tau_t\mathcal{K}_{t,x,\alpha^*}(s)f(s,X_s^{t,x,\alpha^*},\alpha^*_s)ds\right].
+\end{equation*}
+With the exact same definition of the stopping time as in \eqref{stp_time_hjb} and the same processes of applying the Ito's formula, we have
+
+\begin{equation*}
+\begin{aligned}
+V(t,x)=\mathbb{E}\left[V(\tau,X_\tau)\mathcal{K}_{t,x,\alpha^*}(\tau)+\int^\tau_t\mathcal{K}_{t,x,\alpha^*}(s)[k^{\alpha^*}V-\mathcal{L}^{\alpha^*}V](s,X_s)ds\right].
+\end{aligned}
+\end{equation*}
+Combining these two equations, we have
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}\left[\int^\tau_t\mathcal{K}_{t,x,\alpha^*}(s)[\mathcal{L}^{\alpha^*}V-k^{\alpha^*}V+f^{\alpha^*}](s,X_s)ds\right]=0,
+\end{aligned}
+\end{equation*}
+which implies
+
+\begin{equation*}
+\begin{aligned}
+[\mathcal{L}^{\alpha^*}V-k^{\alpha^*}V+f^{\alpha^*}](s,X_s)=0.
+\end{aligned}
+\end{equation*}
+ Then, we may conclude base on the following
+
+\begin{equation*}
+\begin{aligned}
+-\sup_{\alpha\in A}[\mathcal{L}^{\alpha^*}V-k^{\alpha^*}V+f^{\alpha^*}]\leq-[\mathcal{L}^{\alpha^*}V-k^{\alpha^*}V+f^{\alpha^*}]=0.
+\end{aligned}
+\end{equation*}
+
+\end{rk}
 
 
 
