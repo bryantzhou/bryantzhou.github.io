@@ -1165,9 +1165,9 @@ V(t,x):=\sup_{\alpha\in\mathcal{A}}J(t,x,\alpha),
 \end{equation}
 where the performance criterion $J$ is defined, for $\alpha\in\mathcal{A}$, by
 
-\begin{equation*}
+\begin{equation} \label{soc:cost_fcn}
 J(t,x,\alpha):=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(T)g(X_T)+\int^T_t\mathcal{K}_{t,x,\alpha}(s)f(s,X_s,\alpha_s)ds\right],
-\end{equation*}
+\end{equation}
 where the state of the system $X^{t,x,\alpha}$ satisfies $X_t=x$ and is solution to the following SDE:
 
 \begin{equation} \label{sde_control}
@@ -1271,10 +1271,10 @@ Using this notation, the HJB equation \eqref{hjb} can be written as
 Comparing this formula to \eqref{feynman_kac_pde}, the only difference is that we have a supremum over admissible control here. To simplify, we often write:
 
 \begin{equation} \label{hjb_simple}
--\sup_{a\in A}\{\mathcal{L}^av-k^av+f^a\}=0.
+\sup_{a\in A}\{\mathcal{L}^av-k^av+f^a\}=0.
 \end{equation}
 
-\begin{theorem}
+\begin{theorem} \label{thm:soc_value_imply_hjb}
 Assume the value function in \eqref{soc:value_fcn} is smooth, namely $V\in C^{1,2}([0,T]\times\mathbb{R})$, and the map $(t,x)\rightarrow\mathcal{H}(t,x,V(t,x),\partial_xV(t,x),\partial^2_{xx}V(t,x)$ is continuous. Then, $V$ is solution to the HJB equation \eqref{hjb}.
 \end{theorem}
 
@@ -1452,9 +1452,86 @@ which implies (by the dominated convergence theorem)
 
 \end{rk}
 
+The verification theorem shows the reverse direction of Theorem \ref{thm:soc_value_imply_hjb}, i.e., if there is a relatively smooth solution to the HJB equation, then it corresponds to the value function. More precisely, we have the following result. 
 
+\begin{theorem}
+Let $w(t,x)\in C^0([0,T]\times\mathbb{R})\cap C^{1,2}([0,T]\times\mathbb{R})$ with quadratic growth in $x$. 
+\begin{enumerate}
+\item
+If $w$ is such that $w(T,x)\geq g(x)$ on $\mathbb{R}$ and is a super solution to \eqref{hjb_simple}, i.e.,
 
+\begin{equation} \label{soc:ver}
+\sup_{a\in A}\{\mathcal{L}w(t,x)-k^a(t,x)w(t,x)+f^a(t,x)\}\geq0,
+\end{equation}
+then $w(t,x)\geq V(t,x)$ for $(t,x)\in[0,T]\times\mathbb{R}$, where $V$ is the value function \eqref{soc:value_fcn}.
 
+\item
+Assume that there exists a measurable function $\hat{\alpha}:[0,T)\times\mathbb{R}\rightarrow A$ such that for all $(t,x)\in[0,T]\times\mathbb{R}$, the following SDE has a strong solution
+
+\begin{equation}
+dX_s=b(s,X_s,\hat{\alpha}(s,X_s))dX_s+\sigma(s,X_s,\hat{\alpha}(s,X_s))dW_s,
+\end{equation}
+and such that
+
+\begin{equation}
+\mathcal{L}^{\hat{\alpha}(t,x)}w(t,x)-k(t,x,\hat{\alpha}(t,x))w(t,x)+f(t,x,\hat{\alpha}(t,x))\geq0.
+\end{equation}
+Define the process $\alpha^*$ for all $s\in[0,T]$ by $\alpha^*_s:=\hat{\alpha}(s,X_s)$, and assume $\alpha^*_s\in\mathcal{A}$. If in addition, $w$ satisfies $w(T,x)\leq g(x)$, then $w(t,x)\leq J(t,x,\alpha^*)$, with $J(t,x,\alpha^*)$ being defined in \eqref{soc:cost_fcn}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Fix $(t,x)\in[0,t]\times\mathbb{R}$ and $\alpha\in\mathcal{A}_t$. We apply Ito's formula to $\mathcal{K}_{t,x,\alpha}w$ between time $t$ and some stopping time $\tau^n$, and obtain
+
+\begin{equation*}
+\begin{aligned}
+d(\mathcal{K}_{t,x,\alpha}(t)w(t,X_t))&=d\mathcal{K}_{t,x,\alpha}(t)w(t,X_t)+\mathcal{K}_{t,x,\alpha}(t)dw(t,X_t)\\
+&=-\mathcal{K}_{t,x,\alpha}(t)k^{\alpha_t}(t,X_t)w(t,X_t)+\mathcal{K}_{t,x,\alpha}(t)[\mathcal{L}^{\alpha_t}w(t,x)+\partial_xw(t,x)\sigma(t,X_t,\alpha_t)dW_t]\\
+&=\mathcal{K}_{t,x,\alpha}(t)[-k^{\alpha_t}(t,X_t)w(t,X_t)+\mathcal{L}^{\alpha_t}w(t,x)+\partial_xw(t,x)\sigma(t,X_t,\alpha_t)dW_t].
+\end{aligned}
+\end{equation*}
+
+It can be written in the integral form as follows:
+
+\begin{equation*}
+\begin{aligned}
+\mathcal{K}_{t,x,\alpha}(\tau^n)w(\tau^n,X_{\tau^n})=w(t,x)+\int^{\tau^n}_t\mathcal{K}_{t,x,\alpha}(s)&[-k^{\alpha_s}(s,X_s)w(s,X_s)+\mathcal{L}^{\alpha_s}w(s,x)]ds\\
+&+\int^{\tau^n}_t\mathcal{K}_{t,x,\alpha}(s)\partial_xw(s,x)\sigma(s,X_s,\alpha_t)dW_s.
+\end{aligned}
+\end{equation*}
+
+Choosing the stopping time as follows
+
+\begin{equation*}
+\begin{aligned}
+\tau^n:=(T-\frac{1}{n}) \wedge \inf\{s\geq t:|X_s-x|\geq n\},
+\end{aligned}
+\end{equation*}
+the stochastic integral is a martingale, and we have
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}[w(t,x)]&=\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau^n)w(\tau^n,X_{\tau^n})-\int^{\tau^n}_t\mathcal{K}_{t,x,\alpha}(s)[-k^{\alpha_s}(s,X_s)w(s,X_s)+\mathcal{L}^{\alpha_s}w(s,x)]ds\right]\\
+&\geq\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(\tau^n)w(\tau^n,X_{\tau^n})+\int^{\tau^n}_t\mathcal{K}_{t,x,\alpha}(s)f(x,X_s,\alpha_s)ds\right].
+\end{aligned}
+\end{equation*}
+By the continuity of $w$, we have
+
+\begin{equation*}
+\lim_{n\rightarrow\infty}w(\tau^n,X_{\tau^n})=w(T,X_T)\geq g(X_T).
+\end{equation*}
+By Fatou's lemma, we obtain
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}[w(t,x)]\geq\mathbb{E}\left[\mathcal{K}_{t,x,\alpha}(T)g(X_T)+\int^{\tau^n}_t\mathcal{K}_{t,x,\alpha}(s)f(x,X_s,\alpha_s)ds\right].
+\end{aligned}
+\end{equation*}
+The results \eqref{soc:ver} directly follows. 
+
+The proof for the second part is omitted, as it is very similar to the proof for the first part. 
+
+\end{proof}
 
 
 

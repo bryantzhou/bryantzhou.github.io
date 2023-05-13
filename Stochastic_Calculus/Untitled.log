@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  13 MAY 2023 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  13 MAY 2023 18:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,7 +760,8 @@ Overfull \hbox (47.4749pt too wide) detected at line 1209
 \U/msb/m/n/10 E [] \OMS/cmsy/m/n/10 ^^T \U/msb/m/n/10 E [] \OML/cmm/m/it/10 :
  []
 
-[26] [27] [28] [29] 
+[26] [27] [28] [29] [30]
+
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
 
@@ -770,10 +771,10 @@ Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: E949112BC2D036B402CB4A4657D228A4;1735.
  ) 
 Here is how much of TeX's memory you used:
- 12803 strings out of 476025
- 203385 string characters out of 5790017
+ 12814 strings out of 476025
+ 203516 string characters out of 5790017
  1877388 words of memory out of 5000000
- 32945 multiletter control sequences out of 15000+600000
+ 32948 multiletter control sequences out of 15000+600000
  516943 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,76p,910b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -809,10 +810,10 @@ usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/202
 3/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Untitled.pdf (29 pages, 575248 bytes).
+Output written on Untitled.pdf (30 pages, 579696 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 526 compressed objects within 6 object streams
- 119 named destinations out of 1000 (max. 500000)
+ 661 PDF objects out of 1000 (max. 8388607)
+ 543 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
  151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
