@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  10 MAY 2023 00:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  13 MAY 2023 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -341,24 +341,68 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \xmathstrut@box=\box54
 \xmathstrut@dim=\dimen171
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen172
+\ESO@tempdimb=\dimen173
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
+)
+\AM@pagewidth=\dimen176
+\AM@pageheight=\dimen177
+\AM@fboxrule=\dimen178
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count296
+\AM@pagebox=\box55
+\AM@global@opts=\toks29
+\AM@pagecnt=\count297
+\AM@toc@title=\toks30
+\AM@lof@heading=\toks31
+\c@AM@survey=\count298
+\AM@templatesizebox=\box56
+)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count296
-\Gm@cntv=\count297
-\c@Gm@tempcnt=\count298
-\Gm@bindingoffset=\dimen172
-\Gm@wd@mp=\dimen173
-\Gm@odd@mp=\dimen174
-\Gm@even@mp=\dimen175
-\Gm@layoutwidth=\dimen176
-\Gm@layoutheight=\dimen177
-\Gm@layouthoffset=\dimen178
-\Gm@layoutvoffset=\dimen179
-\Gm@dimlist=\toks29
+\Gm@cnth=\count299
+\Gm@cntv=\count300
+\c@Gm@tempcnt=\count301
+\Gm@bindingoffset=\dimen179
+\Gm@wd@mp=\dimen180
+\Gm@odd@mp=\dimen181
+\Gm@even@mp=\dimen182
+\Gm@layoutwidth=\dimen183
+\Gm@layoutheight=\dimen184
+\Gm@layouthoffset=\dimen185
+\Gm@layoutvoffset=\dimen186
+\Gm@dimlist=\toks32
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
@@ -366,24 +410,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count299
-\c@Blindtext=\count300
-\c@blind@countparstart=\count301
-\blind@countxx=\count302
-\blindtext@numBlindtext=\count303
-\blind@countyy=\count304
-\c@blindlist=\count305
-\c@blindlistlevel=\count306
-\c@blindlist@level=\count307
-\blind@listitem=\count308
-\c@blind@listcount=\count309
-\c@blind@levelcount=\count310
-\blind@mathformula=\count311
-\blind@Mathformula=\count312
-\c@blind@randomcount=\count313
-\c@blind@randommax=\count314
-\c@blind@pangramcount=\count315
-\c@blind@pangrammax=\count316
+\c@blindtext=\count302
+\c@Blindtext=\count303
+\c@blind@countparstart=\count304
+\blind@countxx=\count305
+\blindtext@numBlindtext=\count306
+\blind@countyy=\count307
+\c@blindlist=\count308
+\c@blindlistlevel=\count309
+\c@blindlist@level=\count310
+\blind@listitem=\count311
+\c@blind@listcount=\count312
+\c@blind@levelcount=\count313
+\blind@mathformula=\count314
+\blind@Mathformula=\count315
+\c@blind@randomcount=\count316
+\c@blind@randommax=\count317
+\c@blind@pangramcount=\count318
+\c@blind@pangrammax=\count319
 )
 (/usr/local/texlive/2023/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2023/03/07 v2.0a lastpage: 2.09 or 2e? (HMM)
@@ -408,17 +452,17 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip68
 \f@nch@O@orf=\skip69
 )
-\c@definition=\count317
-\c@theorem=\count318
-\c@lemma=\count319
-\c@ex=\count320
-\c@rk=\count321
-\c@prop=\count322
+\c@definition=\count320
+\c@theorem=\count321
+\c@lemma=\count322
+\c@ex=\count323
+\c@rk=\count324
+\c@prop=\count325
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count323
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count326
+\l__pdf_internal_box=\box57
 )
 (./Untitled.aux
 
@@ -427,25 +471,25 @@ LaTeX Warning: Label `sde_control' multiply defined.
 )
 \openout1 = `Untitled.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-Package hyperref Info: Link coloring OFF on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+Package hyperref Info: Link coloring OFF on input line 37.
  (./Untitled.out) (./Untitled.out)
 \@outlinefile=\write3
 \openout3 = `Untitled.out'.
@@ -453,34 +497,38 @@ Package hyperref Info: Link coloring OFF on input line 36.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
-\scratchdimen=\dimen180
-\scratchbox=\box56
-\nofMPsegments=\count325
-\nofMParguments=\count326
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count327
-\MPscratchDim=\dimen181
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
-\everyMPtoPDFconversion=\toks31
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+\scratchcounter=\count327
+\scratchdimen=\dimen187
+\scratchbox=\box58
+\nofMPsegments=\count328
+\nofMParguments=\count329
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count330
+\MPscratchDim=\dimen188
+\MPnumerator=\count331
+\makeMPintoPDFobject=\count332
+\everyMPtoPDFconversion=\toks34
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 
-(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 
-(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.st
+y
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
-(/usr/local/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 107.
-)
-\Gin@req@height=\dimen182
-\Gin@req@width=\dimen183
-)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -515,12 +563,12 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -529,14 +577,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 374
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 375
 .
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [5] [6]
 [7] [8]
-Overfull \hbox (42.15727pt too wide) in paragraph at lines 608--610
+Overfull \hbox (42.15727pt too wide) in paragraph at lines 609--611
 \OT1/cmr/m/n/10 says that there ex-ists a d-dimensional Brow-n-ian mo-tion $[]$
 , de-fined on an ex-ten-sion $([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ of
  $(\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ([0\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 1\O
@@ -546,26 +594,173 @@ T1/cmr/m/n/10 )[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 B\OT1/cmr/m/n/10 (\OML/cmm
  []
 
 [9] [10]
-Overfull \hbox (13.82503pt too wide) detected at line 782
+Overfull \hbox (13.82503pt too wide) detected at line 783
 [][]
  []
 
-[11] [12] [13] [14]
-Overfull \hbox (11.53589pt too wide) detected at line 1067
+[11]
+<Moran_prob.pdf, id=201, 614.295pt x 794.97pt>
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf>
+Package pdftex.def Info: Moran_prob.pdf  used on input line 842.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf>
+Package pdftex.def Info: Moran_prob.pdf  used on input line 842.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+<Moran_prob.pdf, id=204, page=1, 614.295pt x 794.97pt>
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [12]
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [13 <./Moran_prob.pdf>]
+<Moran_prob.pdf, id=311, page=2, 614.295pt x 794.97pt>
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [14 <./Moran_prob.pdf>]
+<Moran_sol.pdf, id=316, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf>
+Package pdftex.def Info: Moran_sol.pdf  used on input line 843.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf>
+Package pdftex.def Info: Moran_sol.pdf  used on input line 843.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+<Moran_sol.pdf, id=319, page=1, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 1>
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 1>
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 1>
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 1>
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 1>
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [15 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=390, page=2, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [16 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=398, page=3, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [17 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=411, page=4, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [18 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=416, page=5, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [19 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=422, page=6, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 6>
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 6>
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 6>
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [20 <./Moran_sol.pdf>] [21] [22] [23]
+Overfull \hbox (11.53589pt too wide) detected at line 1071
 [][]
  []
 
 
-Overfull \hbox (50.98035pt too wide) detected at line 1074
+Overfull \hbox (50.98035pt too wide) detected at line 1078
 [][]
  []
 
-[15] [16]
-Overfull \hbox (47.4749pt too wide) detected at line 1205
+[24] [25]
+Overfull \hbox (47.4749pt too wide) detected at line 1209
 \U/msb/m/n/10 E [] \OMS/cmsy/m/n/10 ^^T \U/msb/m/n/10 E [] \OML/cmm/m/it/10 :
  []
 
-[17] [18] [19] [20] 
+[26] [27] [28] [29] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
 
@@ -575,13 +770,13 @@ Package rerunfilecheck Info: File `Untitled.out' has not changed.
 (rerunfilecheck)             Checksum: E949112BC2D036B402CB4A4657D228A4;1735.
  ) 
 Here is how much of TeX's memory you used:
- 11850 strings out of 476025
- 185367 string characters out of 5790017
+ 12803 strings out of 476025
+ 203385 string characters out of 5790017
  1877388 words of memory out of 5000000
- 32038 multiletter control sequences out of 15000+600000
+ 32945 multiletter control sequences out of 15000+600000
  516943 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,76p,910b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,76p,910b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/bryant/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm
 10.600pk></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 x10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
@@ -597,12 +792,27 @@ r/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/l
 ocal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loc
 al/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
-l/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
-local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Untitled.pdf (20 pages, 303574 bytes).
+l/texlive/2023/texmf-dist/fonts/type1/public/bera/fveb8a.pfb></usr/local/texliv
+e/2023/texmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/bera/fver8a.pfb></usr/local/texlive/2023/texmf-dis
+t/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/
+type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/publ
+ic/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmex
+10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></u
+sr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/te
+xlive/2023/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/
+fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1
+/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/l
+mr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmri10.pfb></
+usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/202
+3/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive
+/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Untitled.pdf (29 pages, 575248 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 353 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
