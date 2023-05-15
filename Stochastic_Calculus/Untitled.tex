@@ -36,7 +36,126 @@
 
 \begin{document}
 
-    \section{Stochastic Differential Equation}
+\section{Stochastic Integration}
+
+\section{Ito's Formula and Applications}
+
+\subsection{Girsanov Teorem}
+
+\begin{theorem} \textcolor{red}{(Girsanov)} \label{thm:girsanov}
+
+Let $B:=(B^1,...,B^d)$ be a d-dimensional Brownian motion and $X:=(X^1,...,X^d)$ a d-dimensional vector of processes in $\mathcal{L}^*$. Consider the following process $Z$ defined by:
+
+\begin{equation}
+Z_t:=\exp\Bigg(\sum^d_{i=1}\int^t_0X^i_sdB^i_s-\frac{1}{2}\sum^d_{i=1}\int^t_0|X^i_s|^2ds\Bigg),
+\end{equation}
+for all $t\in[0,T]$, where $T>0$ is a finite time horizon. If $Z$ is a martingale, then the d-dimensional process $W:=(W^1,...,W^d)$ defined for all $t\in[0,T]$ by 
+
+\begin{equation} \label{girsanov:bm}
+W_t^i:=B_t^i-\int^t_0X_s^ids
+\end{equation}
+is a Brownian motion under the probability measure $\mathbb{Q}$ defined by:
+
+\begin{equation}
+\frac{d\mathbb{Q}}{d\mathbb{P}}:=Z_T. 
+\end{equation}
+\end{theorem}
+
+To prove the Girsanov theorem, we first introduce two propositions.
+
+\begin{prop} \label{prop:cond_exp}
+Let $T$ be a finite time horizon, and $t\in[0,T]$. For any $\mathcal{F}_t$-measurable random variable $Y$, integrable under $\mathbb{Q}$, we have
+
+\begin{equation}
+\mathbb{E}^\mathbb{Q}[Y|\mathcal{F}_s]=\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\times\frac{1}{Z_s}, \quad s\in[0,t],
+\end{equation}
+where the process $Z$ is defined in Theorem \ref{thm:girsanov}.
+\end{prop}
+
+\begin{proof}
+By definition of the conditional expectation, we need to show
+
+\begin{equation*}
+\mathbb{E}^\mathbb{Q}[Y\mathbbm{1}_A]=\mathbb{E}^\mathbb{Q}\left[\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\times\frac{1}{Z_s}\mathbbm{1}_A\right],
+\end{equation*}
+for all $A\in\mathcal{F}_s$. Using the fact that $Z$ is a martingale and the tower rule, we obtain the desired result following the procedures:
+
+\begin{equation*}
+\begin{aligned}
+\mathbb{E}^\mathbb{Q}\left[\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\times\frac{1}{Z_s}\mathbbm{1}_A\right]&=\mathbb{E}^\mathbb{P}\left[\frac{d\mathbb{Q}}{d\mathbb{P}}\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\times\frac{1}{Z_s}\mathbbm{1}_A\right]\\
+&=\mathbb{E}^\mathbb{P}\left[\frac{Z_T}{Z_s}\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\mathbbm{1}_A\right]\\
+&=\mathbb{E}^\mathbb{P}\left[\mathbb{E}^\mathbb{P}\left[\frac{Z_T}{Z_s}\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\mathbbm{1}_A|\mathcal{F}_s\right]\right]\\
+&=\mathbb{E}^\mathbb{P}\left[\mathbb{E}^\mathbb{P}\left[\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\mathbbm{1}_A|\mathcal{F}_s\right]\right]\\
+&=\mathbb{E}^\mathbb{P}\left[\mathbb{E}^\mathbb{P}[YZ_t|\mathcal{F}_s]\mathbbm{1}_A\right]\\
+&=\mathbb{E}^\mathbb{P}[YZ_t\mathbbm{1}_A]\\
+&=\mathbb{E}^\mathbb{P}[Y\mathbb{E}^\mathbb{P}[Z_T|\mathcal{F}_t]\mathbbm{1}_A]\\
+&=\mathbb{E}^\mathbb{P}[\mathbb{E}^\mathbb{P}[YZ_T\mathbbm{1}_A|\mathcal{F}_t]]\\
+&=\mathbb{E}^\mathbb{P}[YZ_T\mathbbm{1}_A]\\
+&=\mathbb{E}^\mathbb{P}[Y\frac{d\mathbb{Q}}{d\mathbb{P}}\mathbbm{1}_A]\\
+&=\mathbb{E}^\mathbb{Q}[Y\mathbbm{1}_A].\\
+\end{aligned}
+\end{equation*}
+\end{proof}
+
+\begin{prop} \label{prop:girsanov}
+Let $T>0$ be a finite time horizon, $B:=(B^1,...,B^d)$ a d-dimensional Brownian motion, and $X:=(X^1,...,X^d)$ a d-dimensional vector of processes in $\mathcal{L}^*$. For any $M\in\mathcal{M}^{loc}_c$, consider the process $\tilde{M}$ defined for all $t\in[0,T]$ by:
+
+\begin{equation}
+\tilde{M}_t:=M_t-\int^t_0\sum^d_{i=1}X_s^id\langle M,B^i\rangle_s.
+\end{equation}
+Then, $\tilde{M}$ is a local martingale under $\mathbb{Q}$. Moreover, if $M,N\in\mathcal{M}^{loc}_c$, then
+
+\begin{equation}
+\langle\tilde{M},\tilde{N}\rangle_t=\langle M,N\rangle_t, \quad t\in[0,T], \mathbb{Q}-a.s.
+\end{equation}
+\end{prop}
+
+\begin{proof}
+We define the process $Z$ as in Theorem \ref{thm:girsanov}. We will first show that $\tilde{M}_tZ_t$ is a $\mathbb{P}$-local martingale, and then show that $\tilde{M}_t$ is a $\mathbb{Q}$-local martingale using Proposition \ref{prop:cond_exp}. To simplify the proof, we assume that $M,N$ and their quadratic variations are bounded, and $X^i$ and $Z$ are also bounded. The general case can be reduced to the present case using the localization arguments. However, while in the bounded case we can prove that $\tilde{M}_t$ is a martingale, $\tilde{M}_t$ will only be a local martingale in the general case.
+
+Applying Ito's formula to $\tilde{M}_tZ_t$, we have
+
+\begin{equation}
+\begin{aligned}
+d(\tilde{M}_tZ_t)&=\tilde{M}_tdZ_t+Z_td(\tilde{M}_t)+d\langle \tilde{M},Z\rangle_t\\
+&=\tilde{M}_tZ_t\sum^d_{i=1}X^i_tdB_t^i+Z_t\Big(dM_t-\sum^d_{i=1}X_t^id\langle M,B^i\rangle_t\Big)+Z_t\sum^d_{i=1}X_t^id\langle M,B^i\rangle_t\\
+&=\tilde{M}_tZ_t\sum^d_{i=1}X^i_tdB_t^i+Z_tdM_t,
+\end{aligned}
+\end{equation}
+where we used the result from the \textcolor{red}{exponential martingale} and $d\langle \tilde{M},Z\rangle_t=\langle d\tilde{M},dZ\rangle_t$. Then, in the integral form, we have
+
+\begin{equation}
+\tilde{M}_tZ_t=\tilde{M}_0Z_0+\int^t_0\tilde{M}_sZ_s\sum^d_{i=1}X^i_sdB_s^i+\int^t_0Z_sdM_s,
+\end{equation}
+which is a sum of stochastic integrals with bounded integrand by assumptions. Thus, we found that $\tilde{M}_tZ_t$ is a $\mathbb{P}$-martingale. 
+
+By Proposition \ref{prop:cond_exp}, we have 
+
+\begin{equation}
+\mathbb{E}^\mathbb{Q}[\tilde{M}_t|\mathcal{F}_s]=\mathbb{E}^\mathbb{P}[\tilde{M}_tZ_t|\mathcal{F}_s]\times\frac{1}{Z_s}=\tilde{M}_s, \quad s\in[0,t],
+\end{equation}
+which implies that $\tilde{M}_t$ is a $\mathbb{Q}$-martingale.
+
+Finally, for $\langle\tilde{M},\tilde{N}\rangle_t=\langle M,N\rangle_t$, we need to show $\tilde{M}_t\tilde{N}_t-\langle M,N\rangle_t$ is a $\mathbb{Q}$-martingale. The idea is the same here: we need to first show that $Z_t(\tilde{M}_t\tilde{N}_t-\langle M,N\rangle_t)$ is a $\mathbb{P}$-martingale, and then use Proposition \ref{prop:cond_exp} to conclude. The detail is omitted here.
+\end{proof}
+
+Now, we are ready to give the proof for the Girsanov Theorem \ref{thm:girsanov}.
+
+\begin{proof}
+Note that the newly defined $\mathbb{Q}$-Brownian motion defined in \eqref{girsanov:bm} can be written as
+
+\begin{equation*} 
+W_t^i:=B_t^i-\int^t_0X_s^ids=B_t^i-\int^t_0X_s^id\langle B^i,B^i\rangle_s.
+\end{equation*}
+From Proposition \ref{prop:girsanov}, we know that $W_t^i$ is a $\mathbb{Q}$-local martingale. Additionally, we have
+
+\begin{equation*}
+\langle W^i,W^i\rangle_t=\langle B^i,B^i\rangle_t=t.
+\end{equation*}
+Then, from Levy's characterization, we can conclude that $W^i_t$ is a $\mathbb{Q}$-Brownian motion.
+\end{proof}
+
+\section{Stochastic Differential Equation}
 
 Consider the following stochastic differential equation (SDE)
 

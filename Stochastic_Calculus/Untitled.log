@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  13 MAY 2023 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.12)  15 MAY 2023 00:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -563,28 +563,28 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+bbm on input line 79.
+
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 ) [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4]
-LaTeX Font Info:    Trying to load font information for U+bbm on input line 375
-.
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [5] [6]
-[7] [8]
-Overfull \hbox (42.15727pt too wide) in paragraph at lines 609--611
+[5] [6] [7] [8] [9] [10]
+Overfull \hbox (42.15727pt too wide) in paragraph at lines 728--730
 \OT1/cmr/m/n/10 says that there ex-ists a d-dimensional Brow-n-ian mo-tion $[]$
 , de-fined on an ex-ten-sion $([]\OML/cmm/m/it/10 ; []; []\OT1/cmr/m/n/10 )$ of
  $(\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ([0\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 1\O
@@ -593,174 +593,174 @@ T1/cmr/m/n/10 )[]\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 B\OT1/cmr/m/n/10 (\OML/cmm
 0 )[])\OML/cmm/m/it/10 ; \U/msb/m/n/10 P\OT1/cmr/m/n/10 )$
  []
 
-[9] [10]
-Overfull \hbox (13.82503pt too wide) detected at line 783
+[11]
+Overfull \hbox (13.82503pt too wide) detected at line 902
 [][]
  []
 
-[11]
-<Moran_prob.pdf, id=201, 614.295pt x 794.97pt>
+[12]
+<Moran_prob.pdf, id=236, 614.295pt x 794.97pt>
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf>
-Package pdftex.def Info: Moran_prob.pdf  used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf  used on input line 961.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf>
-Package pdftex.def Info: Moran_prob.pdf  used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf  used on input line 961.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<Moran_prob.pdf, id=204, page=1, 614.295pt x 794.97pt>
+<Moran_prob.pdf, id=239, page=1, 614.295pt x 794.97pt>
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf, page 1>
-Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 961.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf, page 1>
-Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 961.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [12]
+ [13]
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf, page 1>
-Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Moran_prob.pdf Graphic file (type pdf)
-<use Moran_prob.pdf, page 1>
-Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 961.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Moran_prob.pdf Graphic file (type pdf)
 <use Moran_prob.pdf, page 1>
-Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 842.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [13 <./Moran_prob.pdf>]
-<Moran_prob.pdf, id=311, page=2, 614.295pt x 794.97pt>
-File: Moran_prob.pdf Graphic file (type pdf)
-<use Moran_prob.pdf, page 2>
-Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 961.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: Moran_prob.pdf Graphic file (type pdf)
-<use Moran_prob.pdf, page 2>
-Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Moran_prob.pdf Graphic file (type pdf)
-<use Moran_prob.pdf, page 2>
-Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 842.
+<use Moran_prob.pdf, page 1>
+Package pdftex.def Info: Moran_prob.pdf , page1 used on input line 961.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [14 <./Moran_prob.pdf>]
-<Moran_sol.pdf, id=316, 597.50829pt x 845.0471pt>
+<Moran_prob.pdf, id=347, page=2, 614.295pt x 794.97pt>
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 961.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 961.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: Moran_prob.pdf Graphic file (type pdf)
+<use Moran_prob.pdf, page 2>
+Package pdftex.def Info: Moran_prob.pdf , page2 used on input line 961.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [15 <./Moran_prob.pdf>]
+<Moran_sol.pdf, id=352, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf>
-Package pdftex.def Info: Moran_sol.pdf  used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf  used on input line 962.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf>
-Package pdftex.def Info: Moran_sol.pdf  used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf  used on input line 962.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<Moran_sol.pdf, id=319, page=1, 597.50829pt x 845.0471pt>
+<Moran_sol.pdf, id=355, page=1, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 1>
-Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 962.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 1>
-Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 1>
-Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 1>
-Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 1>
-Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 843.
-(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [15 <./Moran_sol.pdf>]
-<Moran_sol.pdf, id=390, page=2, 597.50829pt x 845.0471pt>
-File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 2>
-Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
-(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
-File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 2>
-Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
-(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
-File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 2>
-Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page1 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [16 <./Moran_sol.pdf>]
-<Moran_sol.pdf, id=398, page=3, 597.50829pt x 845.0471pt>
+<Moran_sol.pdf, id=426, page=2, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 3>
-Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 3>
-Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 3>
-Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 843.
+<use Moran_sol.pdf, page 2>
+Package pdftex.def Info: Moran_sol.pdf , page2 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [17 <./Moran_sol.pdf>]
-<Moran_sol.pdf, id=411, page=4, 597.50829pt x 845.0471pt>
+<Moran_sol.pdf, id=434, page=3, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 4>
-Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 4>
-Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 4>
-Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 843.
+<use Moran_sol.pdf, page 3>
+Package pdftex.def Info: Moran_sol.pdf , page3 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [18 <./Moran_sol.pdf>]
-<Moran_sol.pdf, id=416, page=5, 597.50829pt x 845.0471pt>
+<Moran_sol.pdf, id=448, page=4, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 5>
-Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 5>
-Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
-<use Moran_sol.pdf, page 5>
-Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 843.
+<use Moran_sol.pdf, page 4>
+Package pdftex.def Info: Moran_sol.pdf , page4 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [19 <./Moran_sol.pdf>]
-<Moran_sol.pdf, id=422, page=6, 597.50829pt x 845.0471pt>
+<Moran_sol.pdf, id=454, page=5, 597.50829pt x 845.0471pt>
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 962.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 962.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+File: Moran_sol.pdf Graphic file (type pdf)
+<use Moran_sol.pdf, page 5>
+Package pdftex.def Info: Moran_sol.pdf , page5 used on input line 962.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
+ [20 <./Moran_sol.pdf>]
+<Moran_sol.pdf, id=459, page=6, 597.50829pt x 845.0471pt>
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 6>
-Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 6>
-Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: Moran_sol.pdf Graphic file (type pdf)
 <use Moran_sol.pdf, page 6>
-Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 843.
+Package pdftex.def Info: Moran_sol.pdf , page6 used on input line 962.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
- [20 <./Moran_sol.pdf>] [21] [22] [23]
-Overfull \hbox (11.53589pt too wide) detected at line 1071
+ [21 <./Moran_sol.pdf>] [22] [23] [24]
+Overfull \hbox (11.53589pt too wide) detected at line 1190
 [][]
  []
 
 
-Overfull \hbox (50.98035pt too wide) detected at line 1078
+Overfull \hbox (50.98035pt too wide) detected at line 1197
 [][]
  []
 
-[24] [25]
-Overfull \hbox (47.4749pt too wide) detected at line 1209
+[25] [26]
+Overfull \hbox (47.4749pt too wide) detected at line 1328
 \U/msb/m/n/10 E [] \OMS/cmsy/m/n/10 ^^T \U/msb/m/n/10 E [] \OML/cmm/m/it/10 :
  []
 
-[26] [27] [28] [29] [30]
+[27] [28] [29] [30] [31]
 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Untitled.aux)
@@ -768,13 +768,13 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Untitled.out' has not changed.
-(rerunfilecheck)             Checksum: E949112BC2D036B402CB4A4657D228A4;1735.
+(rerunfilecheck)             Checksum: 8C83EE6BDA43A3EF4155FC2224021038;2231.
  ) 
 Here is how much of TeX's memory you used:
- 12815 strings out of 476025
- 203520 string characters out of 5790017
- 1877388 words of memory out of 5000000
- 32948 multiletter control sequences out of 15000+600000
+ 12838 strings out of 476025
+ 203793 string characters out of 5790017
+ 1880388 words of memory out of 5000000
+ 32955 multiletter control sequences out of 15000+600000
  516943 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,17n,76p,910b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -810,10 +810,10 @@ usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/
 texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/202
 3/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Untitled.pdf (30 pages, 580047 bytes).
+Output written on Untitled.pdf (31 pages, 587962 bytes).
 PDF statistics:
- 662 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
- 128 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 701 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
